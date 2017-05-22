@@ -13,7 +13,7 @@ public class Date
 	public void setYear(int year) {
 		this.year = year;
 	}
-//	public int getMonth() {
+	public int getMonth() {
 		return month;
 	}
 	public void setMonth(int month) {
