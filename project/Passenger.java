@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Passenger 
 {
-	private int passengerID;
+//	private int passengerID;
 	private String realName;
 	private String identityID;
 	private String password;
