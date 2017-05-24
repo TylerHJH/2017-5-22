@@ -73,7 +73,7 @@ public class Login {
 				if( passenger.getPassengerID() == temp1 & passenger.getPassword().equals(temp2) )
 				{
 					System.out.println("Login Successes");
-					System.out.printf("1.queryFlight\n2.reserveFlight\n3.unsubscribeFlight\n");
+					System.out.printf("1.queryFlight\n2.reserveFlight\n3.unsubscribeFlight\n4.querymyOrder");
 					boolean isFalse = false;
 					do
 					{	
@@ -83,16 +83,19 @@ public class Login {
 						switch ( temp )
 						{
 							case '1':
-								//queryFlight
+								Methods.queryFlight();
 								break;
 							case '2':
-								//reserveFlight
+								Methods.reserveFlight();
 								break;
 							case '3':
-								//unsubscribeFlight
+								Methods.unsubscribeFlight();
+								break;
+							case '4':
+								Methods.querymyOrder();
 								break;
 							default:
-								System.out.println("Your input is wrong" + "\nError, please enter 1, 2 or 3."
+								System.out.println("Your input is wrong" + "\nError, please enter 1, 2 , 3 or 4."
 									+ "\n-----------------------------------------------------------------------");
 							isFalse = true;//输入有误，重新输入
 						} 
@@ -179,7 +182,40 @@ public class Login {
 					if( administrator.getAdminName().equals(temp1) && administrator.getPassword().equals(temp2) )
 					{
 						System.out.println("Login Successes");
-						//.......
+						System.out.print("\n1.createFlight\n2.updateFlight\n3.deleteFlight\n4.superQuery\n5.userManagement\n6.Quit");
+						do
+						{	
+							System.out.print("\nEnter your choice:");
+							char temp = input.next().charAt(0);
+							
+							switch ( temp )
+							{
+								case '1':
+									Methods.createFlight();
+									break;
+								case '2':
+									Methods.updateFlight();
+									break;
+								case '3':
+									Methods.deleteFlight();
+									break;
+								case '4':
+									Methods.superQuery();
+									break;
+								case '5':
+									Methods.userManagement();
+									break;
+								case '6':
+									login();
+									break;
+								default:
+									System.out.println("\nYour input is wrong" + "\nError, please enter 1, 2, 3, 4, 5 or 6:"
+										+ "\n-----------------------------------------------------------------------");
+								//输入有误，重新输入
+								break;
+							} 
+					
+						}while( true );
 					}
 				}
 			}
