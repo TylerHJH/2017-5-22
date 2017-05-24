@@ -310,7 +310,4 @@ public class Methods {
 		}
 	}
 	
-	public String toString(ArrayList order){
-		
-	}
 }
