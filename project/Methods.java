@@ -266,6 +266,9 @@ public class Methods {
 								if (pay.equals("Y")){
 									System.out.println("Reserve success.");
 									flight.setCurrentPassengers(flight.getCurrentPassengers() + 1);
+									if (flight.getCurrentPassengers() == flight.getSeatCapacity()){
+										flight.setFlightStatus("Full");
+									}
 									Date date = new Date();
 									Order order = new Order(passengerID, order.getSeat() + 1, flight.getFlightID(), , "Paid");
 									//(³Ë¿ÍID£¬×ùÎ»ºÅ£¬º½°àºÅ£¬ Ê±¼ä£¬×´Ì¬)
