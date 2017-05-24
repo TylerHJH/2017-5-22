@@ -8,7 +8,7 @@ public class Administrator
 	private String adminName;
 	private String password;
 	private  static String superAdminName = "Tyler";
-	private static String superAdminPassword = "Tyler";
+	//private static String superAdminPassword = "Tyler";
 	//管理员属性以及超级管理员属性
 	Scanner input = new Scanner( System.in );
 	
