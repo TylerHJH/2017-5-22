@@ -305,7 +305,13 @@ public class Methods {
 			case 2:
 				System.out.print("Please enter the flightID");
 				String flightID = input.next();
-				for 
+				for (Flight flight : Data.ListOfFlight){
+					if (flight.getFlightID().equals(flightID)){
+						for (FlightOrder flightorder : flight.orderOfFlight){
+							System.out.print(flightorder.toString());
+						}
+					}
+				}
 				break;
 			case 3:
 				queryFlight();
