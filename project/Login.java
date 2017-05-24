@@ -29,7 +29,21 @@ public class Login {
 					AdministratorLogin();//π‹¿Ì‘±µ«¬º
 					break;
 				case '4':
-					//Directly Query Flight
+					Methods.queryFlight();
+					System.out.print("\nIf you want to reserve flight, enter 1; If you wang to query your order, enter 2; Enter 0 to quit");
+					int choose = input.nextInt();
+					switch(choose){
+						case 0:
+							break;
+						case 1:
+							Methods.queryFlight();
+							break;
+						case 2:
+							Methods.querymyOrder();
+							break;
+						default:
+							break;
+					}
 					break;
 				default:
 					System.out.println("Your input is wrong" + "\nError, please enter 1, 2, 3 or 4.");

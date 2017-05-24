@@ -234,7 +234,7 @@ public class Methods {
 		}
 	}
 	//≤È—Ø∫Ω∞‡
-	public static void reserveFlight(){         Login login = new Login();
+	public static void reserveFlight(){       
 		Scanner input = new Scanner(System.in);
 		System.out.println("Reserving flight.");
 		System.out.print("Please enter your passengerID:");
@@ -288,7 +288,30 @@ public class Methods {
 	}
 	
 	public static void querymyOrder(){
-		
+		Scanner input = new Scanner(System.in);
+		System.out.print("Please enter your passengerID:");
+		int passengerID = input.nextInt();
+		System.out.print("Please enter your password:");
+		String password = input.next();
+		System.out.print("Please enter your realname:");
+		String passengerName = input.next();
+		for( Passenger passenger:Data.ListOfPassenger)
+		{
+			if( passenger.getPassengerID() == passengerID & passenger.getPassword().equals(password) )
+			{
+				System.out.println("List your orders:");
+				for (Flight flight : Data.ListOfFlight){
+					for (FlightOrder flightorder : flight.orderOfFlight){
+						if (flightorder.getpassengerName().equals(passengerName)){
+							System.out.println(flightorder.toString());
+						}
+					}
+				}
+			}
+			System.out.print("You hava entered your name wrong");
+			break;
+		}
+		System.out.print("Your password wrong");
 	}
 	public static void unsubscribeFlight(){
 		
