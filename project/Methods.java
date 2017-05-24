@@ -243,6 +243,8 @@ public class Methods {
 		String password = input.next();
 		System.out.print("Please enter your realname:");
 		String passengerName = input.next();
+		System.out.print("Please enter your identityID:");
+		String identityID = input.next();
 		for( Passenger passenger:Data.ListOfPassenger)
 		{
 			if( passenger.getPassengerID() == passengerID & passenger.getPassword().equals(password) )
@@ -265,12 +267,14 @@ public class Methods {
 									System.out.println("Reserve success.");
 									flight.setCurrentPassengers(flight.getCurrentPassengers() + 1);
 									Date date = new Date();
-									Order order = new Order(passengerID, passengerName, order.getSeat() + 1, flight.getFlightID(), , "Paid");
-									(乘客姓名，身份证，座位号，时间，状态)
+									Order order = new Order(passengerID, order.getSeat() + 1, flight.getFlightID(), , "Paid");
+									//(乘客ID，座位号，航班号， 时间，状态)
+									FlightOrder flightorder = new FlightOrder(passengerName, identityID, order.getSeat() + 1, , pay);
+									//（乘客名称，身份证号，座位号，预定时间，订单状态）
 									order.setSeat(order.getSeat() + 1);
 									Data.ListOfOrder.add(order);
 									passenger.orderList.add(order);
-									flight.passengerOfFlight.add(order);
+									flight.orderOfFlight.add(flightorder);
 								}	
 								else{
 									break;
@@ -299,7 +303,9 @@ public class Methods {
 				}
 				break;
 			case 2:
-				
+				System.out.print("Please enter the flightID");
+				String flightID = input.next();
+				for 
 				break;
 			case 3:
 				queryFlight();

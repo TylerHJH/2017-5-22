@@ -15,8 +15,7 @@ public class Flight {
 	private int currentPassengers;
 	private int seatCapacity;
 	private String flightStatus;
-	
-	ArrayList<Passenger> passengerOfFlight = new ArrayList<Passenger>();
+	ArrayList<FlightOrder> orderOfFlight = new ArrayList<FlightOrder>();
 	public String getFlightID() {
 		return FlightID;
 	}
