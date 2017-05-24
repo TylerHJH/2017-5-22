@@ -1,12 +1,10 @@
 package project;
 
-import java.util.ArrayList;
 public class Passenger {
 	private int passengerID;
 	private String realName;
 	private String identityID;
 	private String password;
-	ArrayList<Order> orderList;
 	//³Ë¿ÍÊôĞÔ
 	public int getPassengerID() 
 	{

@@ -261,9 +261,6 @@ public class Methods {
 					if (flight.getDepartureYear() == temp1 & flight.getFlightID().equals(flightID) & 
 						flight.getDepartureMonth() == temp2 &flight.getDepartureDate() == temp3){
 							if (flight.getFlightStatus().equals("Avaliable")){
-								System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
-								String pay = input.next();
-								if (pay.equals("Y")){
 									System.out.println("Reserve success.");
 									flight.setCurrentPassengers(flight.getCurrentPassengers() + 1);
 									if (flight.getCurrentPassengers() == flight.getSeatCapacity()){
@@ -271,17 +268,12 @@ public class Methods {
 									}
 									Date date = new Date();
 									Order order = new Order(passengerID, order.getSeat() + 1, flight.getFlightID(), , "Paid");
-									//(乘客ID，座位号，航班号， 时间，状态)
-									FlightOrder flightorder = new FlightOrder(passengerName, identityID, order.getSeat() + 1, , pay);
+									//(乘客ID，座位号，航班号， 预定时间，状态)
+									FlightOrder flightorder = new FlightOrder(passengerName, identityID, order.getSeat() + 1, , "Unpaid");
 									//（乘客名称，身份证号，座位号，预定时间，订单状态）
 									order.setSeat(order.getSeat() + 1);
 									Data.ListOfOrder.add(order);
-									passenger.orderList.add(order);
 									flight.orderOfFlight.add(flightorder);
-								}	
-								else{
-									break;
-								}
 							}
 							break;
 					}
@@ -317,7 +309,31 @@ public class Methods {
 		System.out.print("Your password wrong");
 	}
 	public static void unsubscribeFlight(){
-		
+		Scanner input = new Scanner(System.in);
+		System.out.println("Please enter your name: ");
+		String passengerName = input.next();
+		System.out.println("Please enter the flightID: ");
+		String flightID = input.next();
+		System.out.print("\nPlease enter the departmentYear");
+		int departmentYear = input.nextInt();
+		System.out.print("\nPlease enter the departmentMonth");
+		int departmentMonth = input.nextInt();
+		System.out.print("\nPlease enter the departmentDate");
+		int departmentDate = input.nextInt();
+		for (Flight flight : Data.ListOfFlight){
+			if (flight.getFlightID().equals(flightID) & flight.getDepartureYear() == departmentYear &
+				flight.getDepartureMonth() == departmentMonth & flight.getDepartureDate() == departmentDate){
+				for (FlightOrder flightorder : flight.orderOfFlight){
+					if (flightorder.getpassengerName().equals(passengerName)){
+						flight.orderOfFlight.remove(flightorder);
+						break;
+					}
+				}
+				Data.ListOfOrder.remove(o)
+				
+				break;
+			}
+		}
 	}
 	
 	public static void superQuery(){
@@ -334,8 +350,15 @@ public class Methods {
 			case 2:
 				System.out.print("Please enter the flightID");
 				String flightID = input.next();
+				System.out.print("\nPlease enter the departmentYear");
+				int departmentYear = input.nextInt();
+				System.out.print("\nPlease enter the departmentMonth");
+				int departmentMonth = input.nextInt();
+				System.out.print("\nPlease enter the departmentDate");
+				int departmentDate = input.nextInt();
 				for (Flight flight : Data.ListOfFlight){
-					if (flight.getFlightID().equals(flightID)){
+					if (flight.getFlightID().equals(flightID) & flight.getDepartureYear() == departmentYear &
+							flight.getDepartureMonth() == departmentMonth & flight.getDepartureDate() == departmentDate){
 						for (FlightOrder flightorder : flight.orderOfFlight){
 							System.out.print(flightorder.toString());
 						}
