@@ -1,11 +1,8 @@
 package project;
 
-import java.util.Scanner;
 import java.util.ArrayList;
-
-public class Passenger 
-{
-    private int passengerID;
+public class Passenger {
+	private int passengerID;
 	private String realName;
 	private String identityID;
 	private String password;

@@ -1,21 +1,21 @@
 package project;
+
 import java.util.ArrayList;
-public class Flight 
-{
+
+public class Flight {
 	private String FlightID;
 	private String startTime;
 	private String arrivalTime;
 	private String startCity;
 	private String arrivalCity;
-	private String departureDate;
+	private int departureYear;
+	private int departureMonth;
+	private int departureDate;
 	private int price;
 	private int currentPassengers;
 	private int seatCapacity;
-	private String flightstatus;
-	
-	ArrayList<Passenger> passengerOfFlight = new ArrayList<Passenger>();
-	private ArrayList<Passenger> passengers;
-	
+	private String flightStatus;
+	ArrayList<FlightOrder> orderOfFlight = new ArrayList<FlightOrder>();
 	public String getFlightID() {
 		return FlightID;
 	}
@@ -46,10 +46,22 @@ public class Flight
 	public void setArrivalCity(String arrivalCity) {
 		this.arrivalCity = arrivalCity;
 	}
-	public String getDepartureDate() {
+	public int getDepartureYear() {
+		return departureYear;
+	}
+	public void setDepartureYear(int departureYear) {
+		this.departureYear = departureYear;
+	}
+	public int getDepartureMonth() {
+		return departureMonth;
+	}
+	public void setDepartureMonth(int departureMonth) {
+		this.departureMonth = departureMonth;
+	}
+	public int getDepartureDate() {
 		return departureDate;
 	}
-	public void setDepartureDate(String departureDate) {
+	public void setDepartureDate(int departureDate) {
 		this.departureDate = departureDate;
 	}
 	public int getPrice() {
@@ -70,19 +82,27 @@ public class Flight
 	public void setSeatCapacity(int seatCapacity) {
 		this.seatCapacity = seatCapacity;
 	}
+	public String getFlightStatus() {
+		return flightStatus;
+	}
+	public void setFlightStatus(String flightStatus) {
+		this.flightStatus = flightStatus;
+	}
 	public Flight(String flightID, String startTime, String arrivalTime, String startCity, String arrivalCity,
-			String departureDate, int price, int currentPassengers, int seatCapacity) {
+			int departureYear, int departureMonth, int departureDate, int price, int currentPassengers, int seatCapacity, String flightStatus) {
 		super();
 		FlightID = flightID;
 		this.startTime = startTime;
 		this.arrivalTime = arrivalTime;
 		this.startCity = startCity;
 		this.arrivalCity = arrivalCity;
+		this.departureYear = departureYear;
+		this.departureMonth = departureMonth;
 		this.departureDate = departureDate;
 		this.price = price;
 		this.currentPassengers = currentPassengers;
 		this.seatCapacity = seatCapacity;
+		this.flightStatus = flightStatus;
 	}
-	
 	
 }

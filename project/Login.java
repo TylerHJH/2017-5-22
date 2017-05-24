@@ -1,13 +1,11 @@
 package project;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Login
-{
-	Scanner input = new Scanner( System.in );
+public class Login {
+	static Scanner  input = new Scanner( System.in );
 	
-	public void login()
+	public static void login()
 	{
 		System.out.println("-------------------------------------------------");
 		System.out.println("Welcome to the service platform.");
@@ -31,7 +29,21 @@ public class Login
 					AdministratorLogin();//管理员登录
 					break;
 				case '4':
-					//Directly Query Flight
+					Methods.queryFlight();
+					System.out.print("\nIf you want to reserve flight, enter 1; If you wang to query your order, enter 2; Enter 0 to quit");
+					int choose = input.nextInt();
+					switch(choose){
+						case 0:
+							break;
+						case 1:
+							Methods.queryFlight();
+							break;
+						case 2:
+							Methods.querymyOrder();
+							break;
+						default:
+							break;
+					}
 					break;
 				default:
 					System.out.println("Your input is wrong" + "\nError, please enter 1, 2, 3 or 4.");
@@ -41,7 +53,7 @@ public class Login
 		}while( isFalse );
 	}
 	//登录方法
-	public void usersRegistration()
+	public static void usersRegistration()
 	{
 		System.out.print("Please enter your passengerID numbers:");
 		int passenger_id = input.nextInt();
@@ -61,7 +73,7 @@ public class Login
 		login();
 	}
 	//乘客注册
-	public void UsersLogin()
+	public static void UsersLogin()
 	{
 		while( true )
 		{
@@ -72,10 +84,10 @@ public class Login
 			
 			for( Passenger passenger:Data.ListOfPassenger)
 			{
-				if( passenger.getPassengerID() == temp1 && passenger.getPassword().equals(temp2) )
+				if( passenger.getPassengerID() == temp1 & passenger.getPassword().equals(temp2) )
 				{
 					System.out.println("Login Successes");
-					System.out.printf("1.queryFlight\n2.reserveFlight\n3.unsubscribeFlight\n");
+					System.out.printf("1.queryFlight\n2.reserveFlight\n3.unsubscribeFlight\n4.querymyOrder");
 					boolean isFalse = false;
 					do
 					{	
@@ -85,16 +97,19 @@ public class Login
 						switch ( temp )
 						{
 							case '1':
-								//queryFlight
+								Methods.queryFlight();
 								break;
 							case '2':
-								//reserveFlight
+								Methods.reserveFlight();
 								break;
 							case '3':
-								//unsubscribeFlight
+								Methods.unsubscribeFlight();
+								break;
+							case '4':
+								Methods.querymyOrder();
 								break;
 							default:
-								System.out.println("Your input is wrong" + "\nError, please enter 1, 2 or 3."
+								System.out.println("Your input is wrong" + "\nError, please enter 1, 2 , 3 or 4."
 									+ "\n-----------------------------------------------------------------------");
 							isFalse = true;//输入有误，重新输入
 						} 
@@ -115,19 +130,19 @@ public class Login
 		}
 	}
 	//乘客登录
-	public void AdministratorRegistration()
+	public static void AdministratorRegistration()
 	{
 		System.out.println("Newing a admin");
-		System.out.print("Set a name for this admin:");
+		System.out.print("\nSet a name for this admin:");
 		String admin_name = input.next();
-		System.out.print("Set a password for this admin:");
+		System.out.print("\nSet a password for this admin:");
 		String admin_password = input.next();
 		
 		Administrator administrator = new Administrator( admin_name, admin_password);
 		Data.ListOfAdminstrator.add( administrator );
 	}
 	//管理员注册（管理员方法之一）
-	public void AdministratorLogin()
+	public static void AdministratorLogin()
 	{
 		while(true)
 		{
@@ -136,10 +151,43 @@ public class Login
 			System.out.print("Please enter your admin password:");
 			String temp2 = input.next();
 		
-			if( temp1.equals(Administrator.getSuperAdminName()) && temp2.equals(Administrator.getSuperAdminPassword()) )
+			if( temp1.equals(Administrator.getSuperAdminName()) & temp2.equals(Administrator.getSuperAdminPassword()) )
 			{
 				System.out.println("Login Successes");
-				//......
+				System.out.print("\n1.createFlight\n2.updateFlight\n3.deleteFlight\n4.superQuery\n5.userManagement\n6.Quit");
+				do
+				{	
+					System.out.print("\nEnter your choice:");
+					char temp = input.next().charAt(0);
+					
+					switch ( temp )
+					{
+						case '1':
+							Methods.createFlight();
+							break;
+						case '2':
+							Methods.updateFlight();
+							break;
+						case '3':
+							Methods.deleteFlight();
+							break;
+						case '4':
+							Methods.superQuery();
+							break;
+						case '5':
+							Methods.userManagement();
+							break;
+						case '6':
+							login();
+							break;
+						default:
+							System.out.println("\nYour input is wrong" + "\nError, please enter 1, 2, 3, 4, 5 or 6:"
+								+ "\n-----------------------------------------------------------------------");
+						//输入有误，重新输入
+						break;
+					} 
+			
+				}while( true );
 			}
 			else
 			{
@@ -148,7 +196,40 @@ public class Login
 					if( administrator.getAdminName().equals(temp1) && administrator.getPassword().equals(temp2) )
 					{
 						System.out.println("Login Successes");
-						//.......
+						System.out.print("\n1.createFlight\n2.updateFlight\n3.deleteFlight\n4.superQuery\n5.userManagement\n6.Quit");
+						do
+						{	
+							System.out.print("\nEnter your choice:");
+							char temp = input.next().charAt(0);
+							
+							switch ( temp )
+							{
+								case '1':
+									Methods.createFlight();
+									break;
+								case '2':
+									Methods.updateFlight();
+									break;
+								case '3':
+									Methods.deleteFlight();
+									break;
+								case '4':
+									Methods.superQuery();
+									break;
+								case '5':
+									Methods.userManagement();
+									break;
+								case '6':
+									login();
+									break;
+								default:
+									System.out.println("\nYour input is wrong" + "\nError, please enter 1, 2, 3, 4, 5 or 6:"
+										+ "\n-----------------------------------------------------------------------");
+								//输入有误，重新输入
+								break;
+							} 
+					
+						}while( true );
 					}
 				}
 			}
@@ -165,3 +246,4 @@ public class Login
 	}
 	//管理员登录
 }
+
