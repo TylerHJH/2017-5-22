@@ -3,8 +3,10 @@ package project;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Methods {
-	public static void createFlight(){
+public class Methods 
+{
+	public static void createFlight()
+	{
 		Scanner input = new Scanner(System.in);
 		System.out.println("Newing a flight");
 		System.out.print("\nSet the flightID:");
@@ -37,7 +39,8 @@ public class Methods {
 		
 	}
 	//创建航班，管理员功能
-	public static void updateFlight(){
+	public static void updateFlight()
+	{
 		Scanner input = new Scanner(System.in);
 		System.out.println("Updating a flight");
 		System.out.print("\nPlease enter the flightID");
@@ -48,21 +51,27 @@ public class Methods {
 		int temp5 = input.nextInt();
 		System.out.print("\nPlease enter the departmentDate");
 		int temp6 = input.nextInt();
-		for (Flight flight1 : Data.ListOfFlight){
+		for (Flight flight1 : Data.ListOfFlight)
+		{
 			if (flight1.getFlightID().equals(temp3) & flight1.getDepartureYear() == temp4 &
-					flight1.getDepartureMonth() == temp5 & flight1.getDepartureDate() == temp6){
-				if (flight1.getFlightStatus().equals("Unpublished")){
+					flight1.getDepartureMonth() == temp5 & flight1.getDepartureDate() == temp6)
+			{
+				if (flight1.getFlightStatus().equals("Unpublished"))
+				{
 					int choose;
-					do{
+					do
+					{
 						System.out.print("\nPlease choose the message you want to update or enter 0 to quit: ");
 					System.out.print("\n1.flightID  2.startTime  3.arrivalTime  4.startCity");
 					System.out.print("\n5.arrivalCity  6.departureYear  7.departureMonth  8.departureDate");
 					System.out.print("\n9.price  10.currentPassengers  11.seatCapacity  12.flightStatus");
 					choose = input.nextInt();
-					if(choose == 0){
+					if(choose == 0)
+					{
 						break;
 					}
-					switch(choose){
+					switch(choose)
+					{
 						case 1:
 							flight1.setFlightID(input.next());
 							break;
@@ -106,15 +115,19 @@ public class Methods {
 					System.out.print("If you don't want to update other message, enter 0.Or enter any other numbers:");
 					choose = input.nextInt();
 					}while(choose != 0);
-				}else{
+				}
+				else
+				{
 					System.out.print("\nYou can't upadte it because the flight is published.");
-					break;}
+					break;
+				}
 			}
 			
 		}
 	}
 	//修改航班，管理员功能
-	public static void deleteFlight(){
+	public static void deleteFlight()
+	{
 		Scanner input = new Scanner(System.in);
 		System.out.print("Deleting a Flight.");
 		System.out.print("\nPlease enter the flightID you want to delete:");
@@ -146,11 +159,13 @@ public class Methods {
 			}
 		}
 	//删除航班，管理员功能
-	public static void userManagement(){
+	public static void userManagement()
+	{
 		System.out.print("Please enter a number to choose method or enter 0 to quit: \n1.UpdateAdministrator\n2.CreateAdministrator");
 		Scanner input = new Scanner(System.in);
 		int choose1 = input.nextInt();
-		switch(choose1){
+		switch(choose1)
+		{
 			case 0:
 				break;
 			case 1:
@@ -158,11 +173,14 @@ public class Methods {
 				System.out.print("\nPlease enter the Administratorname and password you want to update:");
 				String adminName = input.next();
 				String password1 = input.next();
-				for (Administrator admin : Data.ListOfAdminstrator){
-					if (admin.getAdminName().equals(adminName)&admin.getPassword().equals(password1)){
+				for (Administrator admin : Data.ListOfAdminstrator)
+				{
+					if (admin.getAdminName().equals(adminName)&admin.getPassword().equals(password1))
+					{
 						System.out.print("\nPlease enter the number of you want to update:\n1.Administrator name\n2.Password");
 						int choose2 = input.nextInt();
-						switch(choose2){
+						switch(choose2)
+						{
 							case 1:
 								System.out.print("\nPlease enter the new name:");
 								admin.setAdminName(input.next());
@@ -194,13 +212,15 @@ public class Methods {
 		}
 	}
 	//管理员信息，管理员功能
-	public static void queryFlight(){
+	public static void queryFlight()
+	{
 		Scanner input = new Scanner(System.in);
 		System.out.print("Querying flights.");
 		System.out.print("\nPlease choose a way to query or enter 0 to quit:"
 				+ "\n1.Query with start city, arrival city and departmentdate\n2.Query with flightID");
 		int choose = input.nextInt();
-		switch(choose){
+		switch(choose)
+		{
 			case 0:
 				break;
 			case 1:
@@ -214,10 +234,12 @@ public class Methods {
 				int departmentMonth = input.nextInt();
 				System.out.print("\nPlease enter the departmentDate:");
 				int departmentDate = input.nextInt();
-				for (Flight flight : Data.ListOfFlight){
+				for (Flight flight : Data.ListOfFlight)
+				{
 					if(flight.getStartCity().equals(startCity)&flight.getArrivalCity().equals(arrivalCity)&
 							flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
-							flight.getDepartureDate() == departmentDate){
+							flight.getDepartureDate() == departmentDate)
+					{
 						System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
 					}
 				}
@@ -225,8 +247,10 @@ public class Methods {
 			case 2:
 				System.out.print("\nPlease enter the flightID:");
 				String flightID = input.next();
-				for (Flight flight : Data.ListOfFlight){
-					if (flight.getFlightID().equals(flightID)){
+				for (Flight flight : Data.ListOfFlight)
+				{
+					if (flight.getFlightID().equals(flightID))
+					{
 						System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
 					}
 				}
@@ -234,7 +258,8 @@ public class Methods {
 		}
 	}
 	//查询航班
-	public static void reserveFlight(){       
+	public static void reserveFlight()
+	{       
 		Scanner input = new Scanner(System.in);
 		System.out.println("Reserving flight.");
 		System.out.print("Please enter your passengerID:");
@@ -259,14 +284,16 @@ public class Methods {
 				int temp3 = input.nextInt();
 				for (Flight flight : Data.ListOfFlight){
 					if (flight.getDepartureYear() == temp1 & flight.getFlightID().equals(flightID) & 
-						flight.getDepartureMonth() == temp2 &flight.getDepartureDate() == temp3){
+						flight.getDepartureMonth() == temp2 &flight.getDepartureDate() == temp3)
+					{
 							if (flight.getFlightStatus().equals("Avaliable")){
 								System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
 								String pay = input.next();
 								if (pay.equals("Y")){
 									System.out.println("Reserve success.");
 									flight.setCurrentPassengers(flight.getCurrentPassengers() + 1);
-									if (flight.getCurrentPassengers() == flight.getSeatCapacity()){
+									if (flight.getCurrentPassengers() == flight.getSeatCapacity())
+									{
 										flight.setFlightStatus("Full");
 									}
 									Date date = new Date();
@@ -290,7 +317,8 @@ public class Methods {
 		}
 	}
 	
-	public static void querymyOrder(){
+	public static void querymyOrder()
+	{
 		Scanner input = new Scanner(System.in);
 		System.out.print("Please enter your passengerID:");
 		int passengerID = input.nextInt();
@@ -303,9 +331,12 @@ public class Methods {
 			if( passenger.getPassengerID() == passengerID & passenger.getPassword().equals(password) )
 			{
 				System.out.println("List your orders:");
-				for (Flight flight : Data.ListOfFlight){
-					for (FlightOrder flightorder : flight.orderOfFlight){
-						if (flightorder.getpassengerName().equals(passengerName)){
+				for (Flight flight : Data.ListOfFlight)
+				{
+					for (FlightOrder flightorder : flight.orderOfFlight)
+					{
+						if (flightorder.getpassengerName().equals(passengerName))
+						{
 							System.out.println(flightorder.toString());
 						}
 					}
@@ -316,18 +347,22 @@ public class Methods {
 		}
 		System.out.print("Your password wrong");
 	}
-	public static void unsubscribeFlight(){
+	public static void unsubscribeFlight()
+	{
 		
 	}
 	
-	public static void superQuery(){
+	public static void superQuery()
+	{
 		Scanner input = new Scanner(System.in);
 		System.out.println("Superquerying");
 		System.out.println("Please choose a method to query:\n1.Query orderlist\n2.Query order of a flight\n3.Query flight.");
 		int choose = input.nextInt();
-		switch(choose){
+		switch(choose)
+		{
 			case 1:
-				for(Order order : Data.ListOfOrder){
+				for(Order order : Data.ListOfOrder)
+				{
 					System.out.print(order.toString());
 				}
 				break;
@@ -336,7 +371,8 @@ public class Methods {
 				String flightID = input.next();
 				for (Flight flight : Data.ListOfFlight){
 					if (flight.getFlightID().equals(flightID)){
-						for (FlightOrder flightorder : flight.orderOfFlight){
+						for (FlightOrder flightorder : flight.orderOfFlight)
+						{
 							System.out.print(flightorder.toString());
 						}
 					}
