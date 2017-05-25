@@ -58,63 +58,81 @@ public class Methods
 			{
 				if (flight1.getFlightStatus().equals("Unpublished"))
 				{
-					int choose;
+					String choose1;
+					int choose4;
 					do
 					{
-						System.out.print("\nPlease choose the message you want to update or enter 0 to quit: ");
-					System.out.print("\n1.flightID  2.startTime  3.arrivalTime  4.startCity");
-					System.out.print("\n5.arrivalCity  6.departureYear  7.departureMonth  8.departureDate");
-					System.out.print("\n9.price  10.currentPassengers  11.seatCapacity  12.flightStatus");
-					choose = input.nextInt();
-					if(choose == 0)
-					{
-						break;
-					}
-					switch(choose)
-					{
-						case 1:
-							flight1.setFlightID(input.next());
-							break;
-						case 2:
-							flight1.setStartTime(input.next());
-							break;
-						case 3:
-							flight1.setArrivalTime(input.next());
-							break;
-						case 4:
-							flight1.setStartCity(input.next());
-							break;
-						case 5:
-							flight1.setArrivalCity(input.next());
-							break;
-						case 6:
-							flight1.setDepartureYear(input.nextInt());
-							break;
-						case 7:
-							flight1.setDepartureMonth(input.nextInt());
-							break;
-						case 8:
-							flight1.setDepartureDate(input.nextInt());
-							break;
-						case 9:
-							flight1.setPrice(input.nextInt());
-							break;
-						case 10:
-							flight1.setCurrentPassengers(input.nextInt());
-							break;
-						case 11:
-							flight1.setSeatCapacity(input.nextInt());
-							break;
-						case 12:
-							flight1.setFlightStatus(input.next());
-							break;
-						default:
-							System.out.print("\nPlease enter a correct number between 0 to 12: ");
-							break;
-					}
-					System.out.print("If you don't want to update other message, enter 0.Or enter any other numbers:");
-					choose = input.nextInt();
-					}while(choose != 0);
+							System.out.print("\nPlease choose the message you want to update or enter 0 to quit: ");
+						System.out.print("\n1.flightID  2.startTime  3.arrivalTime  4.startCity");
+						System.out.print("\n5.arrivalCity  6.departureYear  7.departureMonth  8.departureDate");
+						System.out.print("\n9.price  10.currentPassengers  11.seatCapacity  12.flightStatus");
+						choose1 = input.next();
+						
+							char choose2 = choose1.charAt(0);
+							char choose3 = choose1.charAt(1);
+							if(choose1.length() < 2)
+							{			
+								if(choose2 == '0')
+								{
+									break;
+								}
+							}
+							switch(choose2)
+							{
+								case '1':
+									if(choose2 == '0')
+									{
+										flight1.setCurrentPassengers(input.nextInt());
+										break;
+									}
+									if(choose2 == '1')
+									{
+										flight1.setSeatCapacity(input.nextInt());
+										break;
+									}
+									if(choose2 == '2')
+									{
+										flight1.setFlightStatus(input.next());
+										break;
+									}
+									if(choose2 == ' ')
+									{
+										flight1.setFlightID(input.next());
+									break;
+									}
+								case '2':
+									flight1.setStartTime(input.next());
+									break;
+								case '3':
+									flight1.setArrivalTime(input.next());
+									break;
+								case '4':
+									flight1.setStartCity(input.next());
+									break;
+								case '5':
+									flight1.setArrivalCity(input.next());
+									break;
+								case '6':
+									flight1.setDepartureYear(input.nextInt());
+									break;
+								case '7':
+									flight1.setDepartureMonth(input.nextInt());
+									break;
+								case '8':
+									flight1.setDepartureDate(input.nextInt());
+									break;
+								case '9':
+									flight1.setPrice(input.nextInt());
+									break;
+								default:
+									System.out.print("\nPlease enter a correct number between 0 to 12: ");
+									break;
+							}
+							System.out.println("If you don't want to update other message, enter 0 to go back. Or enter any other numbers to continue.");
+							System.out.print("Your choice is:");
+							  choose4 = input.nextInt();
+							 												
+					}while(choose4 != 0);
 				}
 				else
 				{
@@ -124,6 +142,8 @@ public class Methods
 			}
 			
 		}
+		Login.AdministratorChoose();
+		
 	}
 	//修改航班，管理员功能
 	public static void deleteFlight()
