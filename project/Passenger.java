@@ -1,7 +1,8 @@
 package project;
 
 import java.util.ArrayList;
-public class Passenger {
+public class Passenger 
+{
 	private int passengerID;
 	private String realName;
 	private String identityID;
