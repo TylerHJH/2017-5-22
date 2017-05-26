@@ -130,5 +130,43 @@ public class Flight
 		this.seatCapacity = seatCapacity;
 		this.flightStatus = flightStatus;
 	}
+	public static void initializeFlightData(){
+		Flight f1=new Flight("A1000","07:00:00","09:00:00","ShenZhen","ShangHai",2017,6,1,740,150,200,"AVAILABLE");
+		Flight f2=new Flight("A1001","19:00:00","21:00:00","ShangHai","ShenZhen",2017,6,1,650,100,200,"AVAILABLE");
+		Flight f3=new Flight("A1002","02:25:00","05:30:00","ShenZhen","BeiJing",2017,6,1,860,178,200,"TERMINATE");
+		Flight f4=new Flight("A1003","08:15:00","11;35:00","BeiJing","ShenZhen",2017,6,1,1400,200,200,"FULL");
+		Flight f5=new Flight("A1004","20:55:00","23:05:00","ShangHai","BeiJing",2017,6,1,480,50,200,"AVAILABLE");
+		Flight f6=new Flight("A1005","06:40:00","08:55:00","BeiJing","ShangHai",2017,6,1,510,100,200,"AVAILABLE");
+		Flight f7=new Flight("A1006","07:00:00","09:00:00","ShenZhen","ShangHai",2017,6,2,840,150,200,"AVAILABLE");
+		Flight f8=new Flight("A1007","19:00:00","21:00:00","ShangHai","ShenZhen",2017,6,2,650,100,200,"AVAILABLE");
+		Flight f9=new Flight("A1008","02:25:00","05:30:00","ShenZhen","BeiJing",2017,6,2,960,200,200,"FULL");
+		Flight f10=new Flight("A1009","08:15:00","11;35:00","BeiJing","ShenZhen",2017,6,2,1400,190,200,"AVAILABLE");
+		Flight f11=new Flight("A1010","20:55:00","23:05:00","ShangHai","BeiJing",2017,6,2,480,50,200,"AVAILABLE");
+		Flight f12=new Flight("A1011","06:40:00","08:55:00","BeiJing","ShangHai",2017,6,2,510,100,200,"AVAILABLE");
+		Flight f13=new Flight("A1012","07:00:00","09:00:00","ShenZhen","ShangHai",2017,6,3,840,150,200,"AVAILABLE");
+		Flight f14=new Flight("A1013","19:00:00","21:00:00","ShangHai","ShenZhen",2017,6,3,750,0,200,"UNPUBLISHED");
+		Flight f15=new Flight("A1014","02:25:00","05:30:00","ShenZhen","BeiJing",2017,6,3,860,140,200,"AVAILABLE");
+		Flight f16=new Flight("A1015","08:15:00","11;35:00","BeiJing","ShenZhen",2017,6,3,1400,200,200,"FULL");
+		Flight f17=new Flight("A1016","20:55:00","23:05:00","ShangHai","BeiJing",2017,6,3,480,50,200,"AVAILABLE");
+		Flight f18=new Flight("A1017","06:40:00","08:55:00","BeiJing","ShangHai",2017,6,3,510,100,200,"AVAILABLE");
+		Data.ListOfFlight.add(f1);
+		Data.ListOfFlight.add(f2);
+		Data.ListOfFlight.add(f3);
+		Data.ListOfFlight.add(f4);
+		Data.ListOfFlight.add(f5);
+		Data.ListOfFlight.add(f6);
+		Data.ListOfFlight.add(f7);
+		Data.ListOfFlight.add(f8);
+		Data.ListOfFlight.add(f9);
+		Data.ListOfFlight.add(f10);
+		Data.ListOfFlight.add(f11);
+		Data.ListOfFlight.add(f12);
+		Data.ListOfFlight.add(f13);
+		Data.ListOfFlight.add(f14);
+		Data.ListOfFlight.add(f15);
+		Data.ListOfFlight.add(f16);
+		Data.ListOfFlight.add(f17);
+		Data.ListOfFlight.add(f18);
+	}
 	
 }
