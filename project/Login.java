@@ -16,39 +16,54 @@ public class Login {
 		do
 		{	
 			System.out.print("Enter your choice:");
-			char temp = input.next().charAt(0);
-			switch ( temp )
+			String temp1 = input.next();
+			if( temp1.length() < 2 )
 			{
-				case '1':
-					UsersLogin();//用户登录
-					break;
-				case '2':
-					usersRegistration();//用户注册
-					break;
-				case '3':
-					AdministratorLogin();//管理员登录
-					break;
-				case '4':
-					Methods.queryFlight();
-					System.out.print("\nIf you want to reserve flight, enter 1; If you wang to query your order, enter 2; Enter 0 to quit");
-					int choose = input.nextInt();
-					switch(choose){
-						case 0:
-							break;
-						case 1:
-							Methods.queryFlight();
-							break;
-						case 2:
-							Methods.querymyOrder();
-							break;
-						default:
-							break;
-					}
-					break;
-				default:
+				char temp2 = temp1.charAt(0);
+				
+				switch ( temp2 )
+				{
+					case '1':
+						UsersLogin();//用户登录
+						break;
+					case '2':
+						usersRegistration();//用户注册
+						break;
+					case '3':
+						AdministratorLogin();//管理员登录
+						break;
+					case '4':
+						Methods.queryFlight();
+						System.out.print("\nIf you want to reserve flight, enter 1; If you wang to query your order, enter 2; Enter 0 to quit");
+						int choose = input.nextInt();
+						switch(choose)
+						{
+							case 0:
+								break;
+							case 1:
+								Methods.queryFlight();
+								break;
+							case 2:
+								Methods.querymyOrder();
+								break;
+							default:
+								break;
+						}
+						break;
+					default:
+						System.out.println("Your input is wrong" + "\nError, please enter 1, 2, 3 or 4.");
+						isFalse = true;//输入有误，重新输入
+				} 
+				
+					
+			}
+			
+			else
+				{
 					System.out.println("Your input is wrong" + "\nError, please enter 1, 2, 3 or 4.");
-					isFalse = true;//输入有误，重新输入
-			} 
+					isFalse = true;
+				}
+			
 		
 		}while( isFalse );
 	}
@@ -73,6 +88,49 @@ public class Login {
 		login();
 	}
 	//乘客注册
+	public static void UsersChoose()
+	{
+		System.out.printf("1.queryFlight\n2.reserveFlight\n3.unsubscribeFlight\n4.querymyOrder");
+		boolean isFalse = false;
+		do
+		{	
+			System.out.print("Enter your choice:");
+			
+			String temp3 = input.next();
+			if( temp3.length() < 2 )
+			{
+				char temp4 = temp3.charAt(0);
+				
+				switch ( temp4 )
+				{
+					case '1':
+						Methods.queryFlight();
+						break;
+					case '2':
+						Methods.reserveFlight();
+						break;
+					case '3':
+						Methods.unsubscribeFlight();
+						break;
+					case '4':
+						Methods.querymyOrder();
+						break;
+					default:
+						System.out.println("Your input is wrong" + "\nError, please enter 1, 2 , 3 or 4."
+							+ "\n-----------------------------------------------------------------------");
+					isFalse = true;//输入有误，重新输入
+				} 
+			}
+			else
+			{
+				System.out.println("Your input is wrong" + "\nError, please enter 1, 2 , 3 or 4."
+						+ "\n-----------------------------------------------------------------------");
+				isFalse = true;//输入有误，重新输入
+			}
+			
+	
+		}while( isFalse );
+	}
 	public static void UsersLogin()
 	{
 		while( true )
@@ -83,39 +141,11 @@ public class Login {
 			String temp2 = input.next();
 			
 			for( Passenger passenger:Data.ListOfPassenger)
-			{
-				if( passenger.getPassengerID() == temp1 & passenger.getPassword().equals(temp2) )
+			{	
+				if( passenger.getPassengerID() == temp1 & passenger.getPassword().equals(temp2) )//匹配用户账号和密码
 				{
 					System.out.println("Login Successes");
-					System.out.printf("1.queryFlight\n2.reserveFlight\n3.unsubscribeFlight\n4.querymyOrder");
-					boolean isFalse = false;
-					do
-					{	
-						System.out.print("Enter your choice:");
-						char temp = input.next().charAt(0);
-						
-						switch ( temp )
-						{
-							case '1':
-								Methods.queryFlight();
-								break;
-							case '2':
-								Methods.reserveFlight();
-								break;
-							case '3':
-								Methods.unsubscribeFlight();
-								break;
-							case '4':
-								Methods.querymyOrder();
-								break;
-							default:
-								System.out.println("Your input is wrong" + "\nError, please enter 1, 2 , 3 or 4."
-									+ "\n-----------------------------------------------------------------------");
-							isFalse = true;//输入有误，重新输入
-						} 
-				
-					}while( isFalse );
-				
+					 UsersChoose();				
 				}
 			
 			}
@@ -142,6 +172,51 @@ public class Login {
 		Data.ListOfAdminstrator.add( administrator );
 	}
 	//管理员注册（管理员方法之一）
+	public static void AdministratorChoose()
+	{
+		System.out.print("\n1.createFlight\n2.updateFlight\n3.deleteFlight\n4.superQuery\n5.userManagement\n6.Quit");
+		do
+		{	
+			System.out.print("\nEnter your choice:");
+			String temp3 = input.next();
+			
+			if( temp3.length() < 2 )
+			{
+				char temp4 = temp3.charAt(0);
+				switch ( temp4 )
+				{
+					case '1':
+						Methods.createFlight();
+						break;
+					case '2':
+						Methods.updateFlight();
+						break;
+					case '3':
+						Methods.deleteFlight();
+						break;
+					case '4':
+						Methods.superQuery();
+						break;
+					case '5':
+						Methods.userManagement();
+						break;
+					case '6':
+						login();
+						break;
+					default:
+						System.out.println("\nYour input is wrong" + "\nError, please enter 1, 2, 3, 4, 5 or 6:"
+							+ "\n-----------------------------------------------------------------------");
+					//输入有误，重新输入
+					break;
+				} 
+
+		
+			}
+		
+			
+			
+		}while( true );
+	}
 	public static void AdministratorLogin()
 	{
 		while(true)
@@ -154,92 +229,20 @@ public class Login {
 			if( temp1.equals(Administrator.getSuperAdminName()) & temp2.equals(Administrator.getSuperAdminPassword()) )
 			{
 				System.out.println("Login Successes");
-				System.out.print("\n1.createFlight\n2.updateFlight\n3.deleteFlight\n4.superQuery\n5.userManagement\n6.Quit");
-				do
-				{	
-					System.out.print("\nEnter your choice:");
-					char temp = input.next().charAt(0);
-					
-					switch ( temp )
-					{
-						case '1':
-							Methods.createFlight();
-							break;
-						case '2':
-							Methods.updateFlight();
-							break;
-						case '3':
-							Methods.deleteFlight();
-							break;
-						case '4':
-							Methods.superQuery();
-							break;
-						case '5':
-							Methods.userManagement();
-							break;
-						case '6':
-							login();
-							break;
-						default:
-							System.out.println("\nYour input is wrong" + "\nError, please enter 1, 2, 3, 4, 5 or 6:"
-								+ "\n-----------------------------------------------------------------------");
-						//输入有误，重新输入
-						break;
-					} 
+				 AdministratorChoose();
+			}	
 			
-				}while( true );
-			}
-			else
-			{
-				for( Administrator administrator:Data.ListOfAdminstrator )
-				{
-					if( administrator.getAdminName().equals(temp1) && administrator.getPassword().equals(temp2) )
-					{
-						System.out.println("Login Successes");
-						System.out.print("\n1.createFlight\n2.updateFlight\n3.deleteFlight\n4.superQuery\n5.userManagement\n6.Quit");
-						do
-						{	
-							System.out.print("\nEnter your choice:");
-							char temp = input.next().charAt(0);
-							
-							switch ( temp )
-							{
-								case '1':
-									Methods.createFlight();
-									break;
-								case '2':
-									Methods.updateFlight();
-									break;
-								case '3':
-									Methods.deleteFlight();
-									break;
-								case '4':
-									Methods.superQuery();
-									break;
-								case '5':
-									Methods.userManagement();
-									break;
-								case '6':
-									login();
-									break;
-								default:
-									System.out.println("\nYour input is wrong" + "\nError, please enter 1, 2, 3, 4, 5 or 6:"
-										+ "\n-----------------------------------------------------------------------");
-								//输入有误，重新输入
-								break;
-							} 
-					
-						}while( true );
-					}
-				}
-			}
 			System.out.println("Your admin name or password are wrong.");
 			System.out.printf("Enter anything except 0 to try again or enter 0 to go back");
 			System.out.print("Enter your choice:");
-			String temp = input.next();
-			if(temp.equals("0"))
+			String temp3 = input.next();
+			if( temp3.length() < 2)
 			{
-				login();
+				char temp4 = temp3.charAt(0);
+				if( temp4 == '0' )
+				{
+					login();
+				}
 			}
 		}
 			
