@@ -2,6 +2,7 @@ package project;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Calendar;
 
 public class Methods 
 {
@@ -280,6 +281,7 @@ public class Methods
 	//查询航班
 	public static void reserveFlight()
 	{       
+		Calendar c = Calendar.getInstance();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Reserving flight.");
 		System.out.print("Please enter your passengerID:");
@@ -313,6 +315,7 @@ public class Methods
 									{
 										flight.setFlightStatus("Full");
 									}
+<<<<<<< HEAD
 									Date date = new Date();
 									Order order = new Order(passengerID, order.getSeat() + 1, flight.getFlightID(), , "Paid");
 									//(乘客ID，座位号，航班号， 预定时间，状态)
@@ -321,6 +324,22 @@ public class Methods
 									order.setSeat(order.getSeat() + 1);
 									Data.ListOfOrder.add(order);
 									flight.orderOfFlight.add(flightorder);
+=======
+									Date date = new Date(c.get(Calendar.YEAR),c.get(Calendar.MONTH),c.get(Calendar.DATE),
+											c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),c.get(Calendar.SECOND));
+								
+									Order order = new Order(passengerName, identityID, passengerID, order.getSeat() + 1, flight,
+											date, "Paid" , temp1, temp2, temp3);
+									//(乘客ID，座位号，航班号， 时间，状态 , 乘客名称，身份证号，起飞年月日)
+									
+									order.setSeat(order.getSeat() + 1);
+									Data.ListOfOrder.add(order);
+									passenger.orderList.add(order);
+								}	
+								else{
+									break;
+								}
+>>>>>>> master
 							}
 							break;
 					}
