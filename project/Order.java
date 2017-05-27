@@ -8,34 +8,44 @@ public class Order
 	private Date createDate;
 	private String status;
 	
-	public int getPassengerID() {
+	public int getPassengerID() 
+	{
 		return passengerID;
 	}
-	public void setPassengerID(int passengerID) {
+	public void setPassengerID(int passengerID) 
+	{
 		this.passengerID = passengerID;
 	}
-	public String getSeat() {
+	public String getSeat() 
+	{
 		return seat;
 	}
-	public void setSeat(String seat) {
+	public void setSeat(String seat) 
+	{
 		this.seat = seat;
 	}
-	public Flight getFlight() {
+	public Flight getFlight() 
+	{
 		return flight;
 	}
-	public void setFlight(Flight flight) {
+	public void setFlight(Flight flight) 
+	{
 		this.flight = flight;
 	}
-	public Date getCreateDate() {
+	public Date getCreateDate() 
+	{
 		return createDate;
 	}
-	public void setCreateDate(Date createDate) {
+	public void setCreateDate(Date createDate) 
+	{
 		this.createDate = createDate;
 	}
-	public String getStatus() {
+	public String getStatus() 
+	{
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(String status) 
+	{
 		this.status = status;
 	}
 	public Order(int passengerID, String seat, Flight flight, Date createDate, String status) 

@@ -7,37 +7,48 @@ public class Date
 	private int day;
 	private int hour;
 	private int minite;
-	public int getYear() {
+	public int getYear() 
+	{
 		return year;
 	}
-	public void setYear(int year) {
+	public void setYear(int year) 
+	{
 		this.year = year;
 	}
-	public int getMonth() {
+	public int getMonth() 
+	{
 		return month;
 	}
-	public void setMonth(int month) {
+	public void setMonth(int month) 
+	{
 		this.month = month;
 	}
-	public int getDay() {
+	public int getDay() 
+	{
 		return day;
 	}
-	public void setDay(int day) {
+	public void setDay(int day) 
+	{
 		this.day = day;
 	}
-	public int getHour() {
+	public int getHour() 
+	{
 		return hour;
 	}
-	public void setHour(int hour) {
+	public void setHour(int hour) 
+	{
 		this.hour = hour;
 	}
-	public int getMinite() {
+	public int getMinite() 
+	{
 		return minite;
 	}
-	public void setMinite(int minite) {
+	public void setMinite(int minite) 
+	{
 		this.minite = minite;
 	}
-	public Date(int year, int month, int day, int hour, int minite) {
+	public Date(int year, int month, int day, int hour, int minite) 
+	{
 		super();
 		this.year = year;
 		this.month = month;

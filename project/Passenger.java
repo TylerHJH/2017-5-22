@@ -1,6 +1,12 @@
 package project;
 
+<<<<<<< HEAD
 public class Passenger {
+=======
+import java.util.ArrayList;
+public class Passenger 
+{
+>>>>>>> master
 	private int passengerID;
 	private String realName;
 	private String identityID;
