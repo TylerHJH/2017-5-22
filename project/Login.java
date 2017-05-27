@@ -10,7 +10,7 @@ public class Login {
 		System.out.println("-------------------------------------------------");
 		System.out.println("Welcome to the service platform.");
 		System.out.println("-------------------------------------------------");
-		System.out.printf("1.Users Login\n2.Users Registration \n3.Administrator Login \n4.Directly Query Flight\n");
+		System.out.printf("1.Users Login\n2.Users Registration \n3.Administrator Login \n4.Administrator Registration \n5.Directly Query Flight\n");
 		
 		boolean isFalse = false;
 		do
@@ -33,6 +33,9 @@ public class Login {
 						AdministratorLogin();//管理员登录
 						break;
 					case '4':
+						AdministratorRegistration();//管理员注册
+						break;
+					case '5':
 						Methods.queryFlight();
 						System.out.print("\nIf you want to reserve flight, enter 1; If you want to query your order, enter 2; Enter 0 to quit");
 						int choose = input.nextInt();
@@ -170,6 +173,11 @@ public class Login {
 		
 		Administrator administrator = new Administrator( admin_name, admin_password);
 		Data.ListOfAdminstrator.add( administrator );
+		
+		System.out.println();
+		System.out.println("Registration End");
+		System.out.println();
+		login();
 	}
 	//管理员注册（管理员方法之一）
 	public static void AdministratorChoose()
@@ -226,12 +234,14 @@ public class Login {
 			System.out.print("Please enter your admin password:");
 			String temp2 = input.next();
 		
-			if( temp1.equals(Administrator.getSuperAdminName()) & temp2.equals(Administrator.getSuperAdminPassword()) )
+			for( Administrator administrator:Data.ListOfAdminstrator)
+			{	
+			if(temp1.equals(Administrator.getSuperAdminName()) & temp2.equals(Administrator.getSuperAdminPassword())|administrator.getPassword().equals(temp2))
 			{
 				System.out.println("Login Successes");
 				 AdministratorChoose();
 			}	
-			
+			}
 			System.out.println("Your admin name or password are wrong.");
 			System.out.printf("Enter anything except 0 to try again or enter 0 to go back");
 			System.out.print("Enter your choice:");
