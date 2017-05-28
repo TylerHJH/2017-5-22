@@ -99,8 +99,11 @@ public class Methods
 									if(choose2 == ' ')
 									{
 										flight1.setFlightID(input.next());
-									break;
+									break;									
 									}
+									System.out.print("\nPlease enter a correct number between 0 to 12: ");
+									break;
+									
 								case '2':
 									flight1.setStartTime(input.next());
 									break;
