@@ -679,15 +679,7 @@ public class Methods
 						Login.AdministratorChoose();
 						break;									
 					case '1':
-						System.out.print("Please enter the flightID");
-						String flightID1 = input.next();
-						if (Order.flight.getFlightID().equals(flightID1))
-							{
-								Order.displayOrderOfFlight(Order.flight);
-							}
-							else{
-								System.out.println("No orders!");
-							}
+						
 						break;
 					case '2':
 						while(true)
