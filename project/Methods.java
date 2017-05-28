@@ -312,19 +312,128 @@ public class Methods
 					case '2':
 						System.out.print("\nPlease enter the flightID:");
 						String flightID = input.next();
+						boolean exist = true;
 						for (Flight flight : Data.ListOfFlight)
 						{
 							if (flight.getFlightID().equals(flightID))
 							{
-								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
+								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
+								exist = false;
+								System.out.println("if you want to go back, enter 0, or enter 1 to enter reserve steps.");
+								while(true)
+								{
+									String choose3 = input.next();
+									if(choose3.length() <2)
+									{
+										char choose4 = choose3.charAt(0);
+										switch( choose4 )
+										{
+											case'0':
+												Login.UsersChoose();
+												break;
+											case'1':
+												reserveFlight();
+												break;
+												
+										}
+									}
+								}
 							}
+						
+						}
+						if(exist)
+						{
+							System.out.println("Not exist");
+						}
+						
+						break;
+					default:
+						System.out.print("\nPlease enter a correct number.");
+						break;
+						
+				}
+				System.out.println("Querying end.");
+				Login.UsersChoose();
+			}
+			System.out.println("Your input is wrong.");
+		}
+		
+	}
+	
+	public static void directlyQueryFlight()
+	{
+		while(true)
+		{
+			Scanner input = new Scanner(System.in);
+			System.out.print("Querying flights.");
+			System.out.print("\nPlease choose a way to query or enter 0 to quit:"
+					+ "\n1.Query with start city, arrival city and departmentdate\n2.Query with flightID");
+			String choose = input.next();
+			if( choose.length() < 2)
+			{
+				char choose1 = choose.charAt(0);
+				switch(choose1)
+				{
+					
+					case '0':
+						Login.login();;
+						break;
+					case '1':
+						System.out.print("\nPlease enter the start city:");
+						String startCity = input.next();
+						System.out.print("\nPlease enter the arrival city:");
+						String arrivalCity = input.next();
+						System.out.print("\nPlease enter the departmentYear:");
+						int departmentYear = input.nextInt();
+						System.out.print("\nPlease enter the departmentMonth:");
+						int departmentMonth = input.nextInt();
+						System.out.print("\nPlease enter the departmentDate:");
+						int departmentDate = input.nextInt();
+						boolean exist = true;
+						for (Flight flight : Data.ListOfFlight)
+						{
+							if(flight.getStartCity().equals(startCity)&flight.getArrivalCity().equals(arrivalCity)&
+									flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
+									flight.getDepartureDate() == departmentDate)
+							{
+								
+								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
+								exist = false;
+							}
+						}
+						if(exist)
+						{
+							System.out.println("Not exist");
+						}
+			
+						break;
+					case '2':
+						System.out.print("\nPlease enter the flightID:");
+						String flightID = input.next();
+						 exist = true;
+						for (Flight flight : Data.ListOfFlight)
+						{
+							if (flight.getFlightID().equals(flightID))
+							{
+								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
+								exist = false;
+							}	
+						}
+						if(exist)
+						{
+							System.out.println("Not exist");
 						}
 						break;
 					default:
 						System.out.print("\nPlease enter a correct number.");
 						break;
+						
 				}
+				System.out.println("Querying end.");
+				Login.login();
+				
 			}
+			System.out.println("Your input is wrong.");
 		}
 		
 	}
