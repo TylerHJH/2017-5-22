@@ -91,7 +91,7 @@ public class Login {
 		boolean isFalse = false;
 		do
 		{	
-			System.out.print("Enter your choice:");
+			System.out.print("\nEnter your choice:");
 			
 			String temp3 = input.next();
 			if( temp3.length() < 2 )
@@ -115,7 +115,7 @@ public class Login {
 					case '5':
 						login();
 					default:
-						System.out.println("Your input is wrong" + "\nError, please enter 1, 2 , 3 ,4 or 5."
+						System.out.println("\nYour input is wrong" + "\nError, please enter 1, 2 , 3 ,4 or 5."
 							+ "\n-----------------------------------------------------------------------");
 					isFalse = true;//输入有误，重新输入
 				} 
