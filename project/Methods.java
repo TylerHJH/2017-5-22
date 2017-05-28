@@ -173,11 +173,11 @@ public class Methods
 		System.out.print("Deleting a Flight.");
 		System.out.print("\nPlease enter the flightID you want to delete:");
 		String deleteID = input.next();
-		System.out.print("\nPlease enter the departmentYear");
+		System.out.print("\nPlease enter the departmentYear:");
 		int deleteYear = input.nextInt();
-		System.out.print("\nPlease enter the departmentMonth");
+		System.out.print("\nPlease enter the departmentMonth:");
 		int deleteMonth = input.nextInt();
-		System.out.print("\nPlease enter the departmentDate");
+		System.out.print("\nPlease enter the departmentDate:");
 		int deleteDate = input.nextInt();
 		int count = 0;
 		for (Flight flight1 : Data.ListOfFlight){
