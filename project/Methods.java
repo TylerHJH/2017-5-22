@@ -314,7 +314,6 @@ public class Methods
 				System.out.print("\nDo you want to reserve round-trip flights? Enter 'Y' for yes, 'N' for no:");
 				String roundTrip=input.next();
 				for (Flight flight : Data.ListOfFlight){
-					if(roundTrip=="Y"){
 						if (flight.getDepartureYear() == temp1 & flight.getStartCity().equals(startCity) & 
 						flight.getDepartureMonth() == temp2 &flight.getDepartureDate() == temp3 &
 						flight.getArrivalCity().equals(arrivalCity))
@@ -336,68 +335,84 @@ public class Methods
 											date, "Paid" , temp1, temp2, temp3);
 									//(乘客名称，身份证号，乘客ID，座位号，航班号， 时间，状态 , 起飞年月日)
 
+									order.setSeat(order.getSeat() + 1);
 									Data.ListOfOrder.add(order);
 									passenger.orderList.add(order);
 									flight.orderOfFlight.add(order);
 									Login.UsersChoose();
 								}	
 								else{
-									Login.UsersChoose();
+									break;
 								}
 							}
-							System.out.println("This flight is full.");
-							Login.UsersChoose();
+							else{
+								System.out.println("This flight is full");
+								Login.UsersChoose();
+							}
+							break;
 					}
-<<<<<<< HEAD
-						else{
-							System.out.print("\nPlease enter the departmentYear");
-							int temp4 = input.nextInt();
-							System.out.print("\nPlease enter the departmentMonth");
-							int temp5 = input.nextInt();
-							System.out.print("\nPlease enter the departmentDate");
-							int temp6 = input.nextInt();
-							if (flight.getDepartureYear() == temp4 & flight.getStartCity().equals(arrivalCity) & 
-									flight.getDepartureMonth() == temp5 &flight.getDepartureDate() == temp6 &
-									flight.getArrivalCity().equals(startCity))
-								    {
-										if (flight.getFlightStatus().equals("Avaliable")){
-											System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
-											String pay = input.next();
-											if (pay.equals("Y")){
-												System.out.println("Reserve success.");
-												flight.setCurrentPassengers(flight.getCurrentPassengers() + 1);
-												if (flight.getCurrentPassengers() == flight.getSeatCapacity())
-												{
-													flight.setFlightStatus("Full");
-												}
-												Date date = new Date(c.get(Calendar.YEAR),c.get(Calendar.MONTH),c.get(Calendar.DATE),
-														c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),c.get(Calendar.SECOND));
-											
-												Order order = new Order(passengerName, identityID, passengerID, flight.getSeatNumber(), flight,
-														date, "Paid" , temp1, temp2, temp3);
-												//(乘客名称，身份证号，乘客ID，座位号，航班号， 时间，状态 , 起飞年月日)
-												
-												order.setSeat(order.getSeat() + 1);
-												Data.ListOfOrder.add(order);
-												passenger.orderList.add(order);
-											}	
-											else{
-												break;
-											}
-										}
-										break;
-								}
-						}	}
-=======
-					}
-					System.out.println("Can't find the correct flight.");
+				else{
+					System.out.println("Can't find the correct flight!");
 					Login.UsersChoose();
->>>>>>> 954850027154577d78e83952e5141a98bde82da7
 				}
-		}
-		System.out.println("The passenger name or the password is wrong.");
-		Login.UsersChoose();
+			if(roundTrip=="Y"){
+					System.out.print("\nPlease enter the departmentYear");
+					int temp4 = input.nextInt();
+					System.out.print("\nPlease enter the departmentMonth");
+					int temp5 = input.nextInt();
+					System.out.print("\nPlease enter the departmentDate");
+					int temp6 = input.nextInt();
+					if (flight.getDepartureYear() == temp4 & flight.getStartCity().equals(arrivalCity) & 
+							flight.getDepartureMonth() == temp5 &flight.getDepartureDate() == temp6 &
+							flight.getArrivalCity().equals(startCity))
+						    {
+								if (flight.getFlightStatus().equals("Avaliable")){
+									System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
+									String pay = input.next();
+									if (pay.equals("Y")){
+										System.out.println("Reserve success.");
+										flight.setCurrentPassengers(flight.getCurrentPassengers() + 1);
+										if (flight.getCurrentPassengers() == flight.getSeatCapacity())
+										{
+											flight.setFlightStatus("Full");
+										}
+										Date date = new Date(c.get(Calendar.YEAR),c.get(Calendar.MONTH),c.get(Calendar.DATE),
+												c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),c.get(Calendar.SECOND));
+									
+										Order order = new Order(passengerName, identityID, passengerID, flight.getSeatNumber(), flight,
+												date, "Paid" , temp1, temp2, temp3);
+										//(乘客名称，身份证号，乘客ID，座位号，航班号， 时间，状态 , 起飞年月日)
+										
+										order.setSeat(order.getSeat() + 1);
+										Data.ListOfOrder.add(order);
+										passenger.orderList.add(order);
+										flight.orderOfFlight.add(order);
+										Login.UsersChoose();
+									}	
+									else{
+										break;
+									}
+								}
+								else{
+									System.out.println("This flight is full");
+									Login.UsersChoose();
+								}
+								break;
+						}
+					else{
+						System.out.println("Can't find the correct flight!");
+						Login.UsersChoose();
+					}
+				}
+			}
+			}	
+			else{
+				System.out.println("The passenger name or the password is wrong.");
+		        Login.UsersChoose();
+			}
 	}
+	}
+	//预定航班
 	
 	public static void querymyOrder()
 	{
