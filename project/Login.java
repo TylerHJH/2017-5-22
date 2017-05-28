@@ -115,7 +115,7 @@ public class Login {
 					case '5':
 						login();
 					default:
-						System.out.println("Your input is wrong" + "\nError, please enter 1, 2 , 3 ,4 or 5."
+						System.out.println("\nYour input is wrong" + "\nError, please enter 1, 2 , 3 ,4 or 5."
 							+ "\n-----------------------------------------------------------------------");
 					isFalse = true;//输入有误，重新输入
 				} 
