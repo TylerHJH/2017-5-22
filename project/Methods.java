@@ -369,7 +369,7 @@ public class Methods
 					{
 						if (order.getpassengerName().equals(passengerName))
 						{
-							order.display2(order);
+							Order.displayMyOrderInformation(order);
 							Login.UsersChoose();
 						}
 					}
