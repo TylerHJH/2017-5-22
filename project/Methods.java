@@ -318,9 +318,7 @@ public class Methods
 						{
 							if (flight.getFlightID().equals(flightID))
 							{
-<<<<<<< HEAD
-								System.out.println(flight.getFlightID().toString() + " "+flight.getPrice() +" "+ flight.getFlightStatus().toString());
-=======
+
 								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
 								exist = false;
 								System.out.println("if you want to go back, enter 0, or enter 1 to enter reserve steps.");
@@ -403,7 +401,7 @@ public class Methods
 								
 								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
->>>>>>> 2a7650784a1aece3b708aa67c4daf7ef8cc78e68
+
 							}
 						}
 						if(exist)
