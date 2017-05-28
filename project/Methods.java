@@ -354,21 +354,20 @@ public class Methods
 			if( passenger.getPassengerID() == passengerID & passenger.getPassword().equals(password) )
 			{
 				System.out.println("List your orders:");
-				for (Flight flight : Data.ListOfFlight)
-				{
-					for (FlightOrder flightorder : flight.orderOfFlight)
+					for (Order order : Data.ListOfOrder)
 					{
-						if (flightorder.getpassengerName().equals(passengerName))
+						if (order.getpassengerName().equals(passengerName))
 						{
-							System.out.println(flightorder.toString());
+							order.display1(order);
+							Login.UsersChoose();
 						}
 					}
+					System.out.print("You hava entered your name wrong");
+					Login.UsersChoose();
 				}
 			}
-			System.out.print("You hava entered your name wrong");
-			break;
-		}
 		System.out.print("Your password wrong");
+		Login.UsersChoose();
 	}
 	public static void unsubscribeFlight()
 	{
