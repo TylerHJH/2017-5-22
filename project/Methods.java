@@ -115,14 +115,8 @@ public class Methods
 										flight1.setFlightID(input.next());
 									break;									
 									}
-<<<<<<< HEAD
 									System.out.println("Please enter a number between 0 to 14.");
 									break;
-=======
-									System.out.print("\nPlease enter a correct number between 0 to 12: ");
-									break;
-									
->>>>>>> f7b0ab818f7ff01e76e61ed57cfd911e248bc697
 								case '2':
 									flight1.setStartHour(input.nextInt());
 									break;
