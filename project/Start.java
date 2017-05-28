@@ -6,8 +6,9 @@ public class Start {
 	{
 		// TODO Auto-generated method stub
 		Login start = new Login();
-		start.login();
 		Flight.initializeFlightData();
+		start.login();
+		
 		//开始运行操作服务平台
 	}
 
