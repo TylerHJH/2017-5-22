@@ -205,15 +205,16 @@ public class Methods
 	//删除航班，管理员功能
 	public static void userManagement()
 	{
-	
+		
 		while(true)
 		{
+
 			for(Administrator administrator : Data.ListOfAdminstrator)
 			{
 				System.out.println( "administrator.getAdminName()     administrator.getPassword()");
 			}
-			System.out.print("Please enter a number to choose method or enter 0 to quit: \n1.UpdateAdministrator"
-					+ "\n2.CreateAdministrator");
+			System.out.print("\n1.UpdateAdministrator"
+					+ "\n2.CreateAdministrator" + "\nPlease enter a number to choose method or enter 0 to quit:");
 			Scanner input = new Scanner(System.in);
 		    String choose1 = input.next();
 		    if( choose1.length() < 2)
@@ -261,7 +262,7 @@ public class Methods
 								}while(true);
 							}
 						}
-						System.out.print("The Administrator name or the password is wrong.");
+						System.out.println("The Administrator name or the password is wrong.");
 						break;
 					case '2':
 						System.out.print("Creating a new Administrator.");
