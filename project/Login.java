@@ -34,7 +34,7 @@ public class Login {
 						break;
 					case '4':
 						Methods.queryFlight();
-						System.out.print("\nIf you want to reserve flight, enter 1; If you wang to query your order, enter 2; Enter 0 to quit");
+						System.out.print("\nIf you want to query flight, enter 1; If you wang to query your order, enter 2; Enter 0 to quit");
 						int choose = input.nextInt();
 						switch(choose)
 						{

@@ -17,7 +17,7 @@ public class Flight
 	private int seatCapacity;
 	private String flightStatus;
 	ArrayList<Order> orderOfFlight = new ArrayList<Order>();
-	private ArrayList<Boolean> seatnumber = new ArrayList<Boolean>(seatCapacity);
+	ArrayList<Boolean> seatnumber = new ArrayList<Boolean>(seatCapacity);
 	public String getFlightID() 
 	{
 		return FlightID;
