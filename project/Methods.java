@@ -359,7 +359,7 @@ public class Methods
 					{
 						if (order.getpassengerName().equals(passengerName))
 						{
-							order.display1(order);
+							order.display2(order);
 							Login.UsersChoose();
 						}
 					}
@@ -370,10 +370,7 @@ public class Methods
 		System.out.print("Your password wrong");
 		Login.UsersChoose();
 	}
-	public static void unsubscribeFlight()
-	{
-		
-	}
+
 	
 	public static void superQuery()
 	{
@@ -394,7 +391,7 @@ public class Methods
 				String flightID = input.next();
 				for (Flight flight : Data.ListOfFlight){
 					if (flight.getFlightID().equals(flightID)){
-						for (FlightOrder flightorder : flight.orderOfFlight)
+						for (Order flightorder : flight.orderOfFlight)
 						{
 							System.out.print(flightorder.toString());
 						}
@@ -408,6 +405,9 @@ public class Methods
 				System.out.println("Your enter is wrong. Please enter 1, 2 or 3.");
 				break;
 		}
+	}
+	public static void unsubscribeFlight(){
+		
 	}
 	
 }
