@@ -12,6 +12,7 @@ public class Administrator
 	//管理员属性以及超级管理员属性
 	Scanner input = new Scanner( System.in );
 	
+	public Administrator(){}
 	public Administrator( String adminName, String password)
 	{
 		this.adminName = adminName;

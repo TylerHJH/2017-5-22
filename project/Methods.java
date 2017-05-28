@@ -202,8 +202,13 @@ public class Methods
 	//删除航班，管理员功能
 	public static void userManagement()
 	{
+	
 		while(true)
 		{
+			for(Administrator administrator : Data.ListOfAdminstrator)
+			{
+				System.out.println( "administrator.getAdminName()     administrator.getPassword()");
+			}
 			System.out.print("Please enter a number to choose method or enter 0 to quit: \n1.UpdateAdministrator\n2.CreateAdministrator");
 			Scanner input = new Scanner(System.in);
 		    String choose1 = input.next();
@@ -723,7 +728,7 @@ public class Methods
 										
 								}
 								System.out.println("Querying end.");
-								Login.AdministratorChoose();;
+								Login.AdministratorChoose();
 								
 							}
 							System.out.println("Your input is wrong.");
