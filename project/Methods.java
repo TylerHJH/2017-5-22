@@ -447,10 +447,7 @@ public class Methods
 				String flightID = input.next();
 				for (Flight flight : Data.ListOfFlight){
 					if (flight.getFlightID().equals(flightID)){
-						for (Order flightorder : flight.orderOfFlight)
-						{
-							System.out.print(flightorder.toString());
-						}
+						Order.displayOrderOfFlight( flight);
 					}
 				}
 				break;

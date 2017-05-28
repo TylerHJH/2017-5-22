@@ -98,7 +98,7 @@ public class Order
 		this.departmentYear = departmentMonth;
 		this.departmentYear = departmentDate;
 	}
-	public void displayOrderOfFlight(Flight flight){
+	public static void displayOrderOfFlight(Flight flight){
 		for(Order orderOfFlight: flight.orderOfFlight )
 		{
 			System.out.printf("%s%10s%10d%10s%10s\n", orderOfFlight.passengerName,orderOfFlight.identityID,orderOfFlight.seat, orderOfFlight.createTime.toString(), orderOfFlight.status);
