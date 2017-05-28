@@ -1,7 +1,16 @@
 package project;
+import java.util.Calendar;
 
 public class Date 
 {
+	Calendar c = Calendar.getInstance();
+	
+	public int current_year = c.get(Calendar.YEAR);
+	public int current_month = c.get(Calendar.MONTH); 
+	public int current_date = c.get(Calendar.DATE); 
+	public int current_hour = c.get(Calendar.HOUR_OF_DAY); 
+	public int current_minute = c.get(Calendar.MINUTE);
+	public int current_second = c.get(Calendar.SECOND); 
 	private int year;
 	private int month;
 	private int day;
@@ -56,6 +65,13 @@ public class Date
 		this.hour = hour;
 		this.minite = minite;
 	}
-	
+	public Date(int current_year, int current_month, int current_date, int current_hour, int current_minute, int current_second){
+		this.current_year = current_year;
+		this.current_month = current_month;
+		this.current_date = current_date;
+		this.current_hour = current_hour;
+		this.current_minute = current_minute;
+		this.current_second = current_second;
+	}
 	
 }
