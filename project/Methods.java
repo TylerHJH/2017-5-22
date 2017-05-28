@@ -325,9 +325,10 @@ public class Methods
 											date, "Paid" , temp1, temp2, temp3);
 									//(乘客名称，身份证号，乘客ID，座位号，航班号， 时间，状态 , 起飞年月日)
 									
-									order.setSeat(order.getSeat() + 1);
+							
 									Data.ListOfOrder.add(order);
 									passenger.orderList.add(order);
+									flight.orderOfFlight.add(order);
 								}	
 								else{
 									break;
