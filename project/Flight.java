@@ -119,7 +119,7 @@ public class Flight
 		super();
 		FlightID = flightID;
 		this.startTime = startTime;
-		this.arrivalTime = arrivalTime;p
+		this.arrivalTime = arrivalTime;
 		this.startCity = startCity;
 		this.arrivalCity = arrivalCity;
 		this.departureYear = departureYear;
