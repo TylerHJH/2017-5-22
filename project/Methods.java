@@ -324,6 +324,7 @@ public class Methods
 									Order order = new Order(passengerName, identityID, passengerID, flight.getSeatNumber(), flight,
 											date, "Paid" , temp1, temp2, temp3);
 									//(乘客名称，身份证号，乘客ID，座位号，航班号， 时间，状态 , 起飞年月日)
+
 									Data.ListOfOrder.add(order);
 									passenger.orderList.add(order);
 									flight.orderOfFlight.add(order);
@@ -363,7 +364,7 @@ public class Methods
 					{
 						if (order.getpassengerName().equals(passengerName))
 						{
-							order.display1(order);
+							order.display2(order);
 							Login.UsersChoose();
 						}
 					}
@@ -374,6 +375,7 @@ public class Methods
 		System.out.print("Your password wrong");
 		Login.UsersChoose();
 	}
+
 	public static void unsubscribeFlight()
 	{
 		Scanner input = new Scanner(System.in);
@@ -420,7 +422,7 @@ public class Methods
 		System.out.println("The passenger name or the password is wrong.");
 			Login.UsersChoose();	
 	}
-	
+
 	public static void superQuery()
 	{
 		Scanner input = new Scanner(System.in);
@@ -440,7 +442,7 @@ public class Methods
 				String flightID = input.next();
 				for (Flight flight : Data.ListOfFlight){
 					if (flight.getFlightID().equals(flightID)){
-						for (FlightOrder flightorder : flight.orderOfFlight)
+						for (Order flightorder : flight.orderOfFlight)
 						{
 							System.out.print(flightorder.toString());
 						}
@@ -455,5 +457,6 @@ public class Methods
 				break;
 		}
 	}
+
 	
 }
