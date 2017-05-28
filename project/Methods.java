@@ -202,103 +202,131 @@ public class Methods
 	//删除航班，管理员功能
 	public static void userManagement()
 	{
-		System.out.print("Please enter a number to choose method or enter 0 to quit: \n1.UpdateAdministrator\n2.CreateAdministrator");
-		Scanner input = new Scanner(System.in);
-		int choose1 = input.nextInt();
-		switch(choose1)
+		while(true)
 		{
-			case 0:
-				break;
-			case 1:
-				System.out.print("Updating an Administrator.");
-				System.out.print("\nPlease enter the Administratorname and password you want to update:");
-				String adminName = input.next();
-				String password1 = input.next();
-				for (Administrator admin : Data.ListOfAdminstrator)
+			System.out.print("Please enter a number to choose method or enter 0 to quit: \n1.UpdateAdministrator\n2.CreateAdministrator");
+			Scanner input = new Scanner(System.in);
+		    String choose1 = input.next();
+		    if( choose1.length() < 2)
+			{
+		    	char choose2 = choose1.charAt(0);
+			    switch(choose2)
 				{
-					if (admin.getAdminName().equals(adminName)&admin.getPassword().equals(password1))
-					{
-						do{
-						System.out.print("\nPlease enter the number of you want to update or enter 0 to quit:\n1.Administrator name\n2.Password");
-						int choose2 = input.nextInt();
-						switch(choose2)
+					case '0':
+						Login.AdministratorChoose();
+						break;
+					case '1':
+						System.out.print("Updating an Administrator.");
+						System.out.print("\nPlease enter the Administratorname and password you want to update:");
+						String adminName = input.next();
+						String password1 = input.next();
+						for (Administrator admin : Data.ListOfAdminstrator)
 						{
-							case 0:
-								Login.AdministratorChoose();
-							case 1:
-								System.out.print("\nPlease enter the new name:");
-								admin.setAdminName(input.next());
-								break;
-							case 2:
-								System.out.print("\nPlease enter the new password:");
-								admin.setPassword(input.next());
-								break;
+							if (admin.getAdminName().equals(adminName)&admin.getPassword().equals(password1))
+							{
+								do{
+								System.out.print("\nPlease enter the number of you want to update or enter 0 to quit:\n1.Administrator name\n2.Password");
+								String choose3 = input.next();
+								if(choose3.length() < 2)
+								{
+									char choose4 = choose3.charAt(0);
+									switch(choose4)
+									{
+										case '0':
+											Login.AdministratorChoose();
+										case '1':
+											System.out.print("\nPlease enter the new name:");
+											admin.setAdminName(input.next());
+											break;
+										case '2':
+											System.out.print("\nPlease enter the new password:");
+											admin.setPassword(input.next());
+											break;
+										default:
+											System.out.print("\nPlease enter a correct number.");
+											break;
+			
+										}
+								}
+								}while(true);
 							}
-						}while(true);
-					}
+						}
+						System.out.print("The Administrator name or the password is wrong.");
+						break;
+					case '2':
+						System.out.print("Creating a new Administrator.");
+						System.out.print("\nPlease enter new Administrator's name:");
+						String adminname = input.next();
+						System.out.print("\nPlease enter new Administrator's password:");
+						String password2 = input.next();
+						Administrator admin = new Administrator(adminname, password2);
+						Data.ListOfAdminstrator.add(admin);
+						break;
+					default:
+						System.out.print("\nPlease enter a correct number.");
+						break;
 				}
-				System.out.print("The Administrator name or the password is wrong.");
-				break;
-			case 2:
-				System.out.print("Creating a new Administrator.");
-				System.out.print("\nPlease enter new Administrator's name:");
-				String adminname = input.next();
-				System.out.print("\nPlease enter new Administrator's password:");
-				String password2 = input.next();
-				Administrator admin = new Administrator(adminname, password2);
-				Data.ListOfAdminstrator.add(admin);
-				break;
-			default:
-				break;
+			}    
 		}
-		Login.AdministratorChoose();
 	}
 	//管理员信息，管理员功能
 	public static void queryFlight()
 	{
-		Scanner input = new Scanner(System.in);
-		System.out.print("Querying flights.");
-		System.out.print("\nPlease choose a way to query or enter 0 to quit:"
-				+ "\n1.Query with start city, arrival city and departmentdate\n2.Query with flightID");
-		int choose = input.nextInt();
-		switch(choose)
+		while(true)
 		{
-			case 0:
-				break;
-			case 1:
-				System.out.print("\nPlease enter the start city:");
-				String startCity = input.next();
-				System.out.print("\nPlease enter the arrival city:");
-				String arrivalCity = input.next();
-				System.out.print("\nPlease enter the departmentYear:");
-				int departmentYear = input.nextInt();
-				System.out.print("\nPlease enter the departmentMonth:");
-				int departmentMonth = input.nextInt();
-				System.out.print("\nPlease enter the departmentDate:");
-				int departmentDate = input.nextInt();
-				for (Flight flight : Data.ListOfFlight)
+			Scanner input = new Scanner(System.in);
+			System.out.print("Querying flights.");
+			System.out.print("\nPlease choose a way to query or enter 0 to quit:"
+					+ "\n1.Query with start city, arrival city and departmentdate\n2.Query with flightID");
+			String choose = input.next();
+			if( choose.length() < 2)
+			{
+				char choose1 = choose.charAt(0);
+				switch(choose1)
 				{
-					if(flight.getStartCity().equals(startCity)&flight.getArrivalCity().equals(arrivalCity)&
-							flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
-							flight.getDepartureDate() == departmentDate)
-					{
-						System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
-					}
+					
+					case '0':
+						Login.AdministratorChoose();
+						break;
+					case '1':
+						System.out.print("\nPlease enter the start city:");
+						String startCity = input.next();
+						System.out.print("\nPlease enter the arrival city:");
+						String arrivalCity = input.next();
+						System.out.print("\nPlease enter the departmentYear:");
+						int departmentYear = input.nextInt();
+						System.out.print("\nPlease enter the departmentMonth:");
+						int departmentMonth = input.nextInt();
+						System.out.print("\nPlease enter the departmentDate:");
+						int departmentDate = input.nextInt();
+						for (Flight flight : Data.ListOfFlight)
+						{
+							if(flight.getStartCity().equals(startCity)&flight.getArrivalCity().equals(arrivalCity)&
+									flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
+									flight.getDepartureDate() == departmentDate)
+							{
+								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
+							}
+						}
+						break;
+					case '2':
+						System.out.print("\nPlease enter the flightID:");
+						String flightID = input.next();
+						for (Flight flight : Data.ListOfFlight)
+						{
+							if (flight.getFlightID().equals(flightID))
+							{
+								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
+							}
+						}
+						break;
+					default:
+						System.out.print("\nPlease enter a correct number.");
+						break;
 				}
-				break;
-			case 2:
-				System.out.print("\nPlease enter the flightID:");
-				String flightID = input.next();
-				for (Flight flight : Data.ListOfFlight)
-				{
-					if (flight.getFlightID().equals(flightID))
-					{
-						System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
-					}
-				}
-				break;
+			}
 		}
-		Login.AdministratorChoose();
+		
 	}
 	//查询航班
 	public static void reserveFlight()
