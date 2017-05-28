@@ -16,7 +16,8 @@ public class Flight
 	private int currentPassengers;
 	private int seatCapacity;
 	private String flightStatus;
-	ArrayList<FlightOrder> orderOfFlight = new ArrayList<FlightOrder>();
+	private ArrayList<FlightOrder> orderOfFlight = new ArrayList<FlightOrder>();
+	private ArrayList<Boolean> seatnumber = new ArrayList<Boolean>(seatCapacity);
 	public String getFlightID() 
 	{
 		return FlightID;
@@ -112,6 +113,18 @@ public class Flight
 	public void setFlightStatus(String flightStatus) 
 	{
 		this.flightStatus = flightStatus;
+	}
+	public int getSeatNumber(){
+		int a = 0;
+		while(a < seatnumber.size()){
+			if (seatnumber.get(a) == false){
+				seatnumber.remove(a);
+				seatnumber.add(a, true);
+				break;
+			}
+			a = a + 1;
+		}
+		return a + 1;
 	}
 	public Flight(String flightID, String startTime, String arrivalTime, String startCity, String arrivalCity,
 			int departureYear, int departureMonth, int departureDate, int price, int currentPassengers, int seatCapacity, String flightStatus) 

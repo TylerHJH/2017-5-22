@@ -2,11 +2,16 @@ package project;
 
 public class Order 
 {
+	private String passengerName;
+	private String identityID;
 	private int passengerID;
-	private String seat;
+	private int seat;
 	private Flight flight;
-	private Date createDate;
+	private Date createTime;
 	private String status;
+	private int departmentYear;
+	private int departmentMonth;
+	private int departmentDate;
 	
 	public int getPassengerID() 
 	{
@@ -16,11 +21,11 @@ public class Order
 	{
 		this.passengerID = passengerID;
 	}
-	public String getSeat() 
+	public int getSeat() 
 	{
 		return seat;
 	}
-	public void setSeat(String seat) 
+	public void setSeat(int seat) 
 	{
 		this.seat = seat;
 	}
@@ -32,13 +37,13 @@ public class Order
 	{
 		this.flight = flight;
 	}
-	public Date getCreateDate() 
+	public Date getCreateTime() 
 	{
-		return createDate;
+		return createTime;
 	}
-	public void setCreateDate(Date createDate) 
+	public void setCreateTime(Date createTime) 
 	{
-		this.createDate = createDate;
+		this.createTime = createTime;
 	}
 	public String getStatus() 
 	{
@@ -48,13 +53,53 @@ public class Order
 	{
 		this.status = status;
 	}
-	public Order(int passengerID, String seat, Flight flight, Date createDate, String status) 
+	public String getpassengerName() {
+		return passengerName;
+	}
+	public void setpassengerName(String passengerName) {
+		this.passengerName = passengerName;
+	}
+	
+	public String getidentityID() {
+		return identityID;
+	}
+	public void setidentityID(String identityID) {
+		this.identityID = identityID;
+	}
+	public int getdepartmentYear() {
+		return departmentYear;
+	}
+	public void setdepartmentYear(int departmentYear) {
+		this.departmentYear = departmentYear;
+	}
+	public int getdepartmentMonth() {
+		return departmentMonth;
+	}
+	public void setdepartmentMonth(int departmentMonth) {
+		this.departmentMonth = departmentMonth;
+	}
+	public int getdepartmentDate() {
+		return departmentDate;
+	}
+	public void setdepartmentDate(int departmentDate) {
+		this.departmentDate = departmentDate;
+	}
+	public Order(String passengerName, String identityID, int passengerID, int seat, Flight flight,
+			Date createTime, String status, int departmentYear, int departmentMonth, int departmentDate) 
 	{
+		this.passengerName = passengerName;
+		this.identityID = identityID;
 		this.passengerID = passengerID;
 		this.seat = seat;
 		this.flight = flight;
-		this.createDate = createDate;
+		this.createTime = createTime;
 		this.status = status;
+		this.departmentYear = departmentYear;
+		this.departmentYear = departmentMonth;
+		this.departmentYear = departmentDate;
+	}
+	public void display1(){
+		
 	}
 	
 	

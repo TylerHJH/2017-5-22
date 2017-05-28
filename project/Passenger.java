@@ -49,9 +49,9 @@ public class Passenger
 		this.password = password;
 	}
 	//get»òset·½·¨
-	public Passenger( int passengerID, String realName, String identityID,
-			String password)
-	{
+	
+	public Passenger(int passengerID, String realName, String identityID,
+			String password){
 		this.passengerID = passengerID;
 		this.realName = realName;
 		this.identityID = identityID;
