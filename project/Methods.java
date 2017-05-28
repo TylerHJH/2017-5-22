@@ -324,20 +324,25 @@ public class Methods
 									Order order = new Order(passengerName, identityID, passengerID, flight.getSeatNumber(), flight,
 											date, "Paid" , temp1, temp2, temp3);
 									//(乘客名称，身份证号，乘客ID，座位号，航班号， 时间，状态 , 起飞年月日)
-									
-									order.setSeat(order.getSeat() + 1);
 									Data.ListOfOrder.add(order);
 									passenger.orderList.add(order);
+									flight.orderOfFlight.add(order);
+									Login.UsersChoose();
 								}	
 								else{
-									break;
+									Login.UsersChoose();
 								}
 							}
-							break;
+							System.out.println("This flight is full.");
+							Login.UsersChoose();
 					}
+					}
+					System.out.println("Can't find the correct flight.");
+					Login.UsersChoose();
 				}
-			}
 		}
+		System.out.println("The passenger name or the password is wrong.");
+		Login.UsersChoose();
 	}
 	
 	public static void querymyOrder()
@@ -371,7 +376,49 @@ public class Methods
 	}
 	public static void unsubscribeFlight()
 	{
-		
+		Scanner input = new Scanner(System.in);
+		System.out.println("Unsubscribing flight.");
+		System.out.print("Please enter your passengerID:");
+		int passengerID = input.nextInt();
+		System.out.print("Please enter your password:");
+		String password = input.next();
+		for( Passenger passenger:Data.ListOfPassenger)
+		{
+			if( passenger.getPassengerID() == passengerID & passenger.getPassword().equals(password) )
+			{
+				System.out.println("Please enter the flightID: ");
+				String flightID = input.next();
+				System.out.print("\nPlease enter the departmentYear");
+				int temp1 = input.nextInt();
+				System.out.print("\nPlease enter the departmentMonth");
+				int temp2 = input.nextInt();
+				System.out.print("\nPlease enter the departmentDate");
+				int temp3 = input.nextInt();
+				for (Flight flight : Data.ListOfFlight){
+					if (flight.getDepartureYear() == temp1 & flight.getFlightID().equals(flightID) & 
+						flight.getDepartureMonth() == temp2 &flight.getDepartureDate() == temp3)
+					{
+						for (Order order : Data.ListOfOrder){
+							if (order.getFlight().equals(flight)){
+								flight.seatnumber.remove(flight.getSeatNumber());
+								flight.seatnumber.add(flight.getSeatNumber(), false);
+								flight.setCurrentPassengers(flight.getCurrentPassengers() - 1);
+								flight.setFlightStatus("Avaliable");
+								passenger.orderList.remove(order);
+								flight.orderOfFlight.remove(order);
+								Data.ListOfOrder.remove(order);
+								System.out.println("Unsubscribing success!");
+								Login.UsersChoose();
+							}
+						}
+					}	
+				}
+				System.out.println("Can't find the correct flight.");
+					Login.UsersChoose();
+			}
+		}
+		System.out.println("The passenger name or the password is wrong.");
+			Login.UsersChoose();	
 	}
 	
 	public static void superQuery()
