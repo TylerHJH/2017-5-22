@@ -335,26 +335,18 @@ public class Methods
 											date, "Paid" , temp1, temp2, temp3);
 									//(乘客名称，身份证号，乘客ID，座位号，航班号， 时间，状态 , 起飞年月日)
 
-									order.setSeat(order.getSeat() + 1);
 									Data.ListOfOrder.add(order);
 									passenger.orderList.add(order);
 									flight.orderOfFlight.add(order);
 									Login.UsersChoose();
 								}	
 								else{
-									break;
+									Login.UsersChoose();
 								}
 							}
-							else{
 								System.out.println("This flight is full");
 								Login.UsersChoose();
-							}
-							break;
 					}
-				else{
-					System.out.println("Can't find the correct flight!");
-					Login.UsersChoose();
-				}
 			if(roundTrip=="Y"){
 					System.out.print("\nPlease enter the departmentYear");
 					int temp4 = input.nextInt();
@@ -383,34 +375,25 @@ public class Methods
 												date, "Paid" , temp1, temp2, temp3);
 										//(乘客名称，身份证号，乘客ID，座位号，航班号， 时间，状态 , 起飞年月日)
 										
-										order.setSeat(order.getSeat() + 1);
 										Data.ListOfOrder.add(order);
 										passenger.orderList.add(order);
 										flight.orderOfFlight.add(order);
 										Login.UsersChoose();
 									}	
 									else{
-										break;
+										Login.UsersChoose();
 									}
 								}
-								else{
 									System.out.println("This flight is full");
 									Login.UsersChoose();
-								}
-								break;
 						}
-					else{
+					    }}
 						System.out.println("Can't find the correct flight!");
 						Login.UsersChoose();
-					}
-				}
 			}
-			}	
-			else{
+            }
 				System.out.println("The passenger name or the password is wrong.");
 		        Login.UsersChoose();
-			}
-	}
 	}
 	//预定航班
 	
