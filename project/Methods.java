@@ -474,40 +474,47 @@ public class Methods
 
 	public static void superQuery()
 	{
-		Scanner input = new Scanner(System.in);
-		System.out.println("Superquerying");
-		System.out.println("Please choose a method to query:\n1.Query orderlist\n2.Query order of a flight\n3.Query flight.");
-		int choose = input.nextInt();
-		switch(choose)
+		while(true)
 		{
-			case 1:
-				for(Order order : Data.ListOfOrder)
+			Scanner input = new Scanner(System.in);
+			System.out.println("Superquerying");
+			System.out.println("Please choose a method to query:\n1.Query orderlist\n2.Query order of a flight\n3.Query flight.");
+			String choose = input.next();
+			if(choose.length() < 2)
+			{
+				char choose1 = choose.charAt(0);
+				switch(choose1)
 				{
-					System.out.print(order.toString());
+					case '1':
+						for(Order order : Data.ListOfOrder)
+						{
+							System.out.print(order.toString());
+						}
+						break;
+					case '2':
+						System.out.print("Please enter the flightID");
+						String flightID = input.next();
+						System.out.print("\nPlease enter the departmentYear");
+						int temp1 = input.nextInt();
+						System.out.print("\nPlease enter the departmentMonth");
+						int temp2 = input.nextInt();
+						System.out.print("\nPlease enter the departmentDate");
+						int temp3 = input.nextInt();
+						for (Flight flight : Data.ListOfFlight){
+							if (flight.getDepartureYear() == temp1 & flight.getFlightID().equals(flightID) & 
+									flight.getDepartureMonth() == temp2 &flight.getDepartureDate() == temp3){
+								Order.displayOrderOfFlight( flight);
+							}
+						}
+						break;
+					case '3':
+						queryFlight();
+						break;
+					default:
+						System.out.println("Your enter is wrong. Please enter 1, 2 or 3.");
+						break;
 				}
-				break;
-			case 2:
-				System.out.print("Please enter the flightID");
-				String flightID = input.next();
-				System.out.print("\nPlease enter the departmentYear");
-				int temp1 = input.nextInt();
-				System.out.print("\nPlease enter the departmentMonth");
-				int temp2 = input.nextInt();
-				System.out.print("\nPlease enter the departmentDate");
-				int temp3 = input.nextInt();
-				for (Flight flight : Data.ListOfFlight){
-					if (flight.getDepartureYear() == temp1 & flight.getFlightID().equals(flightID) & 
-							flight.getDepartureMonth() == temp2 &flight.getDepartureDate() == temp3){
-						Order.displayOrderOfFlight( flight);
-					}
-				}
-				break;
-			case 3:
-				queryFlight();
-				break;
-			default:
-				System.out.println("Your enter is wrong. Please enter 1, 2 or 3.");
-				break;
+			}
 		}
 	}
 
