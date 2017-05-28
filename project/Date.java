@@ -5,12 +5,12 @@ public class Date
 {
 	Calendar c = Calendar.getInstance();
 	
-	public int current_year = c.get(Calendar.YEAR);
-	public int current_month = c.get(Calendar.MONTH); 
-	public int current_date = c.get(Calendar.DATE); 
-	public int current_hour = c.get(Calendar.HOUR_OF_DAY); 
-	public int current_minute = c.get(Calendar.MINUTE);
-	public int current_second = c.get(Calendar.SECOND); 
+	public int current_year ;
+	public int current_month ; 
+	public int current_date ; 
+	public int current_hour  ; 
+	public int current_minute  ;
+	public int current_second ; 
 	private int year;
 	private int month;
 	private int day;
@@ -73,5 +73,12 @@ public class Date
 		this.current_minute = current_minute;
 		this.current_second = current_second;
 	}
+	@Override
+	public String toString() {
+		return "Date [year=" + current_year + ", month=" + current_month + ", date="
+				+ current_date + ", hour=" + current_hour + ", minute=" + current_minute
+				+ ", second=" + current_second + "]";
+	}
+	
 	
 }
