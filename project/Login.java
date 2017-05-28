@@ -34,7 +34,11 @@ public class Login {
 						break;
 					case '4':
 						Methods.queryFlight();
+<<<<<<< HEAD
 						System.out.print("\nIf you want to reserve flight, enter 1; If you want to query your order, enter 2; Enter 0 to quit");
+=======
+						System.out.print("\nIf you want to query flight, enter 1; If you wang to query your order, enter 2; Enter 0 to quit");
+>>>>>>> 954850027154577d78e83952e5141a98bde82da7
 						int choose = input.nextInt();
 						switch(choose)
 						{
@@ -53,18 +57,13 @@ public class Login {
 					default:
 						System.out.println("Your input is wrong" + "\nError, please enter 1, 2, 3 or 4.");
 						isFalse = true;//输入有误，重新输入
-				} 
-				
-					
-			}
-			
+				} 	
+			}		
 			else
 				{
 					System.out.println("Your input is wrong" + "\nError, please enter 1, 2, 3 or 4.");
 					isFalse = true;
 				}
-			
-		
 		}while( isFalse );
 	}
 	//登录方法
@@ -90,7 +89,7 @@ public class Login {
 	//乘客注册
 	public static void UsersChoose()
 	{
-		System.out.printf("1.queryFlight\n2.reserveFlight\n3.unsubscribeFlight\n4.querymyOrder");
+		System.out.printf("1.queryFlight\n2.reserveFlight\n3.unsubscribeFlight\n4.querymyOrder\n5.quit");
 		boolean isFalse = false;
 		do
 		{	
@@ -115,20 +114,20 @@ public class Login {
 					case '4':
 						Methods.querymyOrder();
 						break;
+					case '5':
+						login();
 					default:
-						System.out.println("Your input is wrong" + "\nError, please enter 1, 2 , 3 or 4."
+						System.out.println("Your input is wrong" + "\nError, please enter 1, 2 , 3 ,4 or 5."
 							+ "\n-----------------------------------------------------------------------");
 					isFalse = true;//输入有误，重新输入
 				} 
 			}
 			else
 			{
-				System.out.println("Your input is wrong" + "\nError, please enter 1, 2 , 3 or 4."
+				System.out.println("Your input is wrong" + "\nError, please enter 1, 2 , 3 ,4 or 5."
 						+ "\n-----------------------------------------------------------------------");
 				isFalse = true;//输入有误，重新输入
 			}
-			
-	
 		}while( isFalse );
 	}
 	public static void UsersLogin()
@@ -170,10 +169,13 @@ public class Login {
 		
 		Administrator administrator = new Administrator( admin_name, admin_password);
 		Data.ListOfAdminstrator.add( administrator );
+<<<<<<< HEAD
 		
 		System.out.println();
 		System.out.println("Registration End");
 		System.out.println();
+=======
+>>>>>>> 954850027154577d78e83952e5141a98bde82da7
 		login();
 	}
 	//管理员注册（管理员方法之一）
@@ -213,13 +215,8 @@ public class Login {
 							+ "\n-----------------------------------------------------------------------");
 					//输入有误，重新输入
 					break;
-				} 
-
-		
-			}
-		
-			
-			
+				} 	
+			}	
 		}while( true );
 	}
 	public static void AdministratorLogin()
