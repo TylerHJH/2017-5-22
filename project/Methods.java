@@ -308,7 +308,6 @@ public class Methods
 					if (flight.getDepartureYear() == temp1 & flight.getFlightID().equals(flightID) & 
 						flight.getDepartureMonth() == temp2 &flight.getDepartureDate() == temp3)
 					{
-						if
 							if (flight.getFlightStatus().equals("Avaliable")){
 								System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
 								String pay = input.next();
