@@ -37,7 +37,7 @@ public class Methods
 		Flight flight = new Flight(flightID, startTime, arrivalTime, startCity, arrivalCity,departureYear
 				, departureMonth, departureDate, price, currentPassengers, seatCapacity, flightStatus);
 		Data.ListOfFlight.add( flight );
-		
+		Login.AdministratorChoose();
 	}
 	//创建航班，管理员功能
 	public static void updateFlight()
@@ -165,19 +165,22 @@ public class Methods
 					flight1.getDepartureMonth() == deleteMonth & flight1.getDepartureDate() == deleteDate){
 				if (flight1.getFlightStatus().equals("Avaliable")|flight1.getFlightStatus().equals("Full")){
 					System.out.print("\nYou can't delete this Flight in 'Avaliable' or 'Full' status.");
-					break;
+					Login.AdministratorChoose();
 				}
 				else{
 					System.out.print("\nPlease enter Y to delete or N to quit: ");
 					String isdelete = input.next();
 					if(isdelete.equals("Y")){
 						Data.ListOfFlight.remove(count);
-						break;
+						System.out.println("Removing success.");
+						Login.AdministratorChoose();
 						}
 						count+=1;
 					}
 				}
 			}
+		System.out.println("Can't find the correct flight.");
+		Login.AdministratorChoose();
 		}
 	//删除航班，管理员功能
 	public static void userManagement()
@@ -198,10 +201,13 @@ public class Methods
 				{
 					if (admin.getAdminName().equals(adminName)&admin.getPassword().equals(password1))
 					{
-						System.out.print("\nPlease enter the number of you want to update:\n1.Administrator name\n2.Password");
+						do{
+						System.out.print("\nPlease enter the number of you want to update or enter 0 to quit:\n1.Administrator name\n2.Password");
 						int choose2 = input.nextInt();
 						switch(choose2)
 						{
+							case 0:
+								Login.AdministratorChoose();
 							case 1:
 								System.out.print("\nPlease enter the new name:");
 								admin.setAdminName(input.next());
@@ -210,14 +216,11 @@ public class Methods
 								System.out.print("\nPlease enter the new password:");
 								admin.setPassword(input.next());
 								break;
-						}
-						break;
-					}
-					else{
-						System.out.print("The Administrator name or the password is wrong.");
-						break;
+							}
+						}while(true);
 					}
 				}
+				System.out.print("The Administrator name or the password is wrong.");
 				break;
 			case 2:
 				System.out.print("Creating a new Administrator.");
@@ -231,6 +234,7 @@ public class Methods
 			default:
 				break;
 		}
+		Login.AdministratorChoose();
 	}
 	//管理员信息，管理员功能
 	public static void queryFlight()
@@ -277,6 +281,7 @@ public class Methods
 				}
 				break;
 		}
+		Login.AdministratorChoose();
 	}
 	//查询航班
 	public static void reserveFlight()
