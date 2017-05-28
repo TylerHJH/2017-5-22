@@ -287,7 +287,7 @@ public class Methods
 		{
 			Scanner input = new Scanner(System.in);
 			System.out.print("Querying flights.");
-			System.out.print("\n1.Query with start city, arrival city and departmentdate\n2.Query with flightID"
+			System.out.print("\n1.Query with start city, arrival city and departmentdate\n2.Query with flightID\n3.Query All"
 					+ "\nPlease choose a way to query or enter 0 to quit:");
 			String choose = input.next();
 			if( choose.length() < 2)
@@ -367,6 +367,12 @@ public class Methods
 						}
 						
 						break;
+					case'3':
+						for(Flight flight : Data.ListOfFlight)
+						{
+							System.out.println(flight.toString());
+						}
+						break;
 					default:
 						System.out.print("\nPlease enter a correct number.");
 						break;
@@ -387,7 +393,7 @@ public class Methods
 			Scanner input = new Scanner(System.in);
 			System.out.print("Querying flights.");
 			System.out.print("\nPlease choose a way to query or enter 0 to quit:"
-					+ "\n1.Query with start city, arrival city and departmentdate\n2.Query with flightID");
+					+ "\n1.Query with start city, arrival city and departmentdate\n2.Query with flightID\n Query all");
 			String choose = input.next();
 			if( choose.length() < 2)
 			{
@@ -443,6 +449,12 @@ public class Methods
 						if(exist)
 						{
 							System.out.println("Not exist");
+						}
+						break;
+					case'3':
+						for(Flight flight : Data.ListOfFlight)
+						{
+							System.out.println(flight.toString());
 						}
 						break;
 					default:

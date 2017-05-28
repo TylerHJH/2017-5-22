@@ -24,6 +24,14 @@ public class Flight
 	{
 		return FlightID;
 	}
+	@Override
+	public String toString() {
+		return "Flight [FlightID=" + FlightID + ", startHour=" + startHour + ", startMinute=" + startMinute
+				+ ", arrivalHour=" + arrivalHour + ", arrivalMinute=" + arrivalMinute + ", startCity=" + startCity
+				+ ", arrivalCity=" + arrivalCity + ", departureYear=" + departureYear + ", departureMonth="
+				+ departureMonth + ", departureDate=" + departureDate + ", price=" + price + ", currentPassengers="
+				+ currentPassengers + ", seatCapacity=" + seatCapacity + ", flightStatus=" + flightStatus + "]" ;
+	}
 	public void setFlightID(String flightID) 
 	{
 		FlightID = flightID;
