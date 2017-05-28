@@ -521,6 +521,9 @@ public class Methods
 			}
 		}
 	}
-
+	public static void checkTime(Flight flight){
+		Calendar c = Calendar.getInstance();
+		
+	}
 	
 }
