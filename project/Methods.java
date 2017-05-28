@@ -38,8 +38,9 @@ public class Methods
 		int seatCapacity = input.nextInt();
 		System.out.print("\nSet the flightStatus:");
 		String flightStatus = input.next();
-		Flight flight = new Flight(flightID, startHour, startMinute, arrivalHour, arrivalMinute, startCity, arrivalCity,departureYear
-				, departureMonth, departureDate, price, currentPassengers, seatCapacity, flightStatus);
+		Flight flight = new Flight(flightID, startHour, startMinute, arrivalHour, arrivalMinute, startCity, 
+				arrivalCity,departureYear, departureMonth, departureDate, price, currentPassengers, seatCapacity, 
+				flightStatus);
 		Data.ListOfFlight.add( flight );
 		Login.AdministratorChoose();
 	}
@@ -68,7 +69,8 @@ public class Methods
 					do
 					{
 							System.out.print("\nPlease choose the message you want to update or enter 0 to quit: ");
-						System.out.print("\n1.flightID  2.startHour  3.startMinute  4.arrivalHour  5.arrivalMinute  6.startCity");
+						System.out.print("\n1.flightID  2.startHour  3.startMinute  4.arrivalHour  "
+								+ "5.arrivalMinute  6.startCity");
 						System.out.print("\n7.arrivalCity  8.departureYear  9.departureMonth  10.departureDate");
 						System.out.print("\n11.price  12.currentPassengers  13.seatCapacity  14.flightStatus");
 						choose1 = input.next();
@@ -145,7 +147,8 @@ public class Methods
 									System.out.print("\nPlease enter a correct number between 0 to 14: ");
 									break;
 							}
-							System.out.println("If you don't want to update other message, enter 0 to go back. Or enter any other numbers to continue.");
+							System.out.println("If you don't want to update other message, enter 0 to go back. "
+									+ "Or enter any other numbers to continue.");
 							System.out.print("Your choice is:");
 							  choose4 = input.nextInt();
 							 												
@@ -209,7 +212,8 @@ public class Methods
 			{
 				System.out.println( "administrator.getAdminName()     administrator.getPassword()");
 			}
-			System.out.print("Please enter a number to choose method or enter 0 to quit: \n1.UpdateAdministrator\n2.CreateAdministrator");
+			System.out.print("Please enter a number to choose method or enter 0 to quit: \n1.UpdateAdministrator"
+					+ "\n2.CreateAdministrator");
 			Scanner input = new Scanner(System.in);
 		    String choose1 = input.next();
 		    if( choose1.length() < 2)
@@ -230,7 +234,8 @@ public class Methods
 							if (admin.getAdminName().equals(adminName)&admin.getPassword().equals(password1))
 							{
 								do{
-								System.out.print("\nPlease enter the number of you want to update or enter 0 to quit:\n1.Administrator name\n2.Password");
+								System.out.print("\nPlease enter the number of you want to update "
+										+ "or enter 0 to quit:\n1.Administrator name\n2.Password");
 								String choose3 = input.next();
 								if(choose3.length() < 2)
 								{
@@ -642,7 +647,8 @@ public class Methods
 		{
 			Scanner input = new Scanner(System.in);
 			System.out.println("Superquerying");
-			System.out.println("Please choose a method to query or enter 0 to go back:\n1.Query orderlist\n2.Query order of a flight\n3.Query flight.");
+			System.out.println("Please choose a method to query or enter 0 to go back:\n1.Query orderlist"
+					+ "\n2.Query order of a flight\n3.Query flight.");
 			String choose = input.next();
 			if(choose.length() < 2)
 			{
@@ -664,7 +670,8 @@ public class Methods
 							
 							System.out.print("Querying flights.");
 							System.out.print("\nPlease choose a way to query or enter 0 to quit:"
-									+ "\n1.Query with start city, arrival city and departmentdate\n2.Query with flightID");
+									+ "\n1.Query with start city, arrival city and departmentdate\n"
+									+ "2.Query with flightID");
 							String choose3 = input.next();
 							if( choose3.length() < 2)
 							{
@@ -689,12 +696,15 @@ public class Methods
 										boolean exist = true;
 										for (Flight flight : Data.ListOfFlight)
 										{
-											if(flight.getStartCity().equals(startCity)&flight.getArrivalCity().equals(arrivalCity)&
-													flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
+											if(flight.getStartCity().equals(startCity)&
+													flight.getArrivalCity().equals(arrivalCity)&
+													flight.getDepartureYear() == departmentYear &
+													flight.getDepartureMonth() == departmentMonth &
 													flight.getDepartureDate() == departmentDate)
 											{
 												
-												System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
+												System.out.println(flight.getFlightID().toString() + 
+														flight.getPrice() + flight.getFlightStatus().toString());
 												exist = false;
 
 											}
@@ -713,7 +723,8 @@ public class Methods
 										{
 											if (flight.getFlightID().equals(flightID))
 											{
-												System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
+												System.out.println(flight.getFlightID() + 
+														flight.getPrice() + flight.getFlightStatus());
 												exist = false;
 											}	
 										}
