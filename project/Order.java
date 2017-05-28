@@ -6,7 +6,7 @@ public class Order
 	private String identityID;
 	private int passengerID;
 	private int seat;
-	private Flight flight;
+	static Flight flight;
 	private Date createTime;
 	private String status;
 	private int departmentYear;
