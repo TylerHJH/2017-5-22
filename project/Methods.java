@@ -272,6 +272,7 @@ public class Methods
 	//管理员信息，管理员功能
 	public static void queryFlight()
 	{
+		Flight.initializeFlightData();
 		while(true)
 		{
 			Scanner input = new Scanner(System.in);
@@ -305,7 +306,7 @@ public class Methods
 									flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
 									flight.getDepartureDate() == departmentDate)
 							{
-								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
+								System.out.println(flight.getFlightID().toString() + " "+flight.getPrice() +" "+ flight.getFlightStatus().toString());
 							}
 						}
 						break;
@@ -316,7 +317,7 @@ public class Methods
 						{
 							if (flight.getFlightID().equals(flightID))
 							{
-								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
+								System.out.println(flight.getFlightID().toString() + " "+flight.getPrice() +" "+ flight.getFlightStatus().toString());
 							}
 						}
 						break;
@@ -346,17 +347,11 @@ public class Methods
 		{
 			if( passenger.getPassengerID() == passengerID & passenger.getPassword().equals(password) )
 			{
-<<<<<<< HEAD
 				System.out.println("Please enter the start city: ");
 				String startCity = input.next();
 				System.out.println("Please enter the arrival city: ");
 				String arrivalCity = input.next();
 				System.out.print("\nPlease enter the departmentYear");
-=======
-				System.out.println("Please enter the flightID: ");
-				String flightID = input.next();
-				System.out.print("\nPlease enter the departmentYear:");
->>>>>>> 9e895fab6c8ef660d37ef02f760a7c47d57de2b3
 				int temp1 = input.nextInt();
 				System.out.print("\nPlease enter the departmentMonth:");
 				int temp2 = input.nextInt();
