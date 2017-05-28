@@ -12,10 +12,14 @@ public class Methods
 		System.out.println("Newing a flight");
 		System.out.print("\nSet the flightID:");
 		String flightID = input.next();
-		System.out.print("\nSet the startTime:");
-		String startTime = input.next();
-		System.out.print("\nSet the arrivalTime:");
-		String arrivalTime = input.next();
+		System.out.print("\nSet the startHour:");
+		int startHour = input.nextInt();
+		System.out.print("\nSet the startMinute:");
+		int startMinute = input.nextInt();
+		System.out.print("\nSet the arrivalHour:");
+		int arrivalHour = input.nextInt();
+		System.out.print("\nSet the arrivalMinute:");
+		int arrivalMinute = input.nextInt();
 		System.out.print("\nSet the startCity:");
 		String startCity = input.next();
 		System.out.print("\nSet the arrivalCity:");
@@ -34,7 +38,7 @@ public class Methods
 		int seatCapacity = input.nextInt();
 		System.out.print("\nSet the flightStatus:");
 		String flightStatus = input.next();
-		Flight flight = new Flight(flightID, startTime, arrivalTime, startCity, arrivalCity,departureYear
+		Flight flight = new Flight(flightID, startHour, startMinute, arrivalHour, arrivalMinute, startCity, arrivalCity,departureYear
 				, departureMonth, departureDate, price, currentPassengers, seatCapacity, flightStatus);
 		Data.ListOfFlight.add( flight );
 		Login.AdministratorChoose();
@@ -64,9 +68,9 @@ public class Methods
 					do
 					{
 							System.out.print("\nPlease choose the message you want to update or enter 0 to quit: ");
-						System.out.print("\n1.flightID  2.startTime  3.arrivalTime  4.startCity");
-						System.out.print("\n5.arrivalCity  6.departureYear  7.departureMonth  8.departureDate");
-						System.out.print("\n9.price  10.currentPassengers  11.seatCapacity  12.flightStatus");
+						System.out.print("\n1.flightID  2.startHour  3.startMinute  4.arrivalHour  5.arrivalMinute  6.startCity");
+						System.out.print("\n7.arrivalCity  8.departureYear  9.departureMonth  10.departureDate");
+						System.out.print("\n11.price  12.currentPassengers  13.seatCapacity  14.flightStatus");
 						choose1 = input.next();
 						
 							char choose2 = choose1.charAt(0);
@@ -81,52 +85,64 @@ public class Methods
 							switch(choose2)
 							{
 								case '1':
-									if(choose2 == '0')
+									if(choose3 == '0')
+									{
+										flight1.setDepartureDate(input.nextInt());
+										break;
+									}
+									if(choose3 == '1')
+									{
+										flight1.setPrice(input.nextInt());
+										break;
+									}
+									if(choose3 == '2')
 									{
 										flight1.setCurrentPassengers(input.nextInt());
 										break;
 									}
-									if(choose2 == '1')
+									if(choose3 == '3')
 									{
 										flight1.setSeatCapacity(input.nextInt());
 										break;
 									}
-									if(choose2 == '2')
+									if(choose3 == '4')
 									{
 										flight1.setFlightStatus(input.next());
 										break;
 									}
-									if(choose2 == ' ')
+									if(choose3 == ' ')
 									{
 										flight1.setFlightID(input.next());
 									break;
 									}
+									System.out.println("Please enter a number between 0 to 14.");
+									break;
 								case '2':
-									flight1.setStartTime(input.next());
+									flight1.setStartHour(input.nextInt());
 									break;
 								case '3':
-									flight1.setArrivalTime(input.next());
+									flight1.setStartMinute(input.nextInt());
 									break;
 								case '4':
-									flight1.setStartCity(input.next());
+									flight1.setArrivalHour(input.nextInt());
 									break;
 								case '5':
-									flight1.setArrivalCity(input.next());
+									flight1.setArrivalMinute(input.nextInt());
 									break;
 								case '6':
-									flight1.setDepartureYear(input.nextInt());
+									flight1.setStartCity(input.next());
 									break;
 								case '7':
-									flight1.setDepartureMonth(input.nextInt());
+									flight1.setArrivalCity(input.next());
 									break;
 								case '8':
-									flight1.setDepartureDate(input.nextInt());
+									flight1.setDepartureYear(input.nextInt());
 									break;
 								case '9':
-									flight1.setPrice(input.nextInt());
+									flight1.setDepartureMonth(input.nextInt());
 									break;
 								default:
-									System.out.print("\nPlease enter a correct number between 0 to 12: ");
+									System.out.print("\nPlease enter a correct number between 0 to 14: ");
 									break;
 							}
 							System.out.println("If you don't want to update other message, enter 0 to go back. Or enter any other numbers to continue.");

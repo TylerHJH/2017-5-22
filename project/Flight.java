@@ -5,8 +5,10 @@ import java.util.ArrayList;
 public class Flight 
 {
 	private String FlightID;
-	private String startTime;
-	private String arrivalTime;
+	private int startHour;
+	private int startMinute;
+	private int arrivalHour;
+	private int arrivalMinute;
 	private String startCity;
 	private String arrivalCity;
 	private int departureYear;
@@ -26,21 +28,37 @@ public class Flight
 	{
 		FlightID = flightID;
 	}
-	public String getStartTime() 
+	public int getStartHour() 
 	{
-		return startTime;
+		return startHour;
 	}
-	public void setStartTime(String startTime) 
+	public void setStartHour(int startHour) 
 	{
-		this.startTime = startTime;
+		this.startHour = startHour;
 	}
-	public String getArrivalTime() 
+	public int getStartMinute() 
 	{
-		return arrivalTime;
+		return startMinute;
 	}
-	public void setArrivalTime(String arrivalTime) 
+	public void setStartMinute(int startMinute) 
 	{
-		this.arrivalTime = arrivalTime;
+		this.startMinute = startMinute;
+	}
+	public int getArrivalHour() 
+	{
+		return arrivalHour;
+	}
+	public void setArrivalHour(int arrivalHour) 
+	{
+		this.arrivalHour = arrivalHour;
+	}
+	public int getArrivalMinute() 
+	{
+		return arrivalMinute;
+	}
+	public void setArrivalMinute(int arrivalMinute) 
+	{
+		this.arrivalMinute = arrivalMinute;
 	}
 	public String getStartCity() 
 	{
@@ -126,13 +144,15 @@ public class Flight
 		}
 		return a + 1;
 	}
-	public Flight(String flightID, String startTime, String arrivalTime, String startCity, String arrivalCity,
+	public Flight(String flightID, int startHour, int startMinute, int arrivalHour, int arrivalMinute, String startCity, String arrivalCity,
 			int departureYear, int departureMonth, int departureDate, int price, int currentPassengers, int seatCapacity, String flightStatus) 
 	{
 		super();
 		FlightID = flightID;
-		this.startTime = startTime;
-		this.arrivalTime = arrivalTime;
+		this.startHour = startHour;
+		this.startMinute = startMinute;
+		this.arrivalHour = arrivalHour;
+		this.arrivalMinute = arrivalMinute;
 		this.startCity = startCity;
 		this.arrivalCity = arrivalCity;
 		this.departureYear = departureYear;
