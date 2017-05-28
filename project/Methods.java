@@ -150,12 +150,12 @@ public class Methods
 							  choose4 = input.nextInt();
 							 												
 					}while(choose4 != 0);
-					break;
+					Login.AdministratorChoose();
 				}
 				else
 				{
 					System.out.print("\nYou can't upadte it because the flight is published.");
-					break;
+					Login.AdministratorChoose();
 				}
 			}
 		}
