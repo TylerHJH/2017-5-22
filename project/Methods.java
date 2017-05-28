@@ -48,13 +48,13 @@ public class Methods
 	{
 		Scanner input = new Scanner(System.in);
 		System.out.println("Updating a flight");
-		System.out.print("\nPlease enter the flightID");
+		System.out.print("\nPlease enter the flightID:");
 		String temp3 = input.next();
-		System.out.print("\nPlease enter the departmentYear");
+		System.out.print("\nPlease enter the departmentYear:");
 		int temp4 = input.nextInt();
-		System.out.print("\nPlease enter the departmentMonth");
+		System.out.print("\nPlease enter the departmentMonth:");
 		int temp5 = input.nextInt();
-		System.out.print("\nPlease enter the departmentDate");
+		System.out.print("\nPlease enter the departmentDate:");
 		int temp6 = input.nextInt();
 		for (Flight flight1 : Data.ListOfFlight)
 		{
