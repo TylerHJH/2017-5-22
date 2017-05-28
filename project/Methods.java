@@ -150,6 +150,7 @@ public class Methods
 							  choose4 = input.nextInt();
 							 												
 					}while(choose4 != 0);
+					break;
 				}
 				else
 				{
@@ -157,8 +158,8 @@ public class Methods
 					break;
 				}
 			}
-			
 		}
+		System.out.println("Can't find the correct flight.");
 		Login.AdministratorChoose();
 		
 	}
