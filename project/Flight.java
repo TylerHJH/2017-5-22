@@ -182,6 +182,7 @@ public class Flight
 		Flight f16=new Flight("A1015",8,15,11,35,"BeiJing","ShenZhen",2017,6,3,1400,200,200,"FULL");
 		Flight f17=new Flight("A1016",20,55,23,05,"ShangHai","BeiJing",2017,6,3,480,50,200,"AVAILABLE");
 		Flight f18=new Flight("A1017",6,40,8,55,"BeiJing","ShangHai",2017,6,3,510,100,200,"AVAILABLE");
+		Flight f19=new Flight("A1018",10,40,12,55,"BeiJing","ShangHai",2017,6,3,580,50,200,"AVAILABLE");
 		Data.ListOfFlight.add(f1);
 		Data.ListOfFlight.add(f2);
 		Data.ListOfFlight.add(f3);
@@ -200,7 +201,7 @@ public class Flight
 		Data.ListOfFlight.add(f16);
 		Data.ListOfFlight.add(f17);
 		Data.ListOfFlight.add(f18);
-		
+		Data.ListOfFlight.add(f19);
 	}
 	
 }
