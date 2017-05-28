@@ -101,10 +101,12 @@ public class Order
 	public static void displayOrderOfFlight(Flight flight){
 		for(Order orderOfFlight: flight.orderOfFlight )
 		{
-			System.out.printf("%s%10s%10d%10s%10s\n", orderOfFlight.passengerName,orderOfFlight.identityID,orderOfFlight.seat, orderOfFlight.createTime.toString(), orderOfFlight.status);
-		}
-		
-	
+			System.out.printf("%s%10s%10d%10s%10s\n",orderOfFlight.passengerName,orderOfFlight.identityID,orderOfFlight.seat, orderOfFlight.createTime.toString(), orderOfFlight.status);
+		}	
+	}
+	public static void displayMyOrderInformation( Order order )
+	{
+		System.out.printf("%s%10s%10d%10d%d%s%s", order.passengerName, order.identityID, order.flight.getFlightID(), order.seat, order.createTime.toString());
 	}
 	
 	
