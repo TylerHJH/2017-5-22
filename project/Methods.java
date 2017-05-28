@@ -479,13 +479,16 @@ public class Methods
 		{
 			Scanner input = new Scanner(System.in);
 			System.out.println("Superquerying");
-			System.out.println("Please choose a method to query:\n1.Query orderlist\n2.Query order of a flight\n3.Query flight.");
+			System.out.println("Please choose a method to query or enter 0 to go back:\n1.Query orderlist\n2.Query order of a flight\n3.Query flight.");
 			String choose = input.next();
 			if(choose.length() < 2)
 			{
 				char choose1 = choose.charAt(0);
 				switch(choose1)
 				{
+					case'0':
+						Login.AdministratorChoose();
+						break;									
 					case '1':
 						for(Order order : Data.ListOfOrder)
 						{
@@ -512,7 +515,7 @@ public class Methods
 						queryFlight();
 						break;
 					default:
-						System.out.println("Your enter is wrong. Please enter 1, 2 or 3.");
+						System.out.println("Your enter is wrong. Please enter 1, 2 or 3, or enter 0 to go back.");
 						break;
 				}
 			}
