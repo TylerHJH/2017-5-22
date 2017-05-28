@@ -348,11 +348,11 @@ public class Methods
 			{
 				System.out.println("Please enter the flightID: ");
 				String flightID = input.next();
-				System.out.print("\nPlease enter the departmentYear");
+				System.out.print("\nPlease enter the departmentYear:");
 				int temp1 = input.nextInt();
-				System.out.print("\nPlease enter the departmentMonth");
+				System.out.print("\nPlease enter the departmentMonth:");
 				int temp2 = input.nextInt();
-				System.out.print("\nPlease enter the departmentDate");
+				System.out.print("\nPlease enter the departmentDate:");
 				int temp3 = input.nextInt();
 				for (Flight flight : Data.ListOfFlight){
 					if (flight.getDepartureYear() == temp1 & flight.getFlightID().equals(flightID) & 
@@ -440,11 +440,11 @@ public class Methods
 			{
 				System.out.println("Please enter the flightID: ");
 				String flightID = input.next();
-				System.out.print("\nPlease enter the departmentYear");
+				System.out.print("\nPlease enter the departmentYear:");
 				int temp1 = input.nextInt();
-				System.out.print("\nPlease enter the departmentMonth");
+				System.out.print("\nPlease enter the departmentMonth:");
 				int temp2 = input.nextInt();
-				System.out.print("\nPlease enter the departmentDate");
+				System.out.print("\nPlease enter the departmentDate:");
 				int temp3 = input.nextInt();
 				for (Flight flight : Data.ListOfFlight){
 					if (flight.getDepartureYear() == temp1 & flight.getFlightID().equals(flightID) & 
@@ -498,11 +498,11 @@ public class Methods
 					case '2':
 						System.out.print("Please enter the flightID");
 						String flightID = input.next();
-						System.out.print("\nPlease enter the departmentYear");
+						System.out.print("\nPlease enter the departmentYear:");
 						int temp1 = input.nextInt();
-						System.out.print("\nPlease enter the departmentMonth");
+						System.out.print("\nPlease enter the departmentMonth:");
 						int temp2 = input.nextInt();
-						System.out.print("\nPlease enter the departmentDate");
+						System.out.print("\nPlease enter the departmentDate:");
 						int temp3 = input.nextInt();
 						for (Flight flight : Data.ListOfFlight){
 							if (flight.getDepartureYear() == temp1 & flight.getFlightID().equals(flightID) & 
