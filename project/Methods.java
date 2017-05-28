@@ -445,8 +445,15 @@ public class Methods
 			case 2:
 				System.out.print("Please enter the flightID");
 				String flightID = input.next();
+				System.out.print("\nPlease enter the departmentYear");
+				int temp1 = input.nextInt();
+				System.out.print("\nPlease enter the departmentMonth");
+				int temp2 = input.nextInt();
+				System.out.print("\nPlease enter the departmentDate");
+				int temp3 = input.nextInt();
 				for (Flight flight : Data.ListOfFlight){
-					if (flight.getFlightID().equals(flightID)){
+					if (flight.getDepartureYear() == temp1 & flight.getFlightID().equals(flightID) & 
+							flight.getDepartureMonth() == temp2 &flight.getDepartureDate() == temp3){
 						Order.displayOrderOfFlight( flight);
 					}
 				}
