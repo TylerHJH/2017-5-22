@@ -91,7 +91,7 @@ public class Login {
 		boolean isFalse = false;
 		do
 		{	
-			System.out.print("Enter your choice:");
+			System.out.print("\nEnter your choice:");
 			
 			String temp3 = input.next();
 			if( temp3.length() < 2 )

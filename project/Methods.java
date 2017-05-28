@@ -287,8 +287,8 @@ public class Methods
 		{
 			Scanner input = new Scanner(System.in);
 			System.out.print("Querying flights.");
-			System.out.print("\nPlease choose a way to query or enter 0 to quit:"
-					+ "\n1.Query with start city, arrival city and departmentdate\n2.Query with flightID");
+			System.out.print("\n1.Query with start city, arrival city and departmentdate\n2.Query with flightID"
+					+ "\nPlease choose a way to query or enter 0 to quit:");
 			String choose = input.next();
 			if( choose.length() < 2)
 			{
@@ -310,20 +310,28 @@ public class Methods
 						int departmentMonth = input.nextInt();
 						System.out.print("\nPlease enter the departmentDate:");
 						int departmentDate = input.nextInt();
+						boolean exist = true;
 						for (Flight flight : Data.ListOfFlight)
 						{
 							if(flight.getStartCity().equals(startCity)&flight.getArrivalCity().equals(arrivalCity)&
 									flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
 									flight.getDepartureDate() == departmentDate)
 							{
-								System.out.println(flight.getFlightID().toString() + " "+flight.getPrice() +" "+ flight.getFlightStatus().toString());
+								
+								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
+								exist = false;
+
 							}
+						}
+						if(exist)
+						{
+							System.out.println("Not exist");
 						}
 						break;
 					case '2':
 						System.out.print("\nPlease enter the flightID:");
 						String flightID = input.next();
-						boolean exist = true;
+						 exist = true;
 						for (Flight flight : Data.ListOfFlight)
 						{
 							if (flight.getFlightID().equals(flightID))
