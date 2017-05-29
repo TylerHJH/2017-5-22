@@ -420,18 +420,30 @@ public class Methods
 					case '2':
 						System.out.print("\nPlease enter the flightID:");
 						String flightID = input.next();
-						 exist = true;
+						char[] searchInput = new char[1+flightID.length()];
+						for(int i = 0 ; i < flightID.length() ; i++ )
+						{
+							searchInput[i] = flightID.charAt(i);
+						}
+						
+									 exist = true;
 						for (Flight flight : Data.ListOfFlight)
 						{
-							if (flight.getFlightID().equals(flightID))
+							int j = 0;
+							for( int i = 0; i < flight.getFlightID().length(); i ++ )
+							{
+								if( searchInput[j] == flight.getFlightID().charAt(i))
+								{
+									j++;
+								}
+							}
+							if(j == searchInput.length-1 )
 							{
 								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
 										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
 								exist = false;
-	
-							}
-						
+							}	
 						}
 						if(exist)
 						{
@@ -512,12 +524,12 @@ public class Methods
 					case '2':
 						System.out.print("\nPlease enter the flightID:");
 						String flightID = input.next();
-						char[] searchInput = new char[flightID.length()];
+						char[] searchInput = new char[1+flightID.length()];
 						for(int i = 0 ; i < flightID.length() ; i++ )
 						{
 							searchInput[i] = flightID.charAt(i);
 						}
-						
+				
 									 exist = true;
 						for (Flight flight : Data.ListOfFlight)
 						{
@@ -529,7 +541,7 @@ public class Methods
 									j++;
 								}
 							}
-							if(j == searchInput.length )
+							if(j == searchInput.length - 1)
 							{
 								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
 										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
@@ -637,7 +649,7 @@ public class Methods
 					case '2':
 						System.out.print("\nPlease enter the flightID:");
 						String flightID = input.next();
-						char[] searchInput = new char[flightID.length()];
+						char[] searchInput = new char[1+flightID.length()];
 						for(int i = 0 ; i < flightID.length() ; i++ )
 						{
 							searchInput[i] = flightID.charAt(i);
@@ -654,7 +666,7 @@ public class Methods
 									j++;
 								}
 							}
-							if(j == searchInput.length )
+							if(j == searchInput.length-1 )
 							{
 								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
 										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
