@@ -8,10 +8,15 @@ public class Methods
 {
 	public static void createFlight()
 	{
+		Calendar c = Calendar.getInstance();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Newing a flight");
 		System.out.print("\nSet the flightID:");
 		String flightID = input.next();
+		System.out.print("\nSet the startCity:");
+		String startCity = input.next();
+		System.out.print("\nSet the arrivalCity:");
+		String arrivalCity = input.next();
 		System.out.print("\nSet the startHour:");
 		int startHour = input.nextInt();
 		System.out.print("\nSet the startMinute:");
@@ -20,16 +25,14 @@ public class Methods
 		int arrivalHour = input.nextInt();
 		System.out.print("\nSet the arrivalMinute:");
 		int arrivalMinute = input.nextInt();
-		System.out.print("\nSet the startCity:");
-		String startCity = input.next();
-		System.out.print("\nSet the arrivalCity:");
-		String arrivalCity = input.next();
 		System.out.print("\nSet the departureYear:");
 		int departureYear = input.nextInt();
 		System.out.print("\nSet the departureMonth:");
 		int departureMonth = input.nextInt();
 		System.out.print("\nSet the departureDate:");
 		int departureDate = input.nextInt();
+		checkFlight(departureYear,departureMonth,departureDate,startHour,startMinute,
+				departureYear,departureMonth,departureDate,arrivalHour,arrivalMinute);
 		System.out.print("\nSet the price:");
 		int price = input.nextInt();
 		System.out.print("\nSet the currentPassengers:");
@@ -47,6 +50,7 @@ public class Methods
 	//创建航班，管理员功能
 	public static void updateFlight()
 	{
+		Calendar c = Calendar.getInstance();
 		Scanner input = new Scanner(System.in);
 		System.out.println("Updating a flight");
 		System.out.print("\nPlease enter the flightID:");
@@ -62,7 +66,8 @@ public class Methods
 			if (flight1.getFlightID().equals(temp3) & flight1.getDepartureYear() == temp4 &
 					flight1.getDepartureMonth() == temp5 & flight1.getDepartureDate() == temp6)
 			{
-				checkTime(flight1);
+				checkTime(flight1, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+						, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 				if (flight1.getFlightStatus().equals("UNPUBLISHED"))
 				{
 					String choose1;
@@ -170,6 +175,7 @@ public class Methods
 	//修改航班，管理员功能
 	public static void deleteFlight()
 	{
+		Calendar c = Calendar.getInstance();
 		Scanner input = new Scanner(System.in);
 		System.out.print("Deleting a Flight.");
 		System.out.print("\nPlease enter the flightID you want to delete:");
@@ -184,7 +190,8 @@ public class Methods
 		for (Flight flight1 : Data.ListOfFlight){
 			if (flight1.getFlightID().equals(deleteID) & flight1.getDepartureYear() == deleteYear &
 					flight1.getDepartureMonth() == deleteMonth & flight1.getDepartureDate() == deleteDate){
-				checkTime(flight1);
+				checkTime(flight1, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+						, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 				if (flight1.getFlightStatus().equals("AVAILABLE")|flight1.getFlightStatus().equals("FULL")){
 					System.out.print("\nYou can't delete this Flight in 'Avaliable' or 'Full' status.");
 					Login.AdministratorChoose();
@@ -285,6 +292,7 @@ public class Methods
 	//管理员信息，管理员功能
 	public static void queryFlightByAdmin()
 	{
+		Calendar c = Calendar.getInstance();
 		while(true)
 		{
 			Scanner input = new Scanner(System.in);
@@ -319,7 +327,8 @@ public class Methods
 									flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
 									flight.getDepartureDate() == departmentDate)
 							{
-								checkTime(flight);
+								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
 
@@ -338,7 +347,8 @@ public class Methods
 						{
 							if (flight.getFlightID().equals(flightID))
 							{
-								checkTime(flight);
+								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
 								exist = false;
 								System.out.println("if you want to go back, enter 0, or enter 1 to enter reserve steps.");
@@ -372,7 +382,8 @@ public class Methods
 					case'3':
 						for(Flight flight : Data.ListOfFlight)
 						{
-							checkTime(flight);
+							checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+									, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 							System.out.println(flight.toString());
 						}
 						break;
@@ -389,6 +400,7 @@ public class Methods
 	}
 	public static void queryFlight()
 	{
+		Calendar c = Calendar.getInstance();
 		while(true)
 		{
 			Scanner input = new Scanner(System.in);
@@ -423,7 +435,8 @@ public class Methods
 									flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
 									flight.getDepartureDate() == departmentDate)
 							{
-								checkTime(flight);
+								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
 
@@ -442,7 +455,8 @@ public class Methods
 						{
 							if (flight.getFlightID().equals(flightID))
 							{
-								checkTime(flight);
+								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
 								exist = false;
 								System.out.println("if you want to go back, enter 0, or enter 1 to enter reserve steps.");
@@ -476,7 +490,8 @@ public class Methods
 					case'3':
 						for(Flight flight : Data.ListOfFlight)
 						{
-							checkTime(flight);
+							checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+									, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 							System.out.println(flight.toString());
 						}
 						break;
@@ -495,6 +510,7 @@ public class Methods
 	
 	public static void directlyQueryFlight()
 	{
+		Calendar c = Calendar.getInstance();
 		while(true)
 		{
 			Scanner input = new Scanner(System.in);
@@ -529,7 +545,8 @@ public class Methods
 									flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
 									flight.getDepartureDate() == departmentDate)
 							{
-								checkTime(flight);
+								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
 
@@ -549,7 +566,8 @@ public class Methods
 						{
 							if (flight.getFlightID().equals(flightID))
 							{
-								checkTime(flight);
+								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
 								exist = false;
 							}	
@@ -562,7 +580,8 @@ public class Methods
 					case'3':
 						for(Flight flight : Data.ListOfFlight)
 						{
-							checkTime(flight);
+							checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+									, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 							System.out.println(flight.toString());
 						}
 						break;
@@ -614,7 +633,8 @@ public class Methods
 						flight.getDepartureMonth() == temp2 &flight.getDepartureDate() == temp3 &
 						flight.getArrivalCity().equals(arrivalCity))
 					    {
-							checkTime(flight);
+							checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+									, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 							if (flight.getFlightStatus().equals("AVAILABLE")){
 								System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
 								String pay = input.next();
@@ -655,7 +675,8 @@ public class Methods
 							flight.getDepartureMonth() == temp5 &flight.getDepartureDate() == temp6 &
 							flight.getArrivalCity().equals(startCity))
 						    {
-									checkTime(flight);
+						checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+								, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 								if (flight.getFlightStatus().equals("AVAILABLE")){
 									System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
 									String pay = input.next();
@@ -774,6 +795,7 @@ public class Methods
 
 	public static void superQuery()
 	{
+		Calendar c = Calendar.getInstance();
 		while(true)
 		{
 			Scanner input = new Scanner(System.in);
@@ -834,7 +856,8 @@ public class Methods
 													flight.getDepartureMonth() == departmentMonth &
 													flight.getDepartureDate() == departmentDate)
 											{
-												checkTime(flight);
+												checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+														, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 												System.out.println(flight.getFlightID().toString() + "  "+"  "+
 														flight.getPrice() + flight.getFlightStatus().toString());
 												exist = false;
@@ -855,7 +878,8 @@ public class Methods
 										{
 											if (flight.getFlightID().equals(flightID))
 											{
-												checkTime(flight);
+												checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+														, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 												System.out.println(flight.getFlightID() + 
 														flight.getPrice() + flight.getFlightStatus());
 												exist = false;
@@ -888,14 +912,14 @@ public class Methods
 			}
 		}
 	}
-	public static void checkTime(Flight flight){
-		Calendar c = Calendar.getInstance();
-		if(flight.getStartHour() > 2 & (c.get(Calendar.YEAR) > flight.getDepartureYear() //条件1
-				 ||(c.get(Calendar.YEAR) == flight.getDepartureYear() & c.get(Calendar.MONTH) > flight.getDepartureMonth()) //条件2
-				 ||(c.get(Calendar.YEAR) == flight.getDepartureYear() & c.get(Calendar.MONTH) == flight.getDepartureMonth() & c.get(Calendar.DATE) > flight.getDepartureDate())
+	public static void checkTime(Flight flight,int compareYear,int compareMonth,int compareDate,
+			int compareHour,int compareMinute,int timedifference){
+		if(flight.getStartHour() > 2 & (compareYear > flight.getDepartureYear() //条件1
+				 ||(compareYear == flight.getDepartureYear() & compareMonth > flight.getDepartureMonth()) //条件2
+				 ||(compareYear == flight.getDepartureYear() & compareMonth == flight.getDepartureMonth() & compareDate > flight.getDepartureDate())
 				//条件3
-				 ||(c.get(Calendar.YEAR) == flight.getDepartureYear() & c.get(Calendar.MONTH) == flight.getDepartureMonth() &
-				c.get(Calendar.DATE) == flight.getDepartureDate() & c.get(Calendar.HOUR_OF_DAY) > flight.getStartHour() - 2))//条件4
+				 ||(compareYear == flight.getDepartureYear() & compareMonth == flight.getDepartureMonth() &
+					compareDate == flight.getDepartureDate() & compareHour > flight.getStartHour() - 2))//条件4
 				){
 			flight.setFlightStatus("TERMINATE");
 		}
@@ -939,50 +963,105 @@ public class Methods
 					startTime = 334*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
 					break;
 				}
-				if (startTime <= getCurrentTime() + 120){
+				if (startTime <= getTime(compareMonth, compareDate, compareHour, compareMinute) + timedifference){
 					flight.setFlightStatus("TERMINATE");
 				}
 			}
-		}	
-	public static int getCurrentTime(){
-		Calendar c = Calendar.getInstance();
+		}
+	public static void checkFlight(int standardYear,int standardMonth,int standardDate,int standardHour,int standardMinute
+							,int compareYear,int compareMonth,int compareDate,int compareHour,int compareMinute){
+		if(standardHour > 2 & (compareYear > standardYear //条件1
+				 ||(compareYear == standardYear & compareMonth > standardMonth) //条件2
+				 ||(compareYear == standardYear & compareMonth == standardMonth & compareDate > standardDate)
+				//条件3
+				 ||(compareYear == standardYear & compareMonth == standardMonth &
+					compareDate == standardDate & compareHour > standardHour - 2))//条件4
+				){
+			System.out.println("You can't create this flight because of the incorrect Time.");
+		}
+		else if (standardHour < 2 & standardHour >= 0){
+			int startTime = 0;
+				switch (standardMonth){
+				case 1:
+					startTime = (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+					break;
+				case 2:
+					startTime = 31*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+					break;
+				case 3:
+					startTime = 59*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+					break;
+				case 4:
+					startTime = 90*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+					break;
+				case 5:
+					startTime = 120*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+					break;
+				case 6:
+					startTime = 151*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+					break;
+				case 7:
+					startTime = 181*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+					break;
+				case 8:
+					startTime = 212*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+					break;
+				case 9:
+					startTime = 243*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+					break;
+				case 10:
+					startTime = 273*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+					break;
+				case 11:
+					startTime = 304*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+					break;
+				case 12:
+					startTime = 334*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+					break;
+				}
+				if (startTime <= getTime(compareMonth, compareDate, compareHour, compareMinute)){
+					System.out.println("You can't create this flight because of the incorrect Time.");
+				}
+			}
+		}
+	public static int getTime(int compareMonth, int compareDate, int compareHour, int compareMinute){
 		int currentTime = 0;
-		switch (c.get(Calendar.MONTH)){
+		switch (compareMonth){
 		case 1:
-			currentTime = (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			currentTime = (compareDate - 1)*24*60 + compareHour*60 + compareMinute;
 			break;
 		case 2:
-			currentTime = 31*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			currentTime = 31*24*60 + (compareDate - 1)*24*60 + compareHour*60 + compareMinute;
 			break;
 		case 3:
-			currentTime = 59*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			currentTime = 59*24*60 + (compareDate - 1)*24*60 + compareHour*60 + compareMinute;
 			break;
 		case 4:
-			currentTime = 90*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			currentTime = 90*24*60 + (compareDate - 1)*24*60 + compareHour*60 + compareMinute;
 			break;
 		case 5:
-			currentTime = 120*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			currentTime = 120*24*60 + (compareDate - 1)*24*60 + compareHour*60 + compareMinute;
 			break;
 		case 6:
-			currentTime = 151*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			currentTime = 151*24*60 + (compareDate - 1)*24*60 + compareHour*60 + compareMinute;
 			break;
 		case 7:
-			currentTime = 181*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			currentTime = 181*24*60 + (compareDate - 1)*24*60 + compareHour*60 + compareMinute;
 			break;
 		case 8:
-			currentTime = 212*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			currentTime = 212*24*60 + (compareDate - 1)*24*60 + compareHour*60 + compareMinute;
 			break;
 		case 9:
-			currentTime = 243*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			currentTime = 243*24*60 + (compareDate - 1)*24*60 + compareHour*60 + compareMinute;
 			break;
 		case 10:
-			currentTime = 273*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			currentTime = 273*24*60 + (compareDate - 1)*24*60 + compareHour*60 + compareMinute;
 			break;
 		case 11:
-			currentTime = 304*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			currentTime = 304*24*60 + (compareDate - 1)*24*60 + compareHour*60 + compareMinute;
 			break;
 		case 12:
-			currentTime = 334*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			currentTime = 334*24*60 + (compareDate - 1)*24*60 + compareHour*60 + compareMinute;
 			break;
 		}
 		return currentTime;
