@@ -166,7 +166,7 @@ public class Login {
 		String admin_password = input.next();
 		
 		Administrator administrator = new Administrator( admin_name, admin_password);
-		Data.ListOfAdminstrator.add( administrator );
+		Data.ListOfAdminstrator.add(administrator);
 		
 		System.out.println();
 		System.out.println("Registration End");
@@ -228,6 +228,17 @@ public class Login {
 			{
 				System.out.println("Login Successes");
 				 AdministratorChoose();	
+			}
+			else
+			{
+				for( Administrator administrator:Data.ListOfAdminstrator )
+				{
+					if( administrator.getAdminName().equals(temp1) && administrator.getPassword().equals(temp2) )
+					{
+						System.out.println("Login Successes");
+						AdministratorChoose();	
+					}
+				}
 			}
 			System.out.println("Your admin name or password are wrong.");
 			System.out.printf("Enter anything except 0 to try again or enter 0 to go back");

@@ -62,7 +62,8 @@ public class Methods
 			if (flight1.getFlightID().equals(temp3) & flight1.getDepartureYear() == temp4 &
 					flight1.getDepartureMonth() == temp5 & flight1.getDepartureDate() == temp6)
 			{
-				if (flight1.getFlightStatus().equals("Unpublished"))
+				checkTime(flight1);
+				if (flight1.getFlightStatus().equals("UNPUBLISHED"))
 				{
 					String choose1;
 					int choose4;
@@ -182,11 +183,17 @@ public class Methods
 		for (Flight flight1 : Data.ListOfFlight){
 			if (flight1.getFlightID().equals(deleteID) & flight1.getDepartureYear() == deleteYear &
 					flight1.getDepartureMonth() == deleteMonth & flight1.getDepartureDate() == deleteDate){
+<<<<<<< HEAD
 				if (flight1.getFlightStatus().equals("AVAILABLE")|flight1.getFlightStatus().equals("FULL")){
 					System.out.print("\nYou can't delete this Flight in 'Available' or 'Full' status.");
+=======
+				checkTime(flight1);
+				if (flight1.getFlightStatus().equals("AVAILABLE")|flight1.getFlightStatus().equals("FULL")){
+					System.out.print("\nYou can't delete this Flight in 'Avaliable' or 'Full' status.");
+>>>>>>> 1a436c1af17be47c91f60726cda91d3fa5504adb
 					Login.AdministratorChoose();
 				}
-				else{
+				else if (flight1.getFlightStatus().equals("UNPUBLISHED")|flight1.getFlightStatus().equals("TERMINATE")){
 					System.out.print("\nPlease enter Y to delete or N to quit: ");
 					String isdelete = input.next();
 					if(isdelete.equals("Y")){
@@ -315,7 +322,7 @@ public class Methods
 									flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
 									flight.getDepartureDate() == departmentDate)
 							{
-								
+								checkTime(flight);
 								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
 
@@ -334,7 +341,7 @@ public class Methods
 						{
 							if (flight.getFlightID().equals(flightID))
 							{
-
+								checkTime(flight);
 								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
 								exist = false;
 								System.out.println("if you want to go back, enter 0, or enter 1 to enter reserve steps.");
@@ -368,6 +375,7 @@ public class Methods
 					case'3':
 						for(Flight flight : Data.ListOfFlight)
 						{
+							checkTime(flight);
 							System.out.println(flight.toString());
 						}
 						break;
@@ -418,7 +426,7 @@ public class Methods
 									flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
 									flight.getDepartureDate() == departmentDate)
 							{
-								
+								checkTime(flight);
 								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
 
@@ -432,45 +440,60 @@ public class Methods
 					case '2':
 						System.out.print("\nPlease enter the flightID:");
 						String flightID = input.next();
-						 exist = true;
+						char[] searchInput = new char[flightID.length()];
+						for(int i = 0 ; i < flightID.length() ; i++ )
+						{
+							searchInput[i] = flightID.charAt(i);
+						}
+						
+									 exist = true;
 						for (Flight flight : Data.ListOfFlight)
 						{
-							if (flight.getFlightID().equals(flightID))
+							int j = 0;
+							for( int i = 0; i < flight.getFlightID().length(); i ++ )
 							{
-
-								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
-								exist = false;
-								System.out.println("if you want to go back, enter 0, or enter 1 to enter reserve steps.");
-								while(true)
+								if( searchInput[j] == flight.getFlightID().charAt(i))
 								{
-									String choose3 = input.next();
-									if(choose3.length() <2)
+									j++;
+								}
+							}
+							if(j == searchInput.length )
+							{
+								checkTime(flight);
+								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
+								exist = false;
+							}
+							System.out.println("if you want to go back, enter 0, or enter 1 to enter reserve steps.");
+							while(true)
+							{
+								String choose3 = input.next();
+								if(choose3.length() <2)
+								{
+									char choose4 = choose3.charAt(0);
+									switch( choose4 )
 									{
-										char choose4 = choose3.charAt(0);
-										switch( choose4 )
-										{
-											case'0':
-												Login.UsersChoose();
-												break;
-											case'1':
-												reserveFlight();
-												break;
-												
-										}
+										case'0':
+											Login.UsersChoose();
+											break;
+										case'1':
+											reserveFlight();
+											break;
+											
 									}
 								}
 							}
-						
+
 						}
 						if(exist)
 						{
 							System.out.println("Not exist");
 						}
-						
 						break;
+
 					case'3':
 						for(Flight flight : Data.ListOfFlight)
 						{
+							checkTime(flight);
 							System.out.println(flight.toString());
 						}
 						break;
@@ -523,7 +546,7 @@ public class Methods
 									flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
 									flight.getDepartureDate() == departmentDate)
 							{
-								
+								checkTime(flight);
 								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
 
@@ -538,14 +561,28 @@ public class Methods
 					case '2':
 						System.out.print("\nPlease enter the flightID:");
 						String flightID = input.next();
-						 exist = true;
+						char[] searchInput = new char[flightID.length()];
+						for(int i = 0 ; i < flightID.length() ; i++ )
+						{
+							searchInput[i] = flightID.charAt(i);
+						}
+						
+									 exist = true;
 						for (Flight flight : Data.ListOfFlight)
 						{
-							if (flight.getFlightID().equals(flightID))
+							int j = 0;
+							for( int i = 0; i < flight.getFlightID().length(); i ++ )
 							{
-								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
-								exist = false;
-							}	
+								if( searchInput[j] == flight.getFlightID().charAt(i))
+								{
+									j++;
+								}
+							}
+							if(j == searchInput.length )
+							{
+								checkTime(flight);
+								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
+							}
 						}
 						if(exist)
 						{
@@ -555,6 +592,7 @@ public class Methods
 					case'3':
 						for(Flight flight : Data.ListOfFlight)
 						{
+							checkTime(flight);
 							System.out.println(flight.toString());
 						}
 						break;
@@ -606,7 +644,8 @@ public class Methods
 						flight.getDepartureMonth() == temp2 &flight.getDepartureDate() == temp3 &
 						flight.getArrivalCity().equals(arrivalCity))
 					    {
-							if (flight.getFlightStatus().equals("Avaliable")){
+							checkTime(flight);
+							if (flight.getFlightStatus().equals("AVAILABLE")){
 								System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
 								String pay = input.next();
 								if (pay.equals("Y")){
@@ -614,7 +653,7 @@ public class Methods
 									flight.setCurrentPassengers(flight.getCurrentPassengers() + 1);
 									if (flight.getCurrentPassengers() == flight.getSeatCapacity())
 									{
-										flight.setFlightStatus("Full");
+										flight.setFlightStatus("FULL");
 									}
 									Date date = new Date(c.get(Calendar.YEAR),c.get(Calendar.MONTH),c.get(Calendar.DATE),
 											c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),c.get(Calendar.SECOND));
@@ -646,7 +685,8 @@ public class Methods
 							flight.getDepartureMonth() == temp5 &flight.getDepartureDate() == temp6 &
 							flight.getArrivalCity().equals(startCity))
 						    {
-								if (flight.getFlightStatus().equals("Avaliable")){
+									checkTime(flight);
+								if (flight.getFlightStatus().equals("AVAILABLE")){
 									System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
 									String pay = input.next();
 									if (pay.equals("Y")){
@@ -654,7 +694,7 @@ public class Methods
 										flight.setCurrentPassengers(flight.getCurrentPassengers() + 1);
 										if (flight.getCurrentPassengers() == flight.getSeatCapacity())
 										{
-											flight.setFlightStatus("Full");
+											flight.setFlightStatus("FULL");
 										}
 										Date date = new Date(c.get(Calendar.YEAR),c.get(Calendar.MONTH),c.get(Calendar.DATE),
 												c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),c.get(Calendar.SECOND));
@@ -744,7 +784,7 @@ public class Methods
 								flight.seatnumber.remove(flight.getSeatNumber());
 								flight.seatnumber.add(flight.getSeatNumber(), false);
 								flight.setCurrentPassengers(flight.getCurrentPassengers() - 1);
-								flight.setFlightStatus("Avaliable");
+								flight.setFlightStatus("AVAILABLE");
 								passenger.orderList.remove(order);
 								flight.orderOfFlight.remove(order);
 								Data.ListOfOrder.remove(order);
@@ -824,7 +864,7 @@ public class Methods
 													flight.getDepartureMonth() == departmentMonth &
 													flight.getDepartureDate() == departmentDate)
 											{
-												
+												checkTime(flight);
 												System.out.println(flight.getFlightID().toString() + "  "+"  "+
 														flight.getPrice() + flight.getFlightStatus().toString());
 												exist = false;
@@ -840,15 +880,28 @@ public class Methods
 									case '2':
 										System.out.print("\nPlease enter the flightID:");
 										String flightID = input.next();
-										 exist = true;
+										char[] searchInput = new char[flightID.length()];
+										for(int i = 0 ; i < flightID.length() ; i++ )
+										{
+											searchInput[i] = flightID.charAt(i);
+										}
+										
+													 exist = true;
 										for (Flight flight : Data.ListOfFlight)
 										{
-											if (flight.getFlightID().equals(flightID))
+											int j = 0;
+											for( int i = 0; i < flight.getFlightID().length(); i ++ )
 											{
-												System.out.println(flight.getFlightID() + 
-														flight.getPrice() + flight.getFlightStatus());
-												exist = false;
-											}	
+												if( searchInput[j] == flight.getFlightID().charAt(i))
+												{
+													j++;
+												}
+											}
+											if(j == searchInput.length )
+											{
+												checkTime(flight);
+												System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
+											}
 										}
 										if(exist)
 										{
@@ -879,7 +932,102 @@ public class Methods
 	}
 	public static void checkTime(Flight flight){
 		Calendar c = Calendar.getInstance();
-		
+		if(flight.getStartHour() > 2 & (c.get(Calendar.YEAR) > flight.getDepartureYear() //条件1
+				 ||(c.get(Calendar.YEAR) == flight.getDepartureYear() & c.get(Calendar.MONTH) > flight.getDepartureMonth()) //条件2
+				 ||(c.get(Calendar.YEAR) == flight.getDepartureYear() & c.get(Calendar.MONTH) == flight.getDepartureMonth() & c.get(Calendar.DATE) > flight.getDepartureDate())
+				//条件3
+				 ||(c.get(Calendar.YEAR) == flight.getDepartureYear() & c.get(Calendar.MONTH) == flight.getDepartureMonth() &
+				c.get(Calendar.DATE) == flight.getDepartureDate() & c.get(Calendar.HOUR_OF_DAY) > flight.getStartHour() - 2))//条件4
+				){
+			flight.setFlightStatus("TERMINATE");
+		}
+		else if (flight.getStartHour() < 2 & flight.getStartHour() >= 0){
+			int startTime = 0;
+				switch (flight.getDepartureMonth()){
+				case 1:
+					startTime = (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 2:
+					startTime = 31*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 3:
+					startTime = 59*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 4:
+					startTime = 90*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 5:
+					startTime = 120*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 6:
+					startTime = 151*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 7:
+					startTime = 181*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 8:
+					startTime = 212*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 9:
+					startTime = 243*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 10:
+					startTime = 273*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 11:
+					startTime = 304*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 12:
+					startTime = 334*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				}
+				if (startTime <= getCurrentTime() + 120){
+					flight.setFlightStatus("TERMINATE");
+				}
+			}
+		}	
+	public static int getCurrentTime(){
+		Calendar c = Calendar.getInstance();
+		int currentTime = 0;
+		switch (c.get(Calendar.MONTH)){
+		case 1:
+			currentTime = (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 2:
+			currentTime = 31*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 3:
+			currentTime = 59*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 4:
+			currentTime = 90*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 5:
+			currentTime = 120*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 6:
+			currentTime = 151*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 7:
+			currentTime = 181*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 8:
+			currentTime = 212*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 9:
+			currentTime = 243*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 10:
+			currentTime = 273*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 11:
+			currentTime = 304*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 12:
+			currentTime = 334*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		}
+		return currentTime;
 	}
-	
+		
 }
