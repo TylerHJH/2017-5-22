@@ -86,6 +86,7 @@ public class Methods
 						choose1 = input.next();
 						
 							char choose2 = choose1.charAt(0);
+							if(choose1.length() == 2);
 							char choose3 = choose1.charAt(1);
 							if(choose1.length() < 2)
 							{			
@@ -166,40 +167,46 @@ public class Methods
 					Login.AdministratorChoose();
 				}
 				else if (flight1.getFlightStatus().equals("AVAILABLE") | flight1.getFlightStatus().equals("FULL")){
-					int choose1;
+					String choose1;
+					int choose;
 					do
 					{
 						System.out.print("\nPlease choose the message you want to update or enter 0 to quit: ");
 						System.out.print("\n1.price  2.seatCapacity");
-						choose1 = input.nextInt();
-						switch(choose1){
-						case 0:
-							break;
-						case 1:
-							flight1.setPrice(input.nextInt());
-							break;
-						case 2:
-							int seatCapacity = input.nextInt();
-							if (seatCapacity < flight1.getSeatCapacity()){
-								System.out.println("You can't update the seatCapacity lower than currentseat.");
-							}
-							else{
-								flight1.setSeatCapacity(seatCapacity);
-								if (flight1.getCurrentPassengers() == flight1.getSeatCapacity())
-								{
-									flight1.setFlightStatus("FULL");
+						choose1 = input.next();
+						if(choose1.length() < 2)
+						{
+							char choose2 = choose1.charAt(0);
+							switch(choose2){
+							case '0':
+								break;
+							case '1':
+								flight1.setPrice(input.nextInt());
+								break;
+							case '2':
+								int seatCapacity = input.nextInt();
+								if (seatCapacity < flight1.getSeatCapacity()){
+									System.out.println("You can't update the seatCapacity lower than currentseat.");
 								}
+								else{
+									flight1.setSeatCapacity(seatCapacity);
+									if (flight1.getCurrentPassengers() == flight1.getSeatCapacity())
+									{
+										flight1.setFlightStatus("FULL");
+									}
+								}
+								break;
+							default:
+								System.out.print("\nPlease enter a correct number between 0 to 2: ");
+								break;
 							}
-							break;
-						default:
-							System.out.print("\nPlease enter a correct number between 0 to 2: ");
-							break;
 						}
+						
 						System.out.println("If you don't want to update other message, enter 0 to go back. "
 								+ "Or enter any other numbers to continue.");
 						System.out.print("Your choice is:");
-						  choose1 = input.nextInt();
-					}while(choose1 != 0);
+						   choose = input.nextInt();
+					}while(choose != 0);
 					Login.AdministratorChoose();	
 				}
 				else
