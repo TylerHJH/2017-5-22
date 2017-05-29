@@ -32,8 +32,10 @@ public class Flight
 		return "Flight [FlightID=" + FlightID + ", startHour=" + startHour + ", startMinute=" + startMinute
 				+ ", arrivalHour=" + arrivalHour + ", arrivalMinute=" + arrivalMinute + ", startCity=" + startCity
 				+ ", arrivalCity=" + arrivalCity + ", departureYear=" + departureYear + ", departureMonth="
-				+ departureMonth + ", departureDate=" + departureDate + ", price=" + price + ", currentPassengers="
-				+ currentPassengers + ", seatCapacity=" + seatCapacity + ", flightStatus=" + flightStatus + "]" ;
+				+ departureMonth + ", departureDate=" + departureDate + ", arrivalYear=" + arrivalYear
+				+ ", arrivalMonth=" + arrivalMonth + ", arrivalDate=" + arrivalDate + ", price=" + price
+				+ ", currentPassengers=" + currentPassengers + ", seatCapacity=" + seatCapacity + ", flightStatus="
+				+ flightStatus + ", orderOfFlight=" + orderOfFlight + ", seatnumber=" + seatnumber + "]";
 	}
 	public void setFlightID(String flightID) 
 	{

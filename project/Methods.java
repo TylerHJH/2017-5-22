@@ -85,11 +85,12 @@ public class Methods
 					int choose4;
 					do
 					{
-							System.out.print("\nPlease choose the message you want to update or enter 0 to quit: ");
 						System.out.print("\n1.flightID  2.startHour  3.startMinute  4.arrivalHour  "
 								+ "5.arrivalMinute  6.startCity");
 						System.out.print("\n7.arrivalCity  8.departureYear  9.departureMonth  10.departureDate");
 						System.out.print("\n11.price  12.currentPassengers  13.seatCapacity  14.flightStatus");
+						System.out.print("\n15.arrivalYear  16.arrivalMonth  17.arrivalDate ");
+						System.out.print("\nPlease choose the message you want to update or enter 0 to quit: ");
 						choose1 = input.next();
 						
 							char choose2 = choose1.charAt(0);
@@ -138,6 +139,22 @@ public class Methods
 										flight1.setFlightID(input.next());
 									break;									
 									}
+									if(choose3 == '5')
+									{
+										flight1.setArrivalYear(input.nextInt());
+										break;
+									}
+									if(choose3 == '6')
+									{
+										flight1.setArrivalMonth(input.nextInt());;
+										break;
+									}
+									if(choose3 == '7')
+									{
+										flight1.setArrivalDate(input.nextInt());;
+										break;
+									}
+									
 									System.out.println("Please enter a number between 0 to 14.");
 									break;
 								case '2':
