@@ -779,7 +779,7 @@ public class Methods
 								Login.UsersChoose();
 							}
 					}
-			if(roundTrip=="Y"){
+			if(roundTrip.equals("Y")){
 					System.out.println("Please enter the flightID: ");
 					flightID = input.next();
 					System.out.print("\nPlease enter the departmentYear");
