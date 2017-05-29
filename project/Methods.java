@@ -41,6 +41,7 @@ public class Methods
 		Flight flight = new Flight(flightID, startHour, startMinute, arrivalHour, arrivalMinute, startCity, 
 				arrivalCity,departureYear, departureMonth, departureDate, price, currentPassengers, seatCapacity, 
 				flightStatus);
+		checkTime(flight);
 		Data.ListOfFlight.add( flight );
 		Login.AdministratorChoose();
 	}
@@ -183,14 +184,11 @@ public class Methods
 		for (Flight flight1 : Data.ListOfFlight){
 			if (flight1.getFlightID().equals(deleteID) & flight1.getDepartureYear() == deleteYear &
 					flight1.getDepartureMonth() == deleteMonth & flight1.getDepartureDate() == deleteDate){
-<<<<<<< HEAD
-				if (flight1.getFlightStatus().equals("AVAILABLE")|flight1.getFlightStatus().equals("FULL")){
-					System.out.print("\nYou can't delete this Flight in 'Available' or 'Full' status.");
-=======
+
 				checkTime(flight1);
 				if (flight1.getFlightStatus().equals("AVAILABLE")|flight1.getFlightStatus().equals("FULL")){
 					System.out.print("\nYou can't delete this Flight in 'Avaliable' or 'Full' status.");
->>>>>>> 1a436c1af17be47c91f60726cda91d3fa5504adb
+
 					Login.AdministratorChoose();
 				}
 				else if (flight1.getFlightStatus().equals("UNPUBLISHED")|flight1.getFlightStatus().equals("TERMINATE")){
