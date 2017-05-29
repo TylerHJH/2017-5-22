@@ -608,8 +608,8 @@ public class Methods
 		{
 			Scanner input = new Scanner(System.in);
 			System.out.print("Querying flights.");
-			System.out.print("\nPlease choose a way to query or enter 0 to quit:"
-					+ "\n1.Query with start city, arrival city and departmentdate\n2.Query with flightID\n Query all");
+			System.out.print("\n1.Query with start city, arrival city and departmentdate\n2.Query with flightID\n3. Query all"
+				+	"\nPlease choose a way to query or enter 0 to quit:");
 			String choose = input.next();
 			if( choose.length() < 2)
 			{
