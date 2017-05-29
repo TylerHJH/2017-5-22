@@ -17,6 +17,10 @@ public class Methods
 		String startCity = input.next();
 		System.out.print("\nSet the arrivalCity:");
 		String arrivalCity = input.next();
+		if (startCity.equals(arrivalCity)){
+			System.out.println("The start city can't the same with arrival city.");
+			Login.AdministratorChoose();
+		}
 		System.out.print("\nSet the startHour:");
 		int startHour = input.nextInt();
 		System.out.print("\nSet the startMinute:");
@@ -161,9 +165,46 @@ public class Methods
 					}while(choose4 != 0);
 					Login.AdministratorChoose();
 				}
+				else if (flight1.getFlightStatus().equals("AVAILABLE") | flight1.getFlightStatus().equals("FULL")){
+					int choose1;
+					do
+					{
+						System.out.print("\nPlease choose the message you want to update or enter 0 to quit: ");
+						System.out.print("\n1.price  2.seatCapacity");
+						choose1 = input.nextInt();
+						switch(choose1){
+						case 0:
+							break;
+						case 1:
+							flight1.setPrice(input.nextInt());
+							break;
+						case 2:
+							int seatCapacity = input.nextInt();
+							if (seatCapacity < flight1.getSeatCapacity()){
+								System.out.println("You can't update the seatCapacity lower than currentseat.");
+							}
+							else{
+								flight1.setSeatCapacity(seatCapacity);
+								if (flight1.getCurrentPassengers() == flight1.getSeatCapacity())
+								{
+									flight1.setFlightStatus("FULL");
+								}
+							}
+							break;
+						default:
+							System.out.print("\nPlease enter a correct number between 0 to 2: ");
+							break;
+						}
+						System.out.println("If you don't want to update other message, enter 0 to go back. "
+								+ "Or enter any other numbers to continue.");
+						System.out.print("Your choice is:");
+						  choose1 = input.nextInt();
+					}while(choose1 != 0);
+					Login.AdministratorChoose();	
+				}
 				else
 				{
-					System.out.print("\nYou can't upadte it because the flight is published.");
+					System.out.print("\nYou can't upadte it because the flight is terminate.");
 					Login.AdministratorChoose();
 				}
 			}
@@ -221,7 +262,7 @@ public class Methods
 
 			for(Administrator administrator : Data.ListOfAdminstrator)
 			{
-				System.out.println( "administrator.getAdminName()     administrator.getPassword()");
+				System.out.println("new admin:" + administrator.getAdminName() +" " + "new password:" + administrator.getPassword());
 			}
 			System.out.print("\n1.UpdateAdministrator"
 					+ "\n2.CreateAdministrator" + "\nPlease enter a number to choose method or enter 0 to quit:");
@@ -1021,6 +1062,7 @@ public class Methods
 					compareDate == standardDate & compareHour > standardHour - 2))//Ìõ¼þ4
 				){
 			System.out.println("You can't create this flight because of the incorrect Time.");
+			Login.AdministratorChoose();
 		}
 		else if (standardHour < 2 & standardHour >= 0){
 			int startTime = 0;
@@ -1064,6 +1106,7 @@ public class Methods
 				}
 				if (startTime <= getTime(compareMonth, compareDate, compareHour, compareMinute)){
 					System.out.println("You can't create this flight because of the incorrect Time.");
+					Login.AdministratorChoose();
 				}
 			}
 		}
