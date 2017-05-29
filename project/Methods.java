@@ -437,42 +437,56 @@ public class Methods
 					case '2':
 						System.out.print("\nPlease enter the flightID:");
 						String flightID = input.next();
-						 exist = true;
+						char[] searchInput = new char[flightID.length()];
+						for(int i = 0 ; i < flightID.length() ; i++ )
+						{
+							searchInput[i] = flightID.charAt(i);
+						}
+						
+									 exist = true;
 						for (Flight flight : Data.ListOfFlight)
 						{
-							if (flight.getFlightID().equals(flightID))
+							int j = 0;
+							for( int i = 0; i < flight.getFlightID().length(); i ++ )
+							{
+								if( searchInput[j] == flight.getFlightID().charAt(i))
+								{
+									j++;
+								}
+							}
+							if(j == searchInput.length )
 							{
 								checkTime(flight);
-								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
+								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
-								System.out.println("if you want to go back, enter 0, or enter 1 to enter reserve steps.");
-								while(true)
+							}
+							System.out.println("if you want to go back, enter 0, or enter 1 to enter reserve steps.");
+							while(true)
+							{
+								String choose3 = input.next();
+								if(choose3.length() <2)
 								{
-									String choose3 = input.next();
-									if(choose3.length() <2)
+									char choose4 = choose3.charAt(0);
+									switch( choose4 )
 									{
-										char choose4 = choose3.charAt(0);
-										switch( choose4 )
-										{
-											case'0':
-												Login.UsersChoose();
-												break;
-											case'1':
-												reserveFlight();
-												break;
-												
-										}
+										case'0':
+											Login.UsersChoose();
+											break;
+										case'1':
+											reserveFlight();
+											break;
+											
 									}
 								}
 							}
-						
+
 						}
 						if(exist)
 						{
 							System.out.println("Not exist");
 						}
-						
 						break;
+
 					case'3':
 						for(Flight flight : Data.ListOfFlight)
 						{
@@ -544,15 +558,28 @@ public class Methods
 					case '2':
 						System.out.print("\nPlease enter the flightID:");
 						String flightID = input.next();
-						 exist = true;
+						char[] searchInput = new char[flightID.length()];
+						for(int i = 0 ; i < flightID.length() ; i++ )
+						{
+							searchInput[i] = flightID.charAt(i);
+						}
+						
+									 exist = true;
 						for (Flight flight : Data.ListOfFlight)
 						{
-							if (flight.getFlightID().equals(flightID))
+							int j = 0;
+							for( int i = 0; i < flight.getFlightID().length(); i ++ )
+							{
+								if( searchInput[j] == flight.getFlightID().charAt(i))
+								{
+									j++;
+								}
+							}
+							if(j == searchInput.length )
 							{
 								checkTime(flight);
-								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
-								exist = false;
-							}	
+								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
+							}
 						}
 						if(exist)
 						{
@@ -850,16 +877,28 @@ public class Methods
 									case '2':
 										System.out.print("\nPlease enter the flightID:");
 										String flightID = input.next();
-										 exist = true;
+										char[] searchInput = new char[flightID.length()];
+										for(int i = 0 ; i < flightID.length() ; i++ )
+										{
+											searchInput[i] = flightID.charAt(i);
+										}
+										
+													 exist = true;
 										for (Flight flight : Data.ListOfFlight)
 										{
-											if (flight.getFlightID().equals(flightID))
+											int j = 0;
+											for( int i = 0; i < flight.getFlightID().length(); i ++ )
+											{
+												if( searchInput[j] == flight.getFlightID().charAt(i))
+												{
+													j++;
+												}
+											}
+											if(j == searchInput.length )
 											{
 												checkTime(flight);
-												System.out.println(flight.getFlightID() + 
-														flight.getPrice() + flight.getFlightStatus());
-												exist = false;
-											}	
+												System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
+											}
 										}
 										if(exist)
 										{
