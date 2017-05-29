@@ -179,23 +179,21 @@ public class Methods
 		int deleteMonth = input.nextInt();
 		System.out.print("\nPlease enter the departmentDate:");
 		int deleteDate = input.nextInt();
-		int count = 0;
 		for (Flight flight1 : Data.ListOfFlight){
 			if (flight1.getFlightID().equals(deleteID) & flight1.getDepartureYear() == deleteYear &
 					flight1.getDepartureMonth() == deleteMonth & flight1.getDepartureDate() == deleteDate){
-				if (flight1.getFlightStatus().equals("Avaliable")|flight1.getFlightStatus().equals("Full")){
-					System.out.print("\nYou can't delete this Flight in 'Avaliable' or 'Full' status.");
+				if (flight1.getFlightStatus().equals("AVAILABLE")|flight1.getFlightStatus().equals("FULL")){
+					System.out.print("\nYou can't delete this Flight in 'Available' or 'Full' status.");
 					Login.AdministratorChoose();
 				}
 				else{
 					System.out.print("\nPlease enter Y to delete or N to quit: ");
 					String isdelete = input.next();
 					if(isdelete.equals("Y")){
-						Data.ListOfFlight.remove(count);
+						Data.ListOfFlight.remove(flight1);
 						System.out.println("Removing success.");
 						Login.AdministratorChoose();
 						}
-						count+=1;
 					}
 				}
 			}
