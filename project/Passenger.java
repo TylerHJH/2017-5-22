@@ -7,7 +7,7 @@ public class Passenger
 	private String realName;
 	private String identityID;
 	private String password;
-	ArrayList<Order> orderList;
+	ArrayList<Order> orderList = new ArrayList<Order>();
 	//乘客属性
 	public int getPassengerID() 
 	{
@@ -58,4 +58,12 @@ public class Passenger
 		this.password = password;
 	}
 	//构造方法，对乘客初始化
+	public static void initializePassengerData(){
+	Passenger p1 = new Passenger(0001, "Tom", "10001", "Tom");
+	Passenger p2 = new Passenger(0002, "Pat", "10002", "Pat");
+	Passenger p3 = new Passenger(0003, "Coco", "10003", "Coco");
+	Data.ListOfPassenger.add( p1 );
+	Data.ListOfPassenger.add( p2 );
+	Data.ListOfPassenger.add( p3 );
+	}
 }
