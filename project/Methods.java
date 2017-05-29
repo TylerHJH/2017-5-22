@@ -815,7 +815,7 @@ public class Methods
 										Date date = new Date(c.get(Calendar.YEAR),c.get(Calendar.MONTH) + 1,c.get(Calendar.DATE),
 												c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),c.get(Calendar.SECOND));
 									
-										Order order = new Order(passengerName, identityID, passengerID, flightround.getSeatNumber(), flight,
+										Order order = new Order(passengerName, identityID, passengerID, flightround.getSeatNumber(), flightround,
 												date, "Paid" , temp1, temp2, temp3);
 										//(乘客名称，身份证号，乘客ID，座位号，航班号， 时间，状态 , 起飞年月日)
 										
@@ -951,7 +951,7 @@ public class Methods
 										Date date = new Date(c.get(Calendar.YEAR),c.get(Calendar.MONTH) + 1,c.get(Calendar.DATE),
 												c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),c.get(Calendar.SECOND));
 									
-										Order order = new Order(passengerName, identityID, passengerID, flightround.getSeatNumber(), flight,
+										Order order = new Order(passengerName, identityID, passengerID, flightround.getSeatNumber(), flightround,
 												date, "Paid" , temp1, temp2, temp3);
 										//(乘客名称，身份证号，乘客ID，座位号，航班号， 时间，状态 , 起飞年月日)
 										
