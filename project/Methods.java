@@ -41,9 +41,9 @@ public class Methods
 		int arrivalMonth = input.nextInt();
 		System.out.print("\nSet the arrivalDate:");
 		int arrivalDate = input.nextInt();
-		checkFlight(departureYear,departureMonth,departureDate,startHour,startMinute,
+		checkFlight1(departureYear,departureMonth,departureDate,startHour,startMinute,
 				arrivalYear,arrivalMonth,arrivalDate,arrivalHour,arrivalMinute);
-		checkFlight(departureYear,departureMonth,departureDate,startHour,startMinute,
+		checkFlight2(departureYear,departureMonth,departureDate,startHour,startMinute,
 				c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE), c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
 		System.out.print("\nSet the price:");
 		int price = input.nextInt();
@@ -1072,14 +1072,14 @@ public class Methods
 				}
 			}
 		}
-	public static void checkFlight(int standardYear,int standardMonth,int standardDate,int standardHour,int standardMinute
+	public static void checkFlight1(int standardYear,int standardMonth,int standardDate,int standardHour,int standardMinute
 							,int compareYear,int compareMonth,int compareDate,int compareHour,int compareMinute){
-		if(standardHour > 2 & (compareYear > standardYear //条件1
-				 ||(compareYear == standardYear & compareMonth > standardMonth) //条件2
-				 ||(compareYear == standardYear & compareMonth == standardMonth & compareDate > standardDate)
+		if(standardHour > 2 & (compareYear < standardYear //条件1
+				 ||(compareYear == standardYear & compareMonth < standardMonth) //条件2
+				 ||(compareYear == standardYear & compareMonth == standardMonth & compareDate < standardDate)
 				//条件3
 				 ||(compareYear == standardYear & compareMonth == standardMonth &
-					compareDate == standardDate & compareHour > standardHour ))//条件4
+					compareDate == standardDate & compareHour < standardHour ))//条件4
 				){
 			System.out.println("You can't create this flight because of the incorrect Time.");
 			Login.AdministratorChoose();
@@ -1124,12 +1124,70 @@ public class Methods
 					startTime = 334*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
 					break;
 				}
-				if (startTime <= getTime(compareMonth, compareDate, compareHour, compareMinute)){
+				if (startTime > getTime(compareMonth, compareDate, compareHour, compareMinute)){
 					System.out.println("You can't create this flight because of the incorrect Time.");
 					Login.AdministratorChoose();
 				}
 			}
 		}
+	public static void checkFlight2(int standardYear,int standardMonth,int standardDate,int standardHour,int standardMinute
+			,int compareYear,int compareMonth,int compareDate,int compareHour,int compareMinute){
+			if(standardHour > 2 & (compareYear > standardYear //条件1
+					||(compareYear == standardYear & compareMonth > standardMonth) //条件2
+					||(compareYear == standardYear & compareMonth == standardMonth & compareDate > standardDate)
+					//条件3
+					||(compareYear == standardYear & compareMonth == standardMonth &
+						compareDate == standardDate & compareHour > standardHour ))//条件4
+						){
+						System.out.println("You can't create this flight because of the incorrect Time.");
+							Login.AdministratorChoose();
+				}
+			else if (standardHour < 2 & standardHour >= 0){
+					int startTime = 0;
+					switch (standardMonth){
+					case 1:
+						startTime = (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+						break;
+					case 2:
+						startTime = 31*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+						break;
+					case 3:
+						startTime = 59*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+						break;
+					case 4:
+						startTime = 90*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+						break;
+					case 5:
+						startTime = 120*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+						break;
+					case 6:
+						startTime = 151*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+						break;
+					case 7:
+						startTime = 181*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+						break;
+					case 8:
+						startTime = 212*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+						break;
+					case 9:
+						startTime = 243*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+						break;
+					case 10:
+						startTime = 273*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+						break;
+					case 11:
+						startTime = 304*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+						break;
+					case 12:
+						startTime = 334*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
+						break;
+					}
+				if (startTime <= getTime(compareMonth, compareDate, compareHour, compareMinute)){
+					System.out.println("You can't create this flight because of the incorrect Time.");
+					Login.AdministratorChoose();
+				}
+			}
+	}
 	public static int getTime(int compareMonth, int compareDate, int compareHour, int compareMinute){
 		int currentTime = 0;
 		switch (compareMonth){
