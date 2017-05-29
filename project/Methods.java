@@ -1041,7 +1041,7 @@ public class Methods
 				 ||(compareYear == flight.getDepartureYear() & compareMonth == flight.getDepartureMonth() & compareDate > flight.getDepartureDate())
 				//条件3
 				 ||(compareYear == flight.getDepartureYear() & compareMonth == flight.getDepartureMonth() &
-					compareDate == flight.getDepartureDate() & compareHour > flight.getStartHour() + 2))//条件4
+					compareDate == flight.getDepartureDate() & compareHour > flight.getStartHour() - 2))//条件4
 				){
 			flight.setFlightStatus("TERMINATE");
 		}
@@ -1155,7 +1155,7 @@ public class Methods
 					||(compareYear == standardYear & compareMonth == standardMonth & compareDate > standardDate)
 					//条件3
 					||(compareYear == standardYear & compareMonth == standardMonth &
-						compareDate == standardDate & compareHour > standardHour ))//条件4
+						compareDate == standardDate & compareHour > standardHour - 2))//条件4
 						){
 						System.out.println("You can't create this flight because of the incorrect Time.");
 							Login.AdministratorChoose();
@@ -1200,7 +1200,7 @@ public class Methods
 						startTime = 334*24*60 + (standardDate - 1)*24*60 + standardHour*60 + standardMinute;
 						break;
 					}
-				if (startTime <= getTime(compareMonth, compareDate, compareHour, compareMinute)){
+				if (startTime < getTime(compareMonth, compareDate, compareHour, compareMinute) + 120){
 					System.out.println("You can't create this flight because of the incorrect Time.");
 					Login.AdministratorChoose();
 				}
