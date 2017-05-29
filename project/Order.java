@@ -1,5 +1,7 @@
 package project;
 
+import java.util.Calendar;
+
 public class Order 
 {
 	private String passengerName;
@@ -115,6 +117,50 @@ public class Order
 	{
 		System.out.printf("%s%10s%10d%10d%d%s%s", order.passengerName, order.identityID, order.flight.getFlightID(), order.seat, order.createTime.toString());
 	}
-	
-	
+	public static void initializeOrderData(){
+		for (Flight flight : Data.ListOfFlight){
+			if (flight.getDepartureYear() == 2017 & flight.getFlightID().equals("A1000") & 
+					flight.getDepartureMonth() == 6 &flight.getDepartureDate() == 1){
+				for( Passenger passenger:Data.ListOfPassenger)
+				{
+					if( passenger.getPassengerID() == 0001 & passenger.getPassword().equals("Tom") )
+					{
+						Date date = new Date(2017, 5, 29, 12, 20, 45);
+						Order order1 = new Order("Tom", "10001", 0001, flight.getSeatNumber(), flight, date, "Paid", 2017, 6, 1);
+						Data.ListOfOrder.add(order1);
+						passenger.orderList.add(order1);
+						flight.orderOfFlight.add(order1);
+					}
+				}
+			}
+			if (flight.getDepartureYear() == 2017 & flight.getFlightID().equals("A1009") & 
+					flight.getDepartureMonth() == 6 &flight.getDepartureDate() == 2){
+				for( Passenger passenger:Data.ListOfPassenger)
+				{
+					if( passenger.getPassengerID() == 0002 & passenger.getPassword().equals("Pat") )
+					{
+						Date date = new Date(2017, 5, 31, 5, 00, 45);
+						Order order2 = new Order("Pat", "10002", 0002, flight.getSeatNumber(), flight, date, "Paid", 2017, 6, 2);
+						Data.ListOfOrder.add(order2);
+						passenger.orderList.add(order2);
+						flight.orderOfFlight.add(order2);
+					}
+				}
+			}
+			if (flight.getDepartureYear() == 2017 & flight.getFlightID().equals("A1018") & 
+					flight.getDepartureMonth() == 6 &flight.getDepartureDate() == 3){
+				for( Passenger passenger:Data.ListOfPassenger)
+				{
+					if( passenger.getPassengerID() == 0003 & passenger.getPassword().equals("Coco") )
+					{
+						Date date = new Date(2017, 6, 1, 21, 20, 00);
+						Order order3 = new Order("Coco", "10003", 0003, flight.getSeatNumber(), flight, date, "Paid", 2017, 6, 3);
+						Data.ListOfOrder.add(order3);
+						passenger.orderList.add(order3);
+						flight.orderOfFlight.add(order3);
+					}
+				}
+			}
+		}
+	}
 }
