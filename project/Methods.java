@@ -63,7 +63,7 @@ public class Methods
 					flight1.getDepartureMonth() == temp5 & flight1.getDepartureDate() == temp6)
 			{
 				checkTime(flight1);
-				if (flight1.getFlightStatus().equals("Unpublished"))
+				if (flight1.getFlightStatus().equals("UNPUBLISHED"))
 				{
 					String choose1;
 					int choose4;
@@ -185,11 +185,11 @@ public class Methods
 			if (flight1.getFlightID().equals(deleteID) & flight1.getDepartureYear() == deleteYear &
 					flight1.getDepartureMonth() == deleteMonth & flight1.getDepartureDate() == deleteDate){
 				checkTime(flight1);
-				if (flight1.getFlightStatus().equals("Avaliable")|flight1.getFlightStatus().equals("Full")){
+				if (flight1.getFlightStatus().equals("AVAILABLE")|flight1.getFlightStatus().equals("FULL")){
 					System.out.print("\nYou can't delete this Flight in 'Avaliable' or 'Full' status.");
 					Login.AdministratorChoose();
 				}
-				else if (flight1.getFlightStatus().equals("Unpublished")|flight1.getFlightStatus().equals("Terminate")){
+				else if (flight1.getFlightStatus().equals("UNPUBLISHED")|flight1.getFlightStatus().equals("TERMINATE")){
 					System.out.print("\nPlease enter Y to delete or N to quit: ");
 					String isdelete = input.next();
 					if(isdelete.equals("Y")){
@@ -615,7 +615,7 @@ public class Methods
 						flight.getArrivalCity().equals(arrivalCity))
 					    {
 							checkTime(flight);
-							if (flight.getFlightStatus().equals("Avaliable")){
+							if (flight.getFlightStatus().equals("AVAILABLE")){
 								System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
 								String pay = input.next();
 								if (pay.equals("Y")){
@@ -623,7 +623,7 @@ public class Methods
 									flight.setCurrentPassengers(flight.getCurrentPassengers() + 1);
 									if (flight.getCurrentPassengers() == flight.getSeatCapacity())
 									{
-										flight.setFlightStatus("Full");
+										flight.setFlightStatus("FULL");
 									}
 									Date date = new Date(c.get(Calendar.YEAR),c.get(Calendar.MONTH),c.get(Calendar.DATE),
 											c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),c.get(Calendar.SECOND));
@@ -656,7 +656,7 @@ public class Methods
 							flight.getArrivalCity().equals(startCity))
 						    {
 									checkTime(flight);
-								if (flight.getFlightStatus().equals("Avaliable")){
+								if (flight.getFlightStatus().equals("AVAILABLE")){
 									System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
 									String pay = input.next();
 									if (pay.equals("Y")){
@@ -664,7 +664,7 @@ public class Methods
 										flight.setCurrentPassengers(flight.getCurrentPassengers() + 1);
 										if (flight.getCurrentPassengers() == flight.getSeatCapacity())
 										{
-											flight.setFlightStatus("Full");
+											flight.setFlightStatus("FULL");
 										}
 										Date date = new Date(c.get(Calendar.YEAR),c.get(Calendar.MONTH),c.get(Calendar.DATE),
 												c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),c.get(Calendar.SECOND));
@@ -754,7 +754,7 @@ public class Methods
 								flight.seatnumber.remove(flight.getSeatNumber());
 								flight.seatnumber.add(flight.getSeatNumber(), false);
 								flight.setCurrentPassengers(flight.getCurrentPassengers() - 1);
-								flight.setFlightStatus("Avaliable");
+								flight.setFlightStatus("AVAILABLE");
 								passenger.orderList.remove(order);
 								flight.orderOfFlight.remove(order);
 								Data.ListOfOrder.remove(order);
@@ -897,7 +897,7 @@ public class Methods
 				 ||(c.get(Calendar.YEAR) == flight.getDepartureYear() & c.get(Calendar.MONTH) == flight.getDepartureMonth() &
 				c.get(Calendar.DATE) == flight.getDepartureDate() & c.get(Calendar.HOUR_OF_DAY) > flight.getStartHour() - 2))//Ìõ¼þ4
 				){
-			flight.setFlightStatus("Terminate");
+			flight.setFlightStatus("TERMINATE");
 		}
 		else if (flight.getStartHour() < 2 & flight.getStartHour() >= 0){
 			int startTime = 0;
@@ -940,7 +940,7 @@ public class Methods
 					break;
 				}
 				if (startTime <= getCurrentTime() + 120){
-					flight.setFlightStatus("Terminate");
+					flight.setFlightStatus("TERMINATE");
 				}
 			}
 		}	
