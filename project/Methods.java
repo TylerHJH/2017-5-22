@@ -407,7 +407,8 @@ public class Methods
 							{
 								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
 										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
-								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
+								System.out.println(flight.getFlightID().toString() + "  "+"  "+
+										flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
 
 							}
@@ -441,7 +442,8 @@ public class Methods
 							{
 								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
 										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
-								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
+								System.out.println(flight.getFlightID().toString() + "  "+"  "+
+										flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
 							}	
 						}
@@ -511,7 +513,8 @@ public class Methods
 							{
 								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
 										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
-								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
+								System.out.println(flight.getFlightID().toString() + "  "+"  "+
+										flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
 
 							}
@@ -545,7 +548,8 @@ public class Methods
 							{
 								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
 										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
-								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
+								System.out.println(flight.getFlightID().toString() + "  "+"  "+
+										flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
 							}
 							System.out.println("if you want to go back, enter 0, or enter 1 to enter reserve steps.");
@@ -635,7 +639,8 @@ public class Methods
 							{
 								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
 										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
-								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
+								System.out.println(flight.getFlightID().toString() + "  "+"  "+
+										flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
 
 							}
@@ -670,7 +675,8 @@ public class Methods
 							{
 								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
 										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
-								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
+								System.out.println(flight.getFlightID().toString() + "  "+"  "+
+										flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
 							}	
 						}
@@ -996,8 +1002,8 @@ public class Methods
 											{
 												checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
 														, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
-												System.out.println(flight.getFlightID() + 
-														flight.getPrice() + flight.getFlightStatus());
+												System.out.println(flight.getFlightID().toString() + "  "+"  "+
+														flight.getPrice() + flight.getFlightStatus().toString());
 												exist = false;
 											}	
 										}
