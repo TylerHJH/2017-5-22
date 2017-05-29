@@ -1038,7 +1038,8 @@ public class Methods
 					{
 						for (Order order : Data.ListOfOrder){
 							if (order.getFlight().equals(flight)){
-								flight.seatnumber.remove(flight.getSeatNumber());
+								flight.seatnumber.remove(order.getSeat()-1);
+								flight.seatnumber.add(order.getSeat()-1, false);
 								flight.setCurrentPassengers(flight.getCurrentPassengers() - 1);
 								flight.setFlightStatus("AVAILABLE");
 								passenger.orderList.remove(order);
