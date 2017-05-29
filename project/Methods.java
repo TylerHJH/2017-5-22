@@ -724,8 +724,10 @@ public class Methods
 		String passengerName = input.next();
 		System.out.print("Please enter your identityID:");
 		String identityID = input.next();
+		int count = 0;
 		for( Passenger passenger:Data.ListOfPassenger)
 		{
+			count += 1;
 			if( passenger.getPassengerID() == passengerID & passenger.getPassword().equals(password) )
 			{
 				System.out.println("Please enter the flightID: ");
@@ -779,6 +781,11 @@ public class Methods
 								Login.UsersChoose();
 							}
 					}
+				}
+				if (count == Data.ListOfFlight.size()){
+					System.out.println("Can't find the correct flight!");
+					Login.UsersChoose();
+				}
 			if(roundTrip.equals("Y")){
 					System.out.println("Please enter the flightID: ");
 					flightID = input.next();
@@ -800,7 +807,7 @@ public class Methods
 									String pay = input.next();
 									if (pay.equals("Y")){
 										System.out.println("Reserve success.");
-										flightround.setCurrentPassengers(flight.getCurrentPassengers() + 1);
+										flightround.setCurrentPassengers(flightround.getCurrentPassengers() + 1);
 										if (flightround.getCurrentPassengers() == flightround.getSeatCapacity())
 										{
 											flightround.setFlightStatus("FULL");
@@ -830,16 +837,13 @@ public class Methods
 							System.out.println("Can't find the correct flight!");
 							Login.UsersChoose();
 					}
-			else{
-				Login.UsersChoose();
-			}
+				else{
+					Login.UsersChoose();
 				}
-						System.out.println("Can't find the correct flight!");
-						Login.UsersChoose();
 			}
-            }
+        }
 				System.out.println("The passenger name or the password is wrong.");
-		        Login.UsersChoose();
+				Login.UsersChoose();
 	}
 	//Ô¤¶¨º½°à
 	
@@ -856,8 +860,10 @@ public class Methods
 		String passengerName = input.next();
 		System.out.print("Please enter your identityID:");
 		String identityID = input.next();
+		int count = 0;
 		for( Passenger passenger:Data.ListOfPassenger)
 		{
+			count += 1;
 			if( passenger.getPassengerID() == passengerID & passenger.getPassword().equals(password) )
 			{
 				System.out.println("Please enter the flightID: ");
@@ -911,6 +917,11 @@ public class Methods
 								directlyQueryFlight();
 							}
 					}
+				}
+				if (count == Data.ListOfFlight.size()){
+					System.out.println("Can't find the correct flight!");
+				directlyQueryFlight();
+				}
 			if(roundTrip.equals("Y")){
 					System.out.println("Please enter the flightID: ");
 					flightID = input.next();
@@ -932,7 +943,7 @@ public class Methods
 									String pay = input.next();
 									if (pay.equals("Y")){
 										System.out.println("Reserve success.");
-										flightround.setCurrentPassengers(flight.getCurrentPassengers() + 1);
+										flightround.setCurrentPassengers(flightround.getCurrentPassengers() + 1);
 										if (flightround.getCurrentPassengers() == flightround.getSeatCapacity())
 										{
 											flightround.setFlightStatus("FULL");
@@ -962,14 +973,11 @@ public class Methods
 							System.out.println("Can't find the correct flight!");
 							directlyQueryFlight();
 					}
-			else{
+				else{
 				directlyQueryFlight();
-			}
 				}
-						System.out.println("Can't find the correct flight!");
-						directlyQueryFlight();
 			}
-            }
+        }
 				System.out.println("The passenger name or the password is wrong.");
 				directlyQueryFlight();
 	}
