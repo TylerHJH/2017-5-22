@@ -427,25 +427,7 @@ public class Methods
 										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
 								exist = false;
-								System.out.println("if you want to go back, enter 0, or enter 1 to enter reserve steps.");
-								while(true)
-								{
-									String choose3 = input.next();
-									if(choose3.length() <2)
-									{
-										char choose4 = choose3.charAt(0);
-										switch( choose4 )
-										{
-											case'0':
-												Login.AdministratorChoose();
-												break;
-											case'1':
-												reserveFlight();
-												break;
-												
-										}
-									}
-								}
+	
 							}
 						
 						}
@@ -453,6 +435,8 @@ public class Methods
 						{
 							System.out.println("Not exist");
 						}
+						System.out.println("Querying end!");
+						Login.AdministratorChoose();
 						
 						break;
 					case'3':
