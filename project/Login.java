@@ -67,6 +67,7 @@ public class Login {
 	//登录方法
 	public static void usersRegistration()
 	{
+		System.out.println("Users registrating:");
 		System.out.print("Please enter your passengerID numbers:");
 		int passenger_id = input.nextInt();
 		System.out.print("Please enter your real name:");
@@ -87,6 +88,7 @@ public class Login {
 	//乘客注册
 	public static void UsersChoose()
 	{
+		System.out.println("Users choosing:");
 		System.out.printf("1.queryFlight\n2.reserveFlight\n3.unsubscribeFlight\n4.querymyOrder\n5.quit");
 		boolean isFalse = false;
 		do
@@ -177,6 +179,7 @@ public class Login {
 	//管理员注册（管理员方法之一）
 	public static void AdministratorChoose()
 	{
+		System.out.println("Administrator choosing:");
 		System.out.print("\n1.createFlight\n2.updateFlight\n3.deleteFlight\n4.superQuery\n5.userManagement\n6.Quit");
 		do
 		{	
