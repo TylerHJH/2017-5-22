@@ -43,6 +43,8 @@ public class Methods
 		int arrivalDate = input.nextInt();
 		checkFlight(departureYear,departureMonth,departureDate,startHour,startMinute,
 				arrivalYear,arrivalMonth,arrivalDate,arrivalHour,arrivalMinute);
+		checkFlight(departureYear,departureMonth,departureDate,startHour,startMinute,
+				c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE), c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
 		System.out.print("\nSet the price:");
 		int price = input.nextInt();
 		System.out.print("\nSet the currentPassengers:");
@@ -1093,7 +1095,7 @@ public class Methods
 				 ||(compareYear == standardYear & compareMonth == standardMonth & compareDate > standardDate)
 				//条件3
 				 ||(compareYear == standardYear & compareMonth == standardMonth &
-					compareDate == standardDate & compareHour > standardHour + 2))//条件4
+					compareDate == standardDate & compareHour > standardHour ))//条件4
 				){
 			System.out.println("You can't create this flight because of the incorrect Time.");
 			Login.AdministratorChoose();
