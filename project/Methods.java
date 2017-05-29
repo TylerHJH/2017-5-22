@@ -220,7 +220,7 @@ public class Methods
 
 			for(Administrator administrator : Data.ListOfAdminstrator)
 			{
-				System.out.println( "administrator.getAdminName()     administrator.getPassword()");
+				System.out.println( administrator.getAdminName() + administrator.getPassword());
 			}
 			System.out.print("\n1.UpdateAdministrator"
 					+ "\n2.CreateAdministrator" + "\nPlease enter a number to choose method or enter 0 to quit:");
