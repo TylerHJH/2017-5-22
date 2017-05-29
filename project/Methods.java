@@ -830,6 +830,9 @@ public class Methods
 							System.out.println("Can't find the correct flight!");
 							Login.UsersChoose();
 					}
+			else{
+				Login.UsersChoose();
+			}
 				}
 						System.out.println("Can't find the correct flight!");
 						Login.UsersChoose();
@@ -959,6 +962,9 @@ public class Methods
 							System.out.println("Can't find the correct flight!");
 							directlyQueryFlight();
 					}
+			else{
+				directlyQueryFlight();
+			}
 				}
 						System.out.println("Can't find the correct flight!");
 						directlyQueryFlight();
