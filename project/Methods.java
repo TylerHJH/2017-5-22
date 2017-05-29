@@ -86,8 +86,11 @@ public class Methods
 						choose1 = input.next();
 						
 							char choose2 = choose1.charAt(0);
-							if(choose1.length() == 2);
-							char choose3 = choose1.charAt(1);
+							char choose3 = ' ';
+							if(choose1.length() == 2)
+							{
+								choose3 = choose1.charAt(1);
+							}
 							if(choose1.length() < 2)
 							{			
 								if(choose2 == '0')
