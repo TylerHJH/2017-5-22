@@ -830,6 +830,9 @@ public class Methods
 							System.out.println("Can't find the correct flight!");
 							Login.UsersChoose();
 					}
+			else{
+				Login.UsersChoose();
+			}
 				}
 						System.out.println("Can't find the correct flight!");
 						Login.UsersChoose();
@@ -959,6 +962,9 @@ public class Methods
 							System.out.println("Can't find the correct flight!");
 							directlyQueryFlight();
 					}
+			else{
+				directlyQueryFlight();
+			}
 				}
 						System.out.println("Can't find the correct flight!");
 						directlyQueryFlight();
@@ -1025,7 +1031,6 @@ public class Methods
 						for (Order order : Data.ListOfOrder){
 							if (order.getFlight().equals(flight)){
 								flight.seatnumber.remove(flight.getSeatNumber());
-								flight.seatnumber.add(flight.getSeatNumber(), false);
 								flight.setCurrentPassengers(flight.getCurrentPassengers() - 1);
 								flight.setFlightStatus("AVAILABLE");
 								passenger.orderList.remove(order);
