@@ -62,6 +62,7 @@ public class Methods
 			if (flight1.getFlightID().equals(temp3) & flight1.getDepartureYear() == temp4 &
 					flight1.getDepartureMonth() == temp5 & flight1.getDepartureDate() == temp6)
 			{
+				checkTime(flight1);
 				if (flight1.getFlightStatus().equals("Unpublished"))
 				{
 					String choose1;
@@ -183,6 +184,7 @@ public class Methods
 		for (Flight flight1 : Data.ListOfFlight){
 			if (flight1.getFlightID().equals(deleteID) & flight1.getDepartureYear() == deleteYear &
 					flight1.getDepartureMonth() == deleteMonth & flight1.getDepartureDate() == deleteDate){
+				checkTime(flight1);
 				if (flight1.getFlightStatus().equals("Avaliable")|flight1.getFlightStatus().equals("Full")){
 					System.out.print("\nYou can't delete this Flight in 'Avaliable' or 'Full' status.");
 					Login.AdministratorChoose();
@@ -317,7 +319,7 @@ public class Methods
 									flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
 									flight.getDepartureDate() == departmentDate)
 							{
-								
+								checkTime(flight);
 								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
 
@@ -336,7 +338,7 @@ public class Methods
 						{
 							if (flight.getFlightID().equals(flightID))
 							{
-
+								checkTime(flight);
 								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
 								exist = false;
 								System.out.println("if you want to go back, enter 0, or enter 1 to enter reserve steps.");
@@ -370,6 +372,7 @@ public class Methods
 					case'3':
 						for(Flight flight : Data.ListOfFlight)
 						{
+							checkTime(flight);
 							System.out.println(flight.toString());
 						}
 						break;
@@ -420,7 +423,7 @@ public class Methods
 									flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
 									flight.getDepartureDate() == departmentDate)
 							{
-								
+								checkTime(flight);
 								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
 
@@ -439,7 +442,7 @@ public class Methods
 						{
 							if (flight.getFlightID().equals(flightID))
 							{
-
+								checkTime(flight);
 								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
 								exist = false;
 								System.out.println("if you want to go back, enter 0, or enter 1 to enter reserve steps.");
@@ -473,6 +476,7 @@ public class Methods
 					case'3':
 						for(Flight flight : Data.ListOfFlight)
 						{
+							checkTime(flight);
 							System.out.println(flight.toString());
 						}
 						break;
@@ -525,7 +529,7 @@ public class Methods
 									flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
 									flight.getDepartureDate() == departmentDate)
 							{
-								
+								checkTime(flight);
 								System.out.println(flight.getFlightID().toString() + flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
 
@@ -545,6 +549,7 @@ public class Methods
 						{
 							if (flight.getFlightID().equals(flightID))
 							{
+								checkTime(flight);
 								System.out.println(flight.getFlightID() + flight.getPrice() + flight.getFlightStatus());
 								exist = false;
 							}	
@@ -557,6 +562,7 @@ public class Methods
 					case'3':
 						for(Flight flight : Data.ListOfFlight)
 						{
+							checkTime(flight);
 							System.out.println(flight.toString());
 						}
 						break;
@@ -608,6 +614,7 @@ public class Methods
 						flight.getDepartureMonth() == temp2 &flight.getDepartureDate() == temp3 &
 						flight.getArrivalCity().equals(arrivalCity))
 					    {
+							checkTime(flight);
 							if (flight.getFlightStatus().equals("Avaliable")){
 								System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
 								String pay = input.next();
@@ -648,6 +655,7 @@ public class Methods
 							flight.getDepartureMonth() == temp5 &flight.getDepartureDate() == temp6 &
 							flight.getArrivalCity().equals(startCity))
 						    {
+									checkTime(flight);
 								if (flight.getFlightStatus().equals("Avaliable")){
 									System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
 									String pay = input.next();
@@ -826,7 +834,7 @@ public class Methods
 													flight.getDepartureMonth() == departmentMonth &
 													flight.getDepartureDate() == departmentDate)
 											{
-												
+												checkTime(flight);
 												System.out.println(flight.getFlightID().toString() + "  "+"  "+
 														flight.getPrice() + flight.getFlightStatus().toString());
 												exist = false;
@@ -847,6 +855,7 @@ public class Methods
 										{
 											if (flight.getFlightID().equals(flightID))
 											{
+												checkTime(flight);
 												System.out.println(flight.getFlightID() + 
 														flight.getPrice() + flight.getFlightStatus());
 												exist = false;
