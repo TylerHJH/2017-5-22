@@ -881,7 +881,102 @@ public class Methods
 	}
 	public static void checkTime(Flight flight){
 		Calendar c = Calendar.getInstance();
-		
+		if(flight.getStartHour() > 2 & (c.get(Calendar.YEAR) > flight.getDepartureYear() //条件1
+				 ||(c.get(Calendar.YEAR) == flight.getDepartureYear() & c.get(Calendar.MONTH) > flight.getDepartureMonth()) //条件2
+				 ||(c.get(Calendar.YEAR) == flight.getDepartureYear() & c.get(Calendar.MONTH) == flight.getDepartureMonth() & c.get(Calendar.DATE) > flight.getDepartureDate())
+				//条件3
+				 ||(c.get(Calendar.YEAR) == flight.getDepartureYear() & c.get(Calendar.MONTH) == flight.getDepartureMonth() &
+				c.get(Calendar.DATE) == flight.getDepartureDate() & c.get(Calendar.HOUR_OF_DAY) > flight.getStartHour() - 2))//条件4
+				){
+			flight.setFlightStatus("Terminate");
+		}
+		else if (flight.getStartHour() < 2 & flight.getStartHour() >= 0){
+			int startTime = 0;
+				switch (flight.getDepartureMonth()){
+				case 1:
+					startTime = (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 2:
+					startTime = 31*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 3:
+					startTime = 59*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 4:
+					startTime = 90*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 5:
+					startTime = 120*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 6:
+					startTime = 151*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 7:
+					startTime = 181*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 8:
+					startTime = 212*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 9:
+					startTime = 243*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 10:
+					startTime = 273*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 11:
+					startTime = 304*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				case 12:
+					startTime = 334*24*60 + (flight.getDepartureDate() - 1)*24*60 + flight.getStartHour()*60 + flight.getStartMinute();
+					break;
+				}
+				if (startTime <= getCurrentTime() + 120){
+					flight.setFlightStatus("Terminate");
+				}
+			}
+		}	
+	public static int getCurrentTime(){
+		Calendar c = Calendar.getInstance();
+		int currentTime = 0;
+		switch (c.get(Calendar.MONTH)){
+		case 1:
+			currentTime = (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 2:
+			currentTime = 31*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 3:
+			currentTime = 59*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 4:
+			currentTime = 90*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 5:
+			currentTime = 120*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 6:
+			currentTime = 151*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 7:
+			currentTime = 181*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 8:
+			currentTime = 212*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 9:
+			currentTime = 243*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 10:
+			currentTime = 273*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 11:
+			currentTime = 304*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		case 12:
+			currentTime = 334*24*60 + (c.get(Calendar.DATE) - 1)*24*60 + c.get(Calendar.HOUR_OF_DAY)*60 + c.get(Calendar.MINUTE);
+			break;
+		}
+		return currentTime;
 	}
-	
+		
 }
