@@ -700,7 +700,10 @@ public class Methods
 						
 				}
 				System.out.println("Querying end.");
-				Login.login();
+				System.out.println("If you want to reserve flight now, enter Y. Or enter anyother message to continue:");
+				if(input.next().equals("Y")){
+					reserveFlightbyDirectelyQuery();
+				}
 				
 			}
 			System.out.println("Your input is wrong.");
@@ -725,6 +728,8 @@ public class Methods
 		{
 			if( passenger.getPassengerID() == passengerID & passenger.getPassword().equals(password) )
 			{
+				System.out.println("Please enter the flightID: ");
+				String flightID = input.next();
 				System.out.println("Please enter the start city: ");
 				String startCity = input.next();
 				System.out.println("Please enter the arrival city: ");
@@ -740,7 +745,7 @@ public class Methods
 				for (Flight flight : Data.ListOfFlight){
 						if (flight.getDepartureYear() == temp1 & flight.getStartCity().equals(startCity) & 
 						flight.getDepartureMonth() == temp2 &flight.getDepartureDate() == temp3 &
-						flight.getArrivalCity().equals(arrivalCity))
+						flight.getArrivalCity().equals(arrivalCity) & flight.getFlightID().equals(flightID))
 					    {
 							checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 									, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
@@ -764,58 +769,68 @@ public class Methods
 									Data.ListOfOrder.add(order);
 									passenger.orderList.add(order);
 									flight.orderOfFlight.add(order);
-									Login.UsersChoose();
 								}	
 								else{
 									Login.UsersChoose();
 								}
 							}
-								System.out.println("This flight is full");
+							else {
+								System.out.println("This flight is not available.");
 								Login.UsersChoose();
+							}
 					}
 			if(roundTrip=="Y"){
+					System.out.println("Please enter the flightID: ");
+					flightID = input.next();
 					System.out.print("\nPlease enter the departmentYear");
 					int temp4 = input.nextInt();
 					System.out.print("\nPlease enter the departmentMonth");
 					int temp5 = input.nextInt();
 					System.out.print("\nPlease enter the departmentDate");
 					int temp6 = input.nextInt();
-					if (flight.getDepartureYear() == temp4 & flight.getStartCity().equals(arrivalCity) & 
-							flight.getDepartureMonth() == temp5 &flight.getDepartureDate() == temp6 &
-							flight.getArrivalCity().equals(startCity))
+					for (Flight flightround : Data.ListOfFlight){
+					if (flightround.getDepartureYear() == temp4 & flightround.getStartCity().equals(arrivalCity) & 
+							flightround.getDepartureMonth() == temp5 &flightround.getDepartureDate() == temp6 &
+							flightround.getArrivalCity().equals(startCity) & flightround.getFlightID().equals(flightID))
 						    {
-						checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
+						checkTime(flightround, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 								, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
-								if (flight.getFlightStatus().equals("AVAILABLE")){
+								if (flightround.getFlightStatus().equals("AVAILABLE")){
 									System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
 									String pay = input.next();
 									if (pay.equals("Y")){
 										System.out.println("Reserve success.");
-										flight.setCurrentPassengers(flight.getCurrentPassengers() + 1);
-										if (flight.getCurrentPassengers() == flight.getSeatCapacity())
+										flightround.setCurrentPassengers(flight.getCurrentPassengers() + 1);
+										if (flightround.getCurrentPassengers() == flightround.getSeatCapacity())
 										{
-											flight.setFlightStatus("FULL");
+											flightround.setFlightStatus("FULL");
 										}
 										Date date = new Date(c.get(Calendar.YEAR),c.get(Calendar.MONTH) + 1,c.get(Calendar.DATE),
 												c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),c.get(Calendar.SECOND));
 									
-										Order order = new Order(passengerName, identityID, passengerID, flight.getSeatNumber(), flight,
+										Order order = new Order(passengerName, identityID, passengerID, flightround.getSeatNumber(), flight,
 												date, "Paid" , temp1, temp2, temp3);
 										//(乘客名称，身份证号，乘客ID，座位号，航班号， 时间，状态 , 起飞年月日)
 										
 										Data.ListOfOrder.add(order);
 										passenger.orderList.add(order);
-										flight.orderOfFlight.add(order);
+										flightround.orderOfFlight.add(order);
 										Login.UsersChoose();
 									}	
 									else{
 										Login.UsersChoose();
 									}
 								}
-									System.out.println("This flight is full");
+								else {
+									System.out.println("This flight is not available.");
 									Login.UsersChoose();
-						}
-					    }}
+								}
+						    }
+					    }
+							System.out.println("Can't find the correct flight!");
+							Login.UsersChoose();
+					}
+				}
 						System.out.println("Can't find the correct flight!");
 						Login.UsersChoose();
 			}
@@ -825,6 +840,134 @@ public class Methods
 	}
 	//预定航班
 	
+	public static void reserveFlightbyDirectelyQuery()
+	{       
+		Calendar c = Calendar.getInstance();
+		Scanner input = new Scanner(System.in);
+		System.out.println("Reserving flight.");
+		System.out.print("Please enter your passengerID:");
+		int passengerID = input.nextInt();
+		System.out.print("Please enter your password:");
+		String password = input.next();
+		System.out.print("Please enter your realname:");
+		String passengerName = input.next();
+		System.out.print("Please enter your identityID:");
+		String identityID = input.next();
+		for( Passenger passenger:Data.ListOfPassenger)
+		{
+			if( passenger.getPassengerID() == passengerID & passenger.getPassword().equals(password) )
+			{
+				System.out.println("Please enter the flightID: ");
+				String flightID = input.next();
+				System.out.println("Please enter the start city: ");
+				String startCity = input.next();
+				System.out.println("Please enter the arrival city: ");
+				String arrivalCity = input.next();
+				System.out.print("\nPlease enter the departmentYear");
+				int temp1 = input.nextInt();
+				System.out.print("\nPlease enter the departmentMonth:");
+				int temp2 = input.nextInt();
+				System.out.print("\nPlease enter the departmentDate:");
+				int temp3 = input.nextInt();
+				System.out.print("\nDo you want to reserve round-trip flights? Enter 'Y' for yes, 'N' for no:");
+				String roundTrip=input.next();
+				for (Flight flight : Data.ListOfFlight){
+						if (flight.getDepartureYear() == temp1 & flight.getStartCity().equals(startCity) & 
+						flight.getDepartureMonth() == temp2 &flight.getDepartureDate() == temp3 &
+						flight.getArrivalCity().equals(arrivalCity) & flight.getFlightID().equals(flightID))
+					    {
+							checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
+									, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
+							if (flight.getFlightStatus().equals("AVAILABLE")){
+								System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
+								String pay = input.next();
+								if (pay.equals("Y")){
+									System.out.println("Reserve success.");
+									flight.setCurrentPassengers(flight.getCurrentPassengers() + 1);
+									if (flight.getCurrentPassengers() == flight.getSeatCapacity())
+									{
+										flight.setFlightStatus("FULL");
+									}
+									Date date = new Date(c.get(Calendar.YEAR),c.get(Calendar.MONTH) + 1,c.get(Calendar.DATE),
+											c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),c.get(Calendar.SECOND));
+								
+									Order order = new Order(passengerName, identityID, passengerID, flight.getSeatNumber(), flight,
+											date, "Paid" , temp1, temp2, temp3);
+									//(乘客名称，身份证号，乘客ID，座位号，航班号， 时间，状态 , 起飞年月日)
+
+									Data.ListOfOrder.add(order);
+									passenger.orderList.add(order);
+									flight.orderOfFlight.add(order);
+								}	
+								else{
+									directlyQueryFlight();
+								}
+							}
+							else {
+								System.out.println("This flight is not available.");
+								directlyQueryFlight();
+							}
+					}
+			if(roundTrip=="Y"){
+					System.out.println("Please enter the flightID: ");
+					flightID = input.next();
+					System.out.print("\nPlease enter the departmentYear");
+					int temp4 = input.nextInt();
+					System.out.print("\nPlease enter the departmentMonth");
+					int temp5 = input.nextInt();
+					System.out.print("\nPlease enter the departmentDate");
+					int temp6 = input.nextInt();
+					for (Flight flightround : Data.ListOfFlight){
+					if (flightround.getDepartureYear() == temp4 & flightround.getStartCity().equals(arrivalCity) & 
+							flightround.getDepartureMonth() == temp5 &flightround.getDepartureDate() == temp6 &
+							flightround.getArrivalCity().equals(startCity) & flightround.getFlightID().equals(flightID))
+						    {
+						checkTime(flightround, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
+								, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
+								if (flightround.getFlightStatus().equals("AVAILABLE")){
+									System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
+									String pay = input.next();
+									if (pay.equals("Y")){
+										System.out.println("Reserve success.");
+										flightround.setCurrentPassengers(flight.getCurrentPassengers() + 1);
+										if (flightround.getCurrentPassengers() == flightround.getSeatCapacity())
+										{
+											flightround.setFlightStatus("FULL");
+										}
+										Date date = new Date(c.get(Calendar.YEAR),c.get(Calendar.MONTH) + 1,c.get(Calendar.DATE),
+												c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),c.get(Calendar.SECOND));
+									
+										Order order = new Order(passengerName, identityID, passengerID, flightround.getSeatNumber(), flight,
+												date, "Paid" , temp1, temp2, temp3);
+										//(乘客名称，身份证号，乘客ID，座位号，航班号， 时间，状态 , 起飞年月日)
+										
+										Data.ListOfOrder.add(order);
+										passenger.orderList.add(order);
+										flightround.orderOfFlight.add(order);
+										directlyQueryFlight();
+									}	
+									else{
+										directlyQueryFlight();
+									}
+								}
+								else {
+									System.out.println("This flight is not available.");
+									directlyQueryFlight();
+								}
+						    }
+					    }
+							System.out.println("Can't find the correct flight!");
+							directlyQueryFlight();
+					}
+				}
+						System.out.println("Can't find the correct flight!");
+						directlyQueryFlight();
+			}
+            }
+				System.out.println("The passenger name or the password is wrong.");
+				directlyQueryFlight();
+	}
+	//直接查询后预定
 	public static void querymyOrder()
 	{
 		Scanner input = new Scanner(System.in);
