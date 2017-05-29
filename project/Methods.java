@@ -44,7 +44,7 @@ public class Methods
 		checkFlight1(departureYear,departureMonth,departureDate,startHour,startMinute,
 				arrivalYear,arrivalMonth,arrivalDate,arrivalHour,arrivalMinute);
 		checkFlight2(departureYear,departureMonth,departureDate,startHour,startMinute,
-				c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE), c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
+				c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE), c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
 		System.out.print("\nSet the price:");
 		int price = input.nextInt();
 		System.out.print("\nSet the currentPassengers:");
@@ -79,7 +79,7 @@ public class Methods
 			if (flight1.getFlightID().equals(temp3) & flight1.getDepartureYear() == temp4 &
 					flight1.getDepartureMonth() == temp5 & flight1.getDepartureDate() == temp6)
 			{
-				checkTime(flight1, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+				checkTime(flight1, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 						, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 				if (flight1.getFlightStatus().equals("UNPUBLISHED"))
 				{
@@ -267,7 +267,7 @@ public class Methods
 			if (flight1.getFlightID().equals(deleteID) & flight1.getDepartureYear() == deleteYear &
 					flight1.getDepartureMonth() == deleteMonth & flight1.getDepartureDate() == deleteDate){
 
-				checkTime(flight1, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+				checkTime(flight1, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 						, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 
 				if (flight1.getFlightStatus().equals("AVAILABLE")|flight1.getFlightStatus().equals("FULL")){
@@ -405,7 +405,7 @@ public class Methods
 									flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
 									flight.getDepartureDate() == departmentDate)
 							{
-								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 								System.out.println(flight.getFlightID().toString() + "  "+"  "+
 										flight.getPrice() + flight.getFlightStatus().toString());
@@ -440,7 +440,7 @@ public class Methods
 							}
 							if(j == searchInput.length-1 )
 							{
-								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 								System.out.println(flight.getFlightID().toString() + "  "+"  "+
 										flight.getPrice() + flight.getFlightStatus().toString());
@@ -458,7 +458,7 @@ public class Methods
 					case'3':
 						for(Flight flight : Data.ListOfFlight)
 						{
-							checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+							checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 									, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 							System.out.println(flight.toString());
 						}
@@ -511,7 +511,7 @@ public class Methods
 									flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
 									flight.getDepartureDate() == departmentDate)
 							{
-								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 								System.out.println(flight.getFlightID().toString() + "  "+"  "+
 										flight.getPrice() + flight.getFlightStatus().toString());
@@ -546,7 +546,7 @@ public class Methods
 							}
 							if(j == searchInput.length - 1)
 							{
-								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 								System.out.println(flight.getFlightID().toString() + "  "+"  "+
 										flight.getPrice() + flight.getFlightStatus().toString());
@@ -583,7 +583,7 @@ public class Methods
 					case'3':
 						for(Flight flight : Data.ListOfFlight)
 						{
-							checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+							checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 									, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 							System.out.println(flight.toString());
 						}
@@ -638,7 +638,7 @@ public class Methods
 									flight.getDepartureYear() == departmentYear & flight.getDepartureMonth() == departmentMonth &
 									flight.getDepartureDate() == departmentDate)
 							{
-								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 								System.out.println(flight.getFlightID().toString() + "  "+"  "+
 										flight.getPrice() + flight.getFlightStatus().toString());
@@ -674,7 +674,7 @@ public class Methods
 							}
 							if(j == searchInput.length-1 )
 							{
-								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+								checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 										, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 								System.out.println(flight.getFlightID().toString() + "  "+"  "+
 										flight.getPrice() + flight.getFlightStatus().toString());
@@ -689,7 +689,7 @@ public class Methods
 					case'3':
 						for(Flight flight : Data.ListOfFlight)
 						{
-							checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+							checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 									, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 							System.out.println(flight.toString());
 						}
@@ -742,7 +742,7 @@ public class Methods
 						flight.getDepartureMonth() == temp2 &flight.getDepartureDate() == temp3 &
 						flight.getArrivalCity().equals(arrivalCity))
 					    {
-							checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+							checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 									, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 							if (flight.getFlightStatus().equals("AVAILABLE")){
 								System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
@@ -754,7 +754,7 @@ public class Methods
 									{
 										flight.setFlightStatus("FULL");
 									}
-									Date date = new Date(c.get(Calendar.YEAR),c.get(Calendar.MONTH),c.get(Calendar.DATE),
+									Date date = new Date(c.get(Calendar.YEAR),c.get(Calendar.MONTH) + 1,c.get(Calendar.DATE),
 											c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),c.get(Calendar.SECOND));
 								
 									Order order = new Order(passengerName, identityID, passengerID, flight.getSeatNumber(), flight,
@@ -784,7 +784,7 @@ public class Methods
 							flight.getDepartureMonth() == temp5 &flight.getDepartureDate() == temp6 &
 							flight.getArrivalCity().equals(startCity))
 						    {
-						checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+						checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 								, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 								if (flight.getFlightStatus().equals("AVAILABLE")){
 									System.out.println("Please pay for the ticket, enter Y to pay, or N to quit:");
@@ -796,7 +796,7 @@ public class Methods
 										{
 											flight.setFlightStatus("FULL");
 										}
-										Date date = new Date(c.get(Calendar.YEAR),c.get(Calendar.MONTH),c.get(Calendar.DATE),
+										Date date = new Date(c.get(Calendar.YEAR),c.get(Calendar.MONTH) + 1,c.get(Calendar.DATE),
 												c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),c.get(Calendar.SECOND));
 									
 										Order order = new Order(passengerName, identityID, passengerID, flight.getSeatNumber(), flight,
@@ -965,7 +965,7 @@ public class Methods
 													flight.getDepartureMonth() == departmentMonth &
 													flight.getDepartureDate() == departmentDate)
 											{
-												checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+												checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 														, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 												System.out.println(flight.getFlightID().toString() + "  "+"  "+
 														flight.getPrice() + flight.getFlightStatus().toString());
@@ -1001,7 +1001,7 @@ public class Methods
 											}
 											if(j == searchInput.length - 1 )
 											{
-												checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DATE)
+												checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 														, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
 												System.out.println(flight.getFlightID().toString() + "  "+"  "+
 														flight.getPrice() + flight.getFlightStatus().toString());
