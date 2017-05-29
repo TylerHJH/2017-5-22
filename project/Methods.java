@@ -189,7 +189,7 @@ public class Methods
 					System.out.print("\nYou can't delete this Flight in 'Avaliable' or 'Full' status.");
 					Login.AdministratorChoose();
 				}
-				else{
+				else if (flight1.getFlightStatus().equals("Unpublished")|flight1.getFlightStatus().equals("Terminate")){
 					System.out.print("\nPlease enter Y to delete or N to quit: ");
 					String isdelete = input.next();
 					if(isdelete.equals("Y")){
