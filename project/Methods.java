@@ -552,32 +552,33 @@ public class Methods
 										flight.getPrice() + flight.getFlightStatus().toString());
 								exist = false;
 							}
-							System.out.println("if you want to go back, enter 0, or enter 1 to enter reserve steps.");
-							while(true)
-							{
-								String choose3 = input.next();
-								if(choose3.length() <2)
-								{
-									char choose4 = choose3.charAt(0);
-									switch( choose4 )
-									{
-										case'0':
-											Login.UsersChoose();
-											break;
-										case'1':
-											reserveFlight();
-											break;
-											
-									}
-								}
-							}
+							
 
 						}
 						if(exist)
 						{
 							System.out.println("Not exist");
 						}
-						break;
+						System.out.println("if you want to go back, enter 0, or enter 1 to enter reserve steps.");
+						while(true)
+						{
+							String choose3 = input.next();
+							if(choose3.length() <2)
+							{
+								char choose4 = choose3.charAt(0);
+								switch( choose4 )
+								{
+									case'0':
+										Login.UsersChoose();
+										break;
+									case'1':
+										reserveFlight();
+										break;
+										
+								}
+							}
+						}
+						
 
 					case'3':
 						for(Flight flight : Data.ListOfFlight)

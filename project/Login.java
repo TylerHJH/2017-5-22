@@ -33,7 +33,7 @@ public class Login {
 						AdministratorLogin();//π‹¿Ì‘±µ«¬º
 						break;
 					case '4':
-						Methods.queryFlight();
+						Methods.directlyQueryFlight();;
 
 						System.out.print("\nIf you want to reserve flight, enter 1; If you want to query your order, enter 2; Enter 0 to quit");
 
