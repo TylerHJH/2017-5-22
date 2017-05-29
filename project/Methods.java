@@ -35,8 +35,14 @@ public class Methods
 		int departureMonth = input.nextInt();
 		System.out.print("\nSet the departureDate:");
 		int departureDate = input.nextInt();
+		System.out.print("\nSet the arrivalYear:");
+		int arrivalYear = input.nextInt();
+		System.out.print("\nSet the arrivalMonth:");
+		int arrivalMonth = input.nextInt();
+		System.out.print("\nSet the arrivalDate:");
+		int arrivalDate = input.nextInt();
 		checkFlight(departureYear,departureMonth,departureDate,startHour,startMinute,
-				departureYear,departureMonth,departureDate,arrivalHour,arrivalMinute);
+				arrivalYear,arrivalMonth,arrivalDate,arrivalHour,arrivalMinute);
 		System.out.print("\nSet the price:");
 		int price = input.nextInt();
 		System.out.print("\nSet the currentPassengers:");
@@ -45,8 +51,9 @@ public class Methods
 		int seatCapacity = input.nextInt();
 		System.out.print("\nSet the flightStatus:");
 		String flightStatus = input.next();
-		Flight flight = new Flight(flightID, startHour, startMinute, arrivalHour, arrivalMinute, startCity, 
-				arrivalCity,departureYear, departureMonth, departureDate, price, currentPassengers, seatCapacity, 
+		Flight flight = new Flight(flightID, startHour, startMinute, arrivalHour, arrivalMinute,
+				startCity, arrivalCity,departureYear, departureMonth, departureDate,arrivalYear,
+				arrivalMonth, arrivalDate, price, currentPassengers, seatCapacity, 
 				flightStatus);
 		Data.ListOfFlight.add( flight );
 		Login.AdministratorChoose();
