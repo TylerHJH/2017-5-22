@@ -14,6 +14,9 @@ public class Flight
 	private int departureYear;
 	private int departureMonth;
 	private int departureDate;
+	private int arrivalYear;
+	private int arrivalMonth;
+	private int arrivalDate;
 	private int price;
 	private int currentPassengers;
 	private int seatCapacity;
@@ -108,6 +111,30 @@ public class Flight
 	{
 		this.departureDate = departureDate;
 	}
+	public int getArrivalYear() 
+	{
+		return arrivalYear;
+	}
+	public void setArrivalYear(int arrivalYear) 
+	{
+		this.arrivalYear = arrivalYear;
+	}
+	public int getArrivalMonth() 
+	{
+		return arrivalMonth;
+	}
+	public void setArrivalMonth(int arrivalMonth) 
+	{
+		this.arrivalMonth = arrivalMonth;
+	}
+	public int getArrivalDate() 
+	{
+		return arrivalDate;
+	}
+	public void setArrivalDate(int arrivalDate) 
+	{
+		this.arrivalDate = arrivalDate;
+	}
 	public int getPrice() 
 	{
 		return price;
@@ -152,8 +179,9 @@ public class Flight
 		}
 		return a + 1;
 	}
-	public Flight(String flightID, int startHour, int startMinute, int arrivalHour, int arrivalMinute, String startCity, String arrivalCity,
-			int departureYear, int departureMonth, int departureDate, int price, int currentPassengers, int seatCapacity, String flightStatus) 
+	public Flight(String flightID, int startHour, int startMinute, int arrivalHour, int arrivalMinute, String startCity,
+			String arrivalCity,int departureYear, int departureMonth, int departureDate, int arrivalYear, int arrivalMonth,
+			int arrivalDate,int price, int currentPassengers, int seatCapacity, String flightStatus) 
 	{
 		super();
 		FlightID = flightID;
@@ -166,6 +194,9 @@ public class Flight
 		this.departureYear = departureYear;
 		this.departureMonth = departureMonth;
 		this.departureDate = departureDate;
+		this.arrivalYear = arrivalYear;
+		this.arrivalMonth = arrivalMonth;
+		this.arrivalDate = arrivalDate;
 		this.price = price;
 		this.currentPassengers = currentPassengers;
 		this.seatCapacity = seatCapacity;

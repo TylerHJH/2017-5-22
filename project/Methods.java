@@ -35,8 +35,14 @@ public class Methods
 		int departureMonth = input.nextInt();
 		System.out.print("\nSet the departureDate:");
 		int departureDate = input.nextInt();
+		System.out.print("\nSet the arrivalYear:");
+		int arrivalYear = input.nextInt();
+		System.out.print("\nSet the arrivalMonth:");
+		int arrivalMonth = input.nextInt();
+		System.out.print("\nSet the arrivalDate:");
+		int arrivalDate = input.nextInt();
 		checkFlight(departureYear,departureMonth,departureDate,startHour,startMinute,
-				departureYear,departureMonth,departureDate,arrivalHour,arrivalMinute);
+				arrivalYear,arrivalMonth,arrivalDate,arrivalHour,arrivalMinute);
 		System.out.print("\nSet the price:");
 		int price = input.nextInt();
 		System.out.print("\nSet the currentPassengers:");
@@ -45,8 +51,9 @@ public class Methods
 		int seatCapacity = input.nextInt();
 		System.out.print("\nSet the flightStatus:");
 		String flightStatus = input.next();
-		Flight flight = new Flight(flightID, startHour, startMinute, arrivalHour, arrivalMinute, startCity, 
-				arrivalCity,departureYear, departureMonth, departureDate, price, currentPassengers, seatCapacity, 
+		Flight flight = new Flight(flightID, startHour, startMinute, arrivalHour, arrivalMinute,
+				startCity, arrivalCity,departureYear, departureMonth, departureDate,arrivalYear,
+				arrivalMonth, arrivalDate, price, currentPassengers, seatCapacity, 
 				flightStatus);
 		Data.ListOfFlight.add( flight );
 		Login.AdministratorChoose();
@@ -86,7 +93,11 @@ public class Methods
 						choose1 = input.next();
 						
 							char choose2 = choose1.charAt(0);
-							char choose3 = choose1.charAt(1);
+							char choose3 = ' ';
+							if(choose1.length() == 2)
+							{
+								choose3 = choose1.charAt(1);
+							}
 							if(choose1.length() < 2)
 							{			
 								if(choose2 == '0')
@@ -166,40 +177,46 @@ public class Methods
 					Login.AdministratorChoose();
 				}
 				else if (flight1.getFlightStatus().equals("AVAILABLE") | flight1.getFlightStatus().equals("FULL")){
-					int choose1;
+					String choose1;
+					int choose;
 					do
 					{
 						System.out.print("\nPlease choose the message you want to update or enter 0 to quit: ");
 						System.out.print("\n1.price  2.seatCapacity");
-						choose1 = input.nextInt();
-						switch(choose1){
-						case 0:
-							break;
-						case 1:
-							flight1.setPrice(input.nextInt());
-							break;
-						case 2:
-							int seatCapacity = input.nextInt();
-							if (seatCapacity < flight1.getSeatCapacity()){
-								System.out.println("You can't update the seatCapacity lower than currentseat.");
-							}
-							else{
-								flight1.setSeatCapacity(seatCapacity);
-								if (flight1.getCurrentPassengers() == flight1.getSeatCapacity())
-								{
-									flight1.setFlightStatus("FULL");
+						choose1 = input.next();
+						if(choose1.length() < 2)
+						{
+							char choose2 = choose1.charAt(0);
+							switch(choose2){
+							case '0':
+								break;
+							case '1':
+								flight1.setPrice(input.nextInt());
+								break;
+							case '2':
+								int seatCapacity = input.nextInt();
+								if (seatCapacity < flight1.getSeatCapacity()){
+									System.out.println("You can't update the seatCapacity lower than currentseat.");
 								}
+								else{
+									flight1.setSeatCapacity(seatCapacity);
+									if (flight1.getCurrentPassengers() == flight1.getSeatCapacity())
+									{
+										flight1.setFlightStatus("FULL");
+									}
+								}
+								break;
+							default:
+								System.out.print("\nPlease enter a correct number between 0 to 2: ");
+								break;
 							}
-							break;
-						default:
-							System.out.print("\nPlease enter a correct number between 0 to 2: ");
-							break;
 						}
+						
 						System.out.println("If you don't want to update other message, enter 0 to go back. "
 								+ "Or enter any other numbers to continue.");
 						System.out.print("Your choice is:");
-						  choose1 = input.nextInt();
-					}while(choose1 != 0);
+						   choose = input.nextInt();
+					}while(choose != 0);
 					Login.AdministratorChoose();	
 				}
 				else
