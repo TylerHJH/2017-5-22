@@ -166,7 +166,7 @@ public class Login {
 		String admin_password = input.next();
 		
 		Administrator administrator = new Administrator( admin_name, admin_password);
-		Data.ListOfAdminstrator.add( administrator );
+		Data.ListOfAdminstrator.add(administrator);
 		
 		System.out.println();
 		System.out.println("Registration End");
