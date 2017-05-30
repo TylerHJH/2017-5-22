@@ -925,11 +925,11 @@ public class Methods
 			if(roundTrip.equals("Y")){
 					System.out.println("Please enter the flightID: ");
 					flightID = input.next();
-					System.out.print("\nPlease enter the departmentYear");
+					System.out.println("Please enter the departmentYear");
 					int temp4 = input.nextInt();
-					System.out.print("\nPlease enter the departmentMonth");
+					System.out.println("Please enter the departmentMonth");
 					int temp5 = input.nextInt();
-					System.out.print("\nPlease enter the departmentDate");
+					System.out.println("Please enter the departmentDate");
 					int temp6 = input.nextInt();
 					for (Flight flightround : Data.ListOfFlight){
 					if (flightround.getDepartureYear() == temp4 & flightround.getStartCity().equals(arrivalCity) & 
@@ -1049,6 +1049,7 @@ public class Methods
 								flight.orderOfFlight.remove(order);
 								Data.ListOfOrder.remove(order);
 								System.out.println("Unsubscribing success!");
+								System.out.println("Your cost is back!");
 								Login.UsersChoose();
 							}
 						}
@@ -1093,8 +1094,7 @@ public class Methods
 							
 							System.out.print("Querying flights.");
 							System.out.print("\nPlease choose a way to query or enter 0 to quit:"
-									+ "\n1.Query with start city, arrival city and departmentdate\n"
-									+ "2.Query with flightID");
+									+ "\n1.Query with flightID, departmentYear, departmentMonth and departmentDate\n");
 							String choose3 = input.next();
 							if( choose3.length() < 2)
 							{
@@ -1106,71 +1106,45 @@ public class Methods
 										Login.AdministratorChoose();
 										break;
 									case '1':
-										System.out.print("\nPlease enter the start city:");
-										String startCity = input.next();
-										System.out.print("\nPlease enter the arrival city:");
-										String arrivalCity = input.next();
+										System.out.print("\nPlease enter the flightID:");
+										String flightID = input.next();
 										System.out.print("\nPlease enter the departmentYear:");
 										int departmentYear = input.nextInt();
 										System.out.print("\nPlease enter the departmentMonth:");
 										int departmentMonth = input.nextInt();
 										System.out.print("\nPlease enter the departmentDate:");
 										int departmentDate = input.nextInt();
-										boolean exist = true;
-										for (Flight flight : Data.ListOfFlight)
-										{
-											if(flight.getStartCity().equals(startCity)&
-													flight.getArrivalCity().equals(arrivalCity)&
-													flight.getDepartureYear() == departmentYear &
-													flight.getDepartureMonth() == departmentMonth &
-													flight.getDepartureDate() == departmentDate)
-											{
-												checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
-														, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
-												for(Order orderofflight: flight.orderOfFlight)
-												{
-													System.out.println(flight.orderOfFlight.toString());
-												}
-													exist = false;
-
-											}
-										}
-										if(exist)
-										{
-											System.out.println("Not exist");
-										}
-							
-										break;
-									case '2':
-										System.out.print("\nPlease enter the flightID:");
-										String flightID = input.next();
 										char[] searchInput = new char[flightID.length()+1];
 										for(int i = 0 ; i < flightID.length() ; i++ )
 										{
 											searchInput[i] = flightID.charAt(i);
 										}
-										
-													 exist = true;
+										boolean exist = true;
 										for (Flight flight : Data.ListOfFlight)
 										{
-											int j = 0;
-											for( int i = 0; i < flight.getFlightID().length(); i ++ )
-											{
-												if( searchInput[j] == flight.getFlightID().charAt(i))
-												{
-													j++;
-												}
-											}
-											if(j == searchInput.length - 1 )
-											{
-												checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
-														, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
-												for(Order orderofflight: flight.orderOfFlight)
-												{
-													System.out.println(flight.orderOfFlight.toString());
-												}
-												exist = false;
-											}	
+											if(flight.getDepartureYear() == departmentYear &
+													flight.getDepartureMonth() == departmentMonth &
+													flight.getDepartureDate() == departmentDate){
+														int j = 0;
+														for( int i = 0; i < flight.getFlightID().length(); i ++ )
+														{
+															if( searchInput[j] == flight.getFlightID().charAt(i))
+															{
+																j++;
+															}
+														}
+														if(j == searchInput.length - 1 )
+														{
+															checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
+																	, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
+															for(Order orderofflight: flight.orderOfFlight)
+															{
+																System.out.println(flight.orderOfFlight.toString());
+															}
+															exist = false;
+														}	
+													}
+											
 										}
 										if(exist)
 										{
