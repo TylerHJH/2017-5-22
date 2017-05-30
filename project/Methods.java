@@ -989,23 +989,27 @@ public class Methods
 		int passengerID = input.nextInt();
 		System.out.print("Please enter your password:");
 		String password = input.next();
-		System.out.print("Please enter your realname:");
-		String passengerName = input.next();
 		for( Passenger passenger:Data.ListOfPassenger)
 		{
 			if( passenger.getPassengerID() == passengerID & passenger.getPassword().equals(password) )
 			{
 				System.out.println("List your orders:");
+				int count = 0;
 					for (Order order : passenger.orderList)
 					{						
 							Order.displayMyOrderInformation(order);
-							Login.UsersChoose();
+							count = count + 1;
 					}
-					System.out.print("You hava entered your name wrong");
+					if (count == 0){
+						System.out.println("You don't have any order.");
+					}
+					else {
+						System.out.println("Display over.");
+					}
 					Login.UsersChoose();
 				}
 			}
-		System.out.print("Your password wrong");
+		System.out.print("Your passengerID or password wrong");
 		Login.UsersChoose();
 	}
 
