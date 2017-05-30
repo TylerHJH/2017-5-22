@@ -16,7 +16,7 @@ public class Order
 		return "Order [passengerName=" + passengerName + ", identityID=" + identityID + ", passengerID=" + passengerID
 				+ ", seat=" + seat + ", flightID=" + flight.getFlightID() + ", createTime=" + createTime + ", status=" + status
 				+ ", departmentYear=" + departmentYear + ", departmentMonth=" + departmentMonth + ", departmentDate="
-				+ departmentDate + "]";
+				+ departmentDate + "]\n";
 	}
 	private int departmentYear;
 	private int departmentMonth;
