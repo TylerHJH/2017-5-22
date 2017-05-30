@@ -115,7 +115,7 @@ public class Order
 	}
 	public static void displayMyOrderInformation( Order order )
 	{
-		System.out.printf("%s%10s%10d%10d%d%s%s", order.passengerName, order.identityID, order.flight.getFlightID(), order.seat, order.createTime.toString());
+		System.out.printf("%s%10s%10s%10d%s", order.passengerName, order.identityID, order.flight.getFlightID(), order.seat, order.createTime.toString());
 	}
 	public static void initializeOrderData(){
 		for (Flight flight : Data.ListOfFlight){
