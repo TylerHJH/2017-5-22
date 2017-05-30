@@ -206,6 +206,10 @@ public class Flight
 		for (int a = 0;a< seatCapacity;a++){
 			seatnumber.add(false);
 		}
+		for (int a = 0;a<currentPassengers;a++){
+			seatnumber.remove(a);
+			seatnumber.add(a, true);
+		}
 	}
 	public static void initializeFlightData(){
 		Flight f1=new Flight("A1000",7,00,9,00,"ShenZhen","ShangHai",2017,6,1,2017,6,1,740,150,200,"AVAILABLE");
