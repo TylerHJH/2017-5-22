@@ -35,7 +35,7 @@ public class Flight
 				+ departureMonth + ", departureDate=" + departureDate + ", arrivalYear=" + arrivalYear
 				+ ", arrivalMonth=" + arrivalMonth + ", arrivalDate=" + arrivalDate + ", price=" + price
 				+ ", currentPassengers=" + currentPassengers + ", seatCapacity=" + seatCapacity + ", flightStatus="
-				+ flightStatus + ", orderOfFlight=" + orderOfFlight + ", seatnumber=" + seatnumber + "]";
+				+ flightStatus + ", orderOfFlight=" + orderOfFlight + ", seatnumber=" + seatnumber + "]\n";
 	}
 	public void setFlightID(String flightID) 
 	{
@@ -171,13 +171,20 @@ public class Flight
 	}
 	public int getSeatNumber(){
 		int a = 0;
-		while(a < seatnumber.size()){
-			if (seatnumber.get(a) == false){
-				seatnumber.remove(a);
-				seatnumber.add(a, true);
+		boolean []array = new boolean[seatnumber.size()];
+		for (int i=0;i<array.length;i++){
+			array[i] = seatnumber.get(i);
+		}
+		while(a < array.length){
+			if (array[a] == false){
+				array[a] = true;
 				break;
 			}
 			a = a + 1;
+		}
+		seatnumber.clear();
+		for (int i=0;i<array.length;i++){
+			seatnumber.add(array[i]);
 		}
 		return a + 1;
 	}
@@ -206,9 +213,20 @@ public class Flight
 		for (int a = 0;a< seatCapacity;a++){
 			seatnumber.add(false);
 		}
-		for (int a = 0;a<currentPassengers;a++){
-			seatnumber.remove(a);
-			seatnumber.add(a, true);
+		boolean []array = new boolean[seatnumber.size()];
+		for (int i=0;i<array.length;i++){
+			array[i] = seatnumber.get(i);
+		}
+		int a = 0;
+		while(a < currentPassengers){
+			if (array[a] == false){
+				array[a] = true;
+			}
+			a = a + 1;
+		}
+		seatnumber.clear();
+		for (int i=0;i<array.length;i++){
+			seatnumber.add(array[i]);
 		}
 	}
 	public static void initializeFlightData(){
@@ -230,7 +248,7 @@ public class Flight
 		Flight f16=new Flight("A1015",8,15,11,35,"BeiJing","ShenZhen",2017,6,3,2017,6,3,1400,200,200,"FULL");
 		Flight f17=new Flight("A1016",20,55,23,05,"ShangHai","BeiJing",2017,6,3,2017,6,3,480,50,200,"AVAILABLE");
 		Flight f18=new Flight("A1017",6,40,8,55,"BeiJing","ShangHai",2017,6,3,2017,6,3,510,100,200,"AVAILABLE");
-		Flight f19=new Flight("A1018",10,40,12,55,"BeiJing","ShangHai",2017,6,3,2017,6,3,580,50,200,"AVAILABLE");
+		Flight f19=new Flight("A1018",10,40,12,55,"BeiJing","ShangHai",2017,6,3,2017,6,3,580,199,200,"AVAILABLE");
 		Data.ListOfFlight.add(f1);
 		Data.ListOfFlight.add(f2);
 		Data.ListOfFlight.add(f3);

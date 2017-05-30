@@ -16,7 +16,7 @@ public class Order
 		return "Order [passengerName=" + passengerName + ", identityID=" + identityID + ", passengerID=" + passengerID
 				+ ", seat=" + seat + ", flightID=" + flight.getFlightID() + ", createTime=" + createTime + ", status=" + status
 				+ ", departmentYear=" + departmentYear + ", departmentMonth=" + departmentMonth + ", departmentDate="
-				+ departmentDate + "]";
+				+ departmentDate + "]\n";
 	}
 	private int departmentYear;
 	private int departmentMonth;
@@ -111,6 +111,7 @@ public class Order
 		for(Order orderOfFlight: flight.orderOfFlight )
 		{
 			System.out.printf("%s%10s%10d%10s%10s\n",orderOfFlight.passengerName,orderOfFlight.identityID,orderOfFlight.seat, orderOfFlight.createTime.toString(), orderOfFlight.status);
+			System.out.println();
 		}	
 	}
 	public static void displayMyOrderInformation( Order order )
