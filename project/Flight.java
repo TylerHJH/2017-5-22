@@ -171,13 +171,20 @@ public class Flight
 	}
 	public int getSeatNumber(){
 		int a = 0;
-		while(a < seatnumber.size()){
-			if (seatnumber.get(a) == false){
-				seatnumber.remove(a);
-				seatnumber.add(a, true);
+		boolean []array = new boolean[seatnumber.size()];
+		for (int i=0;i<array.length;i++){
+			array[i] = seatnumber.get(i);
+		}
+		while(a < array.length){
+			if (array[a] == false){
+				array[a] = true;
 				break;
 			}
 			a = a + 1;
+		}
+		seatnumber.clear();
+		for (int i=0;i<array.length;i++){
+			seatnumber.add(array[i]);
 		}
 		return a + 1;
 	}
@@ -206,9 +213,21 @@ public class Flight
 		for (int a = 0;a< seatCapacity;a++){
 			seatnumber.add(false);
 		}
-		for (int a = 0;a<currentPassengers;a++){
-			seatnumber.remove(a);
-			seatnumber.add(a, true);
+		boolean []array = new boolean[seatnumber.size()];
+		for (int i=0;i<array.length;i++){
+			array[i] = seatnumber.get(i);
+		}
+		int a = 0;
+		while(a < currentPassengers){
+			if (array[a] == false){
+				array[a] = true;
+				break;
+			}
+			a = a + 1;
+		}
+		seatnumber.clear();
+		for (int i=0;i<array.length;i++){
+			seatnumber.add(array[i]);
 		}
 	}
 	public static void initializeFlightData(){
