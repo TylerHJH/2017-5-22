@@ -925,11 +925,11 @@ public class Methods
 			if(roundTrip.equals("Y")){
 					System.out.println("Please enter the flightID: ");
 					flightID = input.next();
-					System.out.print("\nPlease enter the departmentYear");
+					System.out.println("Please enter the departmentYear");
 					int temp4 = input.nextInt();
-					System.out.print("\nPlease enter the departmentMonth");
+					System.out.println("Please enter the departmentMonth");
 					int temp5 = input.nextInt();
-					System.out.print("\nPlease enter the departmentDate");
+					System.out.println("Please enter the departmentDate");
 					int temp6 = input.nextInt();
 					for (Flight flightround : Data.ListOfFlight){
 					if (flightround.getDepartureYear() == temp4 & flightround.getStartCity().equals(arrivalCity) & 
