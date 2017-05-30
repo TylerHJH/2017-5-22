@@ -221,7 +221,6 @@ public class Flight
 		while(a < currentPassengers){
 			if (array[a] == false){
 				array[a] = true;
-				break;
 			}
 			a = a + 1;
 		}
