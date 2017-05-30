@@ -22,7 +22,7 @@ public class Flight
 	private int seatCapacity;
 	private String flightStatus;
 	ArrayList<Order> orderOfFlight = new ArrayList<Order>();
-	ArrayList<Boolean> seatnumber = new ArrayList<Boolean>(seatCapacity);
+	ArrayList<Boolean> seatnumber = new ArrayList<Boolean>();
 	public String getFlightID() 
 	{
 		return FlightID;
@@ -203,6 +203,9 @@ public class Flight
 		this.currentPassengers = currentPassengers;
 		this.seatCapacity = seatCapacity;
 		this.flightStatus = flightStatus;
+		for (int a = 0;a< seatCapacity;a++){
+			seatnumber.add(false);
+		}
 	}
 	public static void initializeFlightData(){
 		Flight f1=new Flight("A1000",7,00,9,00,"ShenZhen","ShangHai",2017,6,1,2017,6,1,740,150,200,"AVAILABLE");
