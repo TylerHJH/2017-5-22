@@ -996,13 +996,10 @@ public class Methods
 			if( passenger.getPassengerID() == passengerID & passenger.getPassword().equals(password) )
 			{
 				System.out.println("List your orders:");
-					for (Order order : Data.ListOfOrder)
-					{
-						if (order.getpassengerName().equals(passengerName))
-						{
+					for (Order order : passenger.orderList)
+					{						
 							Order.displayMyOrderInformation(order);
 							Login.UsersChoose();
-						}
 					}
 					System.out.print("You hava entered your name wrong");
 					Login.UsersChoose();
@@ -1124,9 +1121,11 @@ public class Methods
 											{
 												checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 														, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
-												System.out.println(flight.getFlightID().toString() + "  "+"  "+
-														flight.getPrice() + flight.getFlightStatus().toString());
-												exist = false;
+												for(Order orderofflight: flight.orderOfFlight)
+												{
+													System.out.println(flight.orderOfFlight.toString());
+												}
+													exist = false;
 
 											}
 										}

@@ -89,7 +89,7 @@ public class Login {
 	public static void UsersChoose()
 	{
 		System.out.println("Users choosing:");
-		System.out.printf("1.queryFlight\n2.reserveFlight\n3.unsubscribeFlight\n4.querymyOrder\n5.quit");
+		System.out.printf("\n1.queryFlight\n2.reserveFlight\n3.unsubscribeFlight\n4.querymyOrder\n5.quit");
 		boolean isFalse = false;
 		do
 		{	

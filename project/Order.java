@@ -115,7 +115,7 @@ public class Order
 	}
 	public static void displayMyOrderInformation( Order order )
 	{
-		System.out.printf("%s%10s%10d%10d%d%s%s", order.passengerName, order.identityID, order.flight.getFlightID(), order.seat, order.createTime.toString());
+		System.out.printf("%s%10s%10s%10d%s", order.passengerName, order.identityID, order.flight.getFlightID(), order.seat, order.createTime.toString());
 	}
 	public static void initializeOrderData(){
 		for (Flight flight : Data.ListOfFlight){
@@ -125,6 +125,11 @@ public class Order
 				{
 					if( passenger.getPassengerID() == 0001 & passenger.getPassword().equals("Tom") )
 					{
+						flight.setCurrentPassengers(flight.getCurrentPassengers() + 1);
+						if (flight.getCurrentPassengers() == flight.getSeatCapacity())
+						{
+							flight.setFlightStatus("FULL");
+						}
 						Date date = new Date(2017, 5, 29, 12, 20, 45);
 						Order order1 = new Order("Tom", "10001", 0001, flight.getSeatNumber(), flight, date, "Paid", 2017, 6, 1);
 						Data.ListOfOrder.add(order1);
@@ -139,6 +144,11 @@ public class Order
 				{
 					if( passenger.getPassengerID() == 0002 & passenger.getPassword().equals("Pat") )
 					{
+						flight.setCurrentPassengers(flight.getCurrentPassengers() + 1);
+						if (flight.getCurrentPassengers() == flight.getSeatCapacity())
+						{
+							flight.setFlightStatus("FULL");
+						}
 						Date date = new Date(2017, 5, 31, 5, 00, 45);
 						Order order2 = new Order("Pat", "10002", 0002, flight.getSeatNumber(), flight, date, "Paid", 2017, 6, 2);
 						Data.ListOfOrder.add(order2);
@@ -153,6 +163,11 @@ public class Order
 				{
 					if( passenger.getPassengerID() == 0003 & passenger.getPassword().equals("Coco") )
 					{
+						flight.setCurrentPassengers(flight.getCurrentPassengers() + 1);
+						if (flight.getCurrentPassengers() == flight.getSeatCapacity())
+						{
+							flight.setFlightStatus("FULL");
+						}
 						Date date = new Date(2017, 6, 1, 21, 20, 00);
 						Order order3 = new Order("Coco", "10003", 0003, flight.getSeatNumber(), flight, date, "Paid", 2017, 6, 3);
 						Data.ListOfOrder.add(order3);
