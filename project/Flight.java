@@ -35,7 +35,7 @@ public class Flight
 				+ departureMonth + ", departureDate=" + departureDate + ", arrivalYear=" + arrivalYear
 				+ ", arrivalMonth=" + arrivalMonth + ", arrivalDate=" + arrivalDate + ", price=" + price
 				+ ", currentPassengers=" + currentPassengers + ", seatCapacity=" + seatCapacity + ", flightStatus="
-				+ flightStatus + ", orderOfFlight=" + orderOfFlight + ", seatnumber=" + seatnumber + "]\n";
+				+ flightStatus + "]\n";
 	}
 	public void setFlightID(String flightID) 
 	{
