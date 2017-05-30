@@ -1009,7 +1009,7 @@ public class Methods
 					Login.UsersChoose();
 				}
 			}
-		System.out.print("Your passengerID or password wrong");
+		System.out.println("Your passengerID or password wrong.");
 		Login.UsersChoose();
 	}
 
@@ -1033,14 +1033,16 @@ public class Methods
 				int temp2 = input.nextInt();
 				System.out.print("\nPlease enter the departmentDate:");
 				int temp3 = input.nextInt();
+				System.out.print("\nPlease enter the seat number:");
+				int temp4 = input.nextInt();
 				for (Flight flight : Data.ListOfFlight){
 					if (flight.getDepartureYear() == temp1 & flight.getFlightID().equals(flightID) & 
-						flight.getDepartureMonth() == temp2 &flight.getDepartureDate() == temp3)
+						flight.getDepartureMonth() == temp2 &flight.getDepartureDate() == temp3 )
 					{
 						for (Order order : Data.ListOfOrder){
 							if (order.getFlight().equals(flight)){
-								flight.seatnumber.remove(order.getSeat()-1);
-								flight.seatnumber.add(order.getSeat()-1, false);
+								flight.seatnumber.remove(temp4-1);
+								flight.seatnumber.add(temp4-1, false);
 								flight.setCurrentPassengers(flight.getCurrentPassengers() - 1);
 								flight.setFlightStatus("AVAILABLE");
 								passenger.orderList.remove(order);
