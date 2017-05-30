@@ -11,17 +11,16 @@ public class Order
 	private Flight flight;
 	private Date createTime;
 	private String status;
-	@Override
+	private int departmentYear;
+	private int departmentMonth;
+	private int departmentDate;
 	public String toString() {
 		return "Order [passengerName=" + passengerName + ", identityID=" + identityID + ", passengerID=" + passengerID
 				+ ", seat=" + seat + ", flightID=" + flight.getFlightID() + ", createTime=" + createTime + ", status=" + status
 				+ ", departmentYear=" + departmentYear + ", departmentMonth=" + departmentMonth + ", departmentDate="
 				+ departmentDate + "]\n";
 	}
-	private int departmentYear;
-	private int departmentMonth;
-	private int departmentDate;
-	
+	//¶©µ¥ÊôĞÔ
 	public int getPassengerID() 
 	{
 		return passengerID;

@@ -12,7 +12,6 @@ public class Administrator
 	//管理员属性以及超级管理员属性
 	Scanner input = new Scanner( System.in );
 	
-	@Override
 	public String toString() {
 		return "Administrator [adminName=" + adminName + ", password=" + password + "]";
 	}

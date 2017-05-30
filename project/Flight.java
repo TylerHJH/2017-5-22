@@ -23,6 +23,7 @@ public class Flight
 	private String flightStatus;
 	ArrayList<Order> orderOfFlight = new ArrayList<Order>();
 	ArrayList<Boolean> seatnumber = new ArrayList<Boolean>();
+	//∫Ω∞‡ Ù–‘
 	public String getFlightID() 
 	{
 		return FlightID;
