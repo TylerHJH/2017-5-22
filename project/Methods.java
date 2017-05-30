@@ -1159,8 +1159,10 @@ public class Methods
 											{
 												checkTime(flight, c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DATE)
 														, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), 120);
-												System.out.println(flight.getFlightID().toString() + "  "+"  "+
-														flight.getPrice() + flight.getFlightStatus().toString());
+												for(Order orderofflight: flight.orderOfFlight)
+												{
+													System.out.println(flight.orderOfFlight.toString());
+												}
 												exist = false;
 											}	
 										}
