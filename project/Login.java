@@ -70,6 +70,12 @@ public class Login {
 		System.out.println("Users registrating:");
 		System.out.print("Please enter your passengerID numbers:");
 		int passenger_id = input.nextInt();
+		for (Passenger p1 : Data.ListOfPassenger){
+			if (p1.getPassengerID() == passenger_id){
+				System.out.println("The passengerID is registrated.");
+				login();
+			}
+		}
 		System.out.print("Please enter your real name:");
 		String real_name = input.next();
 		System.out.print("Please enter your identityID:");
